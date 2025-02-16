@@ -1,0 +1,43 @@
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore npm lock file
+package-lock.json
+
+# Ignore build artifacts
+target/  # For Rust projects (Cargo)
+dist/    # Common build output directory
+out/     # Common output directory
+
+# Ignore AWS CLI download
+awscliv2.zip
+
+# Ignore local configuration files
+ct.json
+out.csv
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore environment-specific files
+.env
+.env.local
+
+# Ignore downloaded or generated files
+fb.com
+**/https:/
+planetbun.com
+urls.txt
+unlit/node_modules/
+unlit/bun.lockb
+unlit/planetbun-com/
+unlit/https:/
+target/
