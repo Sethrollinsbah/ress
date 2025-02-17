@@ -159,7 +159,7 @@ async fn run_lighthouse_process(
         <h1>Website Scanner</h1>
         
         <div class=\"domain\">
-            Scanning: <span id=\"domain\">{}</span>
+            Scanning: <span id=\"{}\">{}</span>
         </div>
         
         <div class=\"scanner\">
@@ -174,7 +174,7 @@ async fn run_lighthouse_process(
             <div class=\"finding-item\" style=\"animation-delay: 2s\">Evaluating SEO performance...</div>
             <div class=\"finding-item\" style=\"animation-delay: 3s\">Scanning security vulnerabilities...</div>
         </div>
-        <button href=\"https://planetbun.com/en/contact\" onclick=\"window.location.href='/consultation'\">
+        <button href=\"https://planetbun.com/en/quiz?contact\" onclick=\"window.location.href='/en/quiz?contact'\">
             Get Your Free Consultation
         </button>
         
@@ -185,11 +185,10 @@ async fn run_lighthouse_process(
     <script>
         // Replace domain in the span
         const urlParams = new URLSearchParams(window.location.search);
-        const domain = urlParams.get('domain') || 'example.com';
-        document.getElementById('domain').textContent = domain;
+        const domain = '{}';
     </script>
 </body>
-</html>", &domain);
+</html>", &domain,  &domain,  &domain);
 
     let completion_subject = format!("Website Scan Results: {}", &domain);
     let completion_mail = format!("
@@ -222,7 +221,7 @@ async fn run_lighthouse_process(
                         Our scan included:
                     </p>
                     <ul style=\"color: #4a5568; font-size: 16px; line-height: 1.6; margin: 0; padding-left: 20px;\">
-                        <li style=\"margin-bottom: 10px;\">Analysis of {} unique URLs on your website</li>
+                        <li style=\"margin-bottom: 10px;\">Analysis of a set of unique URLs on your website</li>
                         <li style=\"margin-bottom: 10px;\">Complete Lighthouse performance scores</li>
                         <li style=\"margin-bottom: 10px;\">Security vulnerability checks</li>
                         <li style=\"margin-bottom: 10px;\">SEO optimization opportunities</li>
@@ -235,7 +234,7 @@ async fn run_lighthouse_process(
                 </div>
                 <p style=\"color: #718096; font-size: 14px; line-height: 1.6; margin: 20px 0 0;\">
                     Want to discuss your results with our experts?<br>
-                    <a href=\"https://planetbun.com/en/contact\" style=\"color: #4299e1; text-decoration: underline;\">
+                    <a href=\"https://planetbun.com/en/home?contact=true\" style=\"color: #4299e1; text-decoration: underline;\">
                         Schedule a free consultation
                     </a>
                 </p>
@@ -245,13 +244,13 @@ async fn run_lighthouse_process(
             <td style=\"padding: 30px; text-align: center; background-color: #f8fafc; border-top: 1px solid #e2e8f0;\">
                 <p style=\"color: #718096; font-size: 14px; margin: 0;\">
                     © 2025 PlanetBun Dev Shop<br>
-                    <a href=\"[unsubscribe-url]\" style=\"color: #718096; text-decoration: underline;\">Unsubscribe</a>
+                    <a href=\"https://planetbun.com/api/emailCampaign/unsubscribe?email={}\" style=\"color: #718096; text-decoration: underline;\">Unsubscribe</a>
                 </p>
             </td>
         </tr>
     </table>
 </body>
-</html>", &domain, &domain, &domain);
+</html>", &domain, &domain, &email);
 
     let _starting_message =
         mail::send_mail(&domain, &email, &name, &starting_subject, &starting_message).await?;
