@@ -225,7 +225,7 @@ async fn run_lighthouse_process(
                     </ul>
                 </div>
                 <div style=\"margin: 30px 0;\">
-                    <a href=\"https://planetbun.com/en/eval/{}\" style=\"background-color: #4299e1; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;\">
+                    <a href=\"https://planetbun.com/en/tools/scanova/{}\" style=\"background-color: #4299e1; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;\">
                         View Your Full Report
                     </a>
                 </div>
