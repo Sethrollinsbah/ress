@@ -363,7 +363,7 @@ let status = std::process::Command::new("aws")
         "s3",
         "cp",
         &output_path,
-        &format!("s3://planet-bun/reports/{}.json", domain_tld),
+        &format!("s3://planet-bun/reports/{}.json", &domain_tld),
         "--endpoint-url",
         "https://0e9b5fad61935c0d6483962f4a522a89.r2.cloudflarestorage.com",
         "--checksum-algorithm",
@@ -392,6 +392,26 @@ match mail::send_mail(
     Err(e) => eprintln!("❌ Error sending completion email: {}", e),
 }
 
+delete_reports(&domain_tld);
+
 Ok(())
 
+}
+
+fn delete_reports(report_id: &str) -> std::io::Result<()> {
+    // Define the path to the directory
+    let dir_path = format!("./lighthouse_reports/{}/", report_id);
+
+    // Remove the directory and its contents
+    fs::remove_dir_all(&dir_path)?;
+
+    // Optionally, remove the specific report file
+    let file_path = format!("./http/{}.txt", report_id);
+    fs::remove_file(file_path)?;
+
+    // Optionally, remove the specific report file
+    let file_path = format!("./lighthouse_reports/comprehensive_lighthouse_{}_report.json", report_id);
+    fs::remove_file(file_path)?;
+
+    Ok(())
 }
