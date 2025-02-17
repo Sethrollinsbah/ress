@@ -79,7 +79,11 @@ class DeepRouteCrawler {
 
         // Get form actions
         document.querySelectorAll("form").forEach((form) => {
-          if (form.action && !form.action.startsWith("javascript:")) {
+          if (
+            form.action &&
+            typeof form.action === "string" &&
+            !form.action.startsWith("javascript:")
+          ) {
             results.add(form.action);
           }
         });
@@ -180,7 +184,10 @@ async function discoverRoutes(siteUrl, maxLinks = 100) {
     const routes = await crawler.crawl();
     console.log("\nDiscovered Routes:");
     routes.forEach((route) => console.log(route));
-    Bun.write(siteUrl + ".txt", routes.slice(0, 100).join("\n"));
+    Bun.write(
+      "http/" + siteUrl.split("https://")[1] + ".txt",
+      routes.slice(0, 100).join("\n"),
+    );
     console.log(`\nTotal unique routes found: ${routes.length}`);
     return routes;
   } catch (err) {

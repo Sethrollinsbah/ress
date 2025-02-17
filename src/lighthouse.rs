@@ -1,17 +1,19 @@
-use std::{
-    collections::HashMap,
-    fs::{File, OpenOptions},
-    io::{BufRead, BufReader, Write},
-    path::Path,
-    time::Instant,
-    process::{Command, Stdio},
-};
-
 use crate::model::AverageReport;
 use crate::model::CategoriesStats;
 use crate::model::ComprehensiveReport;
 use crate::model::Root;
 use crate::model::ScoreStats;
+use futures::future::join_all;
+use std::{
+    collections::HashMap,
+    error::Error,
+    fs::{create_dir_all, File, OpenOptions},
+    io::{BufRead, BufReader, Write},
+    path::Path,
+    process::{Command, Stdio},
+    time::Instant,
+};
+use tokio::{fs, task};
 // Function to run Lighthouse on a given URL
 
 pub async fn run_lighthouse(
@@ -19,21 +21,20 @@ pub async fn run_lighthouse(
     baseurl: &str,
     output_path: &str,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    // Construct the full URL
     let full_url = format!("https://{}{}", baseurl, url);
-    println!("Testing URL: {}", full_url);
-    println!("Output path: {}", output_path);
+    let full_local_path = format!("{}/{}.json", &output_path, sanitize_filename(&url));
 
-    // Execute the Lighthouse command
+    // Execute the Lighthouse command with corrected arguments
     let command = Command::new("lighthouse")
-        .arg(&full_url) // URL to test
-        .arg("--output") // Specify output format
-        .arg("json") // Output format is JSON
-        .arg("--chrome-flags=--headless") // Chrome flags
-        .arg("--chrome-flags=--no-sandbox") // Chrome flags
-        .arg("--output-path") // Specify where to save the output
-        .arg(output_path) // Path to save the JSON output
-        .stderr(Stdio::piped()) // Capture stderr
+        .arg(&full_url)
+        .arg("--output=json") // Combine output format flag
+        .arg("--no-enable-error-reporting")
+        .arg("--chrome-flags=\"--headless --no-sandbox\"") // Combine Chrome flags
+        .arg("--max-wait-for-load=120000")
+        .arg("--output-path")
+        .arg(full_local_path)
+        .stdout(Stdio::piped()) // Capture stdout as well
+        .stderr(Stdio::piped())
         .spawn()?;
 
     // Wait for the command to finish and capture output
@@ -57,7 +58,6 @@ pub async fn run_lighthouse(
     Ok(())
 }
 
-
 pub async fn read_urls_from_file(
     file_path: &str,
 ) -> Result<Vec<String>, Box<dyn std::error::Error + Send + Sync>> {
@@ -70,9 +70,79 @@ pub async fn read_urls_from_file(
     let file = File::open(file_path)?;
     let reader = BufReader::new(file);
     let urls: Vec<String> = reader.lines().filter_map(|line| line.ok()).collect();
-    
+
     println!("Read {} URLs", urls.len());
     Ok(urls)
+}
+
+pub async fn process_urls_from_file(
+    file_path: &str,
+    output_folder: &str,
+) -> Result<Vec<String>, Box<dyn Error + Send + Sync>> {
+    // ✅ Change return type to Vec<String>
+    // Ensure the file exists
+    if !Path::new(file_path).exists() {
+        let mut file = File::create(file_path)?;
+        file.write_all(b"")?;
+        println!("Created new file: {}", file_path);
+    }
+
+    // Read URLs from the file
+    let file = File::open(file_path)?;
+    let reader = BufReader::new(file);
+    let urls: Vec<String> = reader.lines().filter_map(|line| line.ok()).collect();
+
+    println!("Read {} URLs", urls.len());
+
+    Ok(urls) // ✅ Return the vector of URLs
+}
+
+pub async fn process_urls(
+    current_dir: &str,
+    domain_tld: &str,
+) -> Result<(), Box<dyn Error + Send + Sync>> {
+    // Read URLs from file
+    let input_file = format!("{}/http/{}.txt", current_dir, domain_tld);
+    let output_dir = format!(
+        "{}/lighthouse_reports/{}",
+        current_dir,
+        domain_tld.replace("/", "___")
+    );
+
+    let urls = process_urls_from_file(&input_file, &output_dir).await?; // ✅ Now `urls` is a Vec<String>
+    println!("URLs: {:?}", &urls);
+
+    // Ensure the output directory exists
+    fs::create_dir_all(&output_dir).await?;
+
+    let mut handles = Vec::new();
+
+    for url in urls {
+        // ✅ Now `urls` is iterable
+        let baseurl = domain_tld.to_string();
+        let output_path = output_dir.clone(); // Clone since `output_path` is moved into async block
+
+        handles.push(task::spawn(async move {
+            println!("Processing URL: {}", url);
+
+            match run_lighthouse(&url, &baseurl, &output_path).await {
+                Ok(_) => println!("Lighthouse ran successfully for {}", url),
+                Err(e) => eprintln!("Error running Lighthouse for {}: {:?}", url, e),
+            }
+        }));
+    }
+
+    println!("✅ All Lighthouse tasks spawned, waiting for completion...");
+
+    join_all(handles).await; // Wait for all tasks to finish
+
+    println!("✅ Lighthouse processing completed for all URLs");
+    Ok(())
+}
+
+// Helper function to sanitize filenames
+fn sanitize_filename(url: &str) -> String {
+    url.replace(|c: char| !c.is_alphanumeric() && c != '.', &'_'.to_string())
 }
 
 fn compute_score_stats(scores: &mut Vec<f64>) -> ScoreStats {

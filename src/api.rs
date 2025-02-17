@@ -1,4 +1,7 @@
 use crate::lighthouse;
+use tokio::io::AsyncReadExt;
+use tokio_stream::wrappers::ReadDirStream;
+use futures::StreamExt;
 use crate::lighthouse::compute_averages;
 use crate::lighthouse::save_report;
 use crate::mail;
@@ -8,6 +11,7 @@ use serde::Deserialize;
 use serde_json::json;
 use std::fs;
 use tokio;
+use crate::model::Root;
 
 #[derive(Deserialize)]
 pub struct ParamsRunLighthouse {
@@ -251,105 +255,143 @@ async fn run_lighthouse_process(
     let domain_tld = domain;
     let https_domain_tld = format!("https://{}.txt", &domain_tld);
 
+    let current_dir = std::env::current_dir()?
+        .to_str()
+        .ok_or("Failed to convert current directory to string")?
+        .to_string();
+
     std::process::Command::new("bun")
         .args([
-            "/root/lightavg/unlit/index.ts",
-            // "cp",
+            &format!("{}/unlit/index.ts", &current_dir),
             &format!("siteUrl=https://{}", &domain_tld),
             "maxLinks=100",
         ])
         .status()?;
 
-    println!("file_name: {}", &domain_tld);
-    let output_folder = format!("/root/lightavg/lighthouse_reports/{}.txt/", &domain_tld);
-    fs::create_dir_all(&output_folder)
-        .map_err(|e| Box::new(e) as Box<dyn std::error::Error + Send + Sync>)?;
+    println!("file_name: {}", &current_dir);
 
-    ;
-    let urls = lighthouse::read_urls_from_file(&format!("./https:/{}.txt", &domain_tld)).await?;
-    
+    if let Err(e) = lighthouse::process_urls(&current_dir, &domain_tld).await {
+        eprintln!("❌ process_urls failed: {}", e);
+        return Err(e.into()); // Ensure the error propagates if necessary
+    } else {
+        println!("✅ process_urls completed successfully");
+    }
 
-    println!("urls: {:?}", &urls);
-    let mut handles = Vec::new();
-    for url in urls {
-        println!("here: {}", &url);
-        let baseurl = domain_tld.to_string();
-        println!("base_url: {}", &baseurl);
-        let output_path = format!(
-            "/root/lightavg/lighthouse_reports/https:/planetbun.com.txt/",
-            // &baseurl,
-            // url.to_string().replacen("/", "", 1).replace("/", "___")
-        );
-        println!("output_path: {:?}", &output_path);
-        fs::create_dir_all(&output_path)
-            .map_err(|e| Box::new(e) as Box<dyn std::error::Error + Send + Sync>)?;
+   let directory = format!("{}/lighthouse_reports/{}/", &current_dir, domain_tld);
+let mut reports = Vec::new();
 
-        handles.push(tokio::spawn(async move {
-            println!("hre");
-            // lighthouse::run_lighthouse(&url, &baseurl, &output_path).await
+// Use ReadDirStream correctly
+let dir_stream = tokio::fs::read_dir(directory).await?; // .await here is correct for tokio::fs::read_dir
 
-            match lighthouse::run_lighthouse(&url, &baseurl, &output_path).await {
-                Ok(_) => println!("Lighthouse ran successfully"),
-                Err(e) => eprintln!("Error running Lighthouse: ", ),
+// Convert it to ReadDirStream
+let mut stream = ReadDirStream::new(dir_stream);
+
+
+while let Some(entry) = stream.next().await {
+    let entry = entry?;
+    println!("🔍 Processing entry: {:?}", entry.path());
+
+    if entry.path().is_file() {
+        println!("📄 Found file: {:?}", entry.path());
+
+        // Try to open the file asynchronously
+        match tokio::fs::File::open(entry.path()).await {
+            Ok(mut file) => {
+                println!("📝 File opened successfully: {:?}", entry.path());
+
+                let mut buffer = Vec::new();
+                match file.read_to_end(&mut buffer).await {
+                    Ok(_) => {
+                        println!("📚 File read successfully into buffer. Size: {}", buffer.len());
+
+                        // Try to parse the JSON from the buffer
+                        match serde_json::from_slice::<Root>(&buffer) {
+                            Ok(report) => {
+                                println!("✅ Successfully parsed JSON for: {:?}", entry.path());
+                                reports.push(report);
+                            }
+                            Err(e) => {
+                                eprintln!("❌ Error parsing JSON from file {:?}: {}", entry.path(), e);
+                            }
+                        }
+                    }
+                    Err(e) => {
+                        eprintln!("❌ Error reading file {:?}: {}", entry.path(), e);
+                    }
+                }
             }
-        }));
-    }
-
-    for handle in handles {
-        let _ = handle.await?;
-    }
-
-    let directory = format!(
-        "/root/lightavg/lighthouse_reports/https:/{}.txt/",
-        domain_tld
-    );
-    let mut reports = Vec::new();
-
-    for entry in fs::read_dir(directory)? {
-        let entry = entry?;
-        if entry.path().is_file() {
-            reports.push(serde_json::from_reader(std::io::BufReader::new(
-                std::fs::File::open(entry.path())?,
-            ))?);
+            Err(e) => {
+                eprintln!("❌ Error opening file {:?}: {}", entry.path(), e);
+            }
         }
+    } else {
+        println!("❌ Skipping non-file entry: {:?}", entry.path());
     }
+}
 
-    let average_report = compute_averages(&reports);
-    let comprehensive_report = model::ComprehensiveReport {
-        category_stats: average_report.category_stats,
-        best_performance_page: average_report.best_performance_page,
-        worst_performance_page: average_report.worst_performance_page,
-        common_failing_audits: average_report.common_failing_audits,
-        lighthouse_reports: reports,
-    };
 
-    let output_path = format!(
-        "/root/lightavg/comprehensive_lighthouse_{}_report.json",
-        domain_tld
-    );
-    save_report(&output_path, &comprehensive_report).await?;
 
-    let status = std::process::Command::new("aws")
-        .args([
-            "s3",
-            "cp",
-            &output_path,
-            &format!("s3://planet-bun/reports/{}.json", domain_tld),
-            "--endpoint-url",
-            "https://0e9b5fad61935c0d6483962f4a522a89.r2.cloudflarestorage.com",
-            "--checksum-algorithm",
-            "CRC32",
-        ])
-        .status()
-        .map_err(|e| Box::new(e) as Box<dyn std::error::Error + Send + Sync>)?;
 
-    let _completion_message = mail::send_mail(
-        &domain_tld,
-        &email,
-        &name,
-        &completion_subject,
-        &completion_mail,
-    )
-    .await?;
-    Ok(())
+let average_report = compute_averages(&reports);
+println!("✅ Averages computed for reports");
+
+let comprehensive_report = model::ComprehensiveReport {
+    category_stats: average_report.category_stats,
+    best_performance_page: average_report.best_performance_page,
+    worst_performance_page: average_report.worst_performance_page,
+    common_failing_audits: average_report.common_failing_audits,
+    lighthouse_reports: reports,
+};
+println!("✅ Comprehensive report generated");
+
+let output_path = format!(
+    "{}/comprehensive_lighthouse_{}_report.json",
+    &current_dir,
+    domain_tld
+);
+println!("📁 Output report path: {}", output_path);
+
+// Save the comprehensive report
+match save_report(&output_path, &comprehensive_report).await {
+    Ok(_) => println!("✅ Report saved successfully at: {}", output_path),
+    Err(e) => eprintln!("❌ Error saving report at {}: {}", output_path, e),
+}
+
+// Upload the report to S3
+let status = std::process::Command::new("aws")
+    .args([
+        "s3",
+        "cp",
+        &output_path,
+        &format!("s3://planet-bun/reports/{}.json", domain_tld),
+        "--endpoint-url",
+        "https://0e9b5fad61935c0d6483962f4a522a89.r2.cloudflarestorage.com",
+        "--checksum-algorithm",
+        "CRC32",
+    ])
+    .status()
+    .map_err(|e| Box::new(e) as Box<dyn std::error::Error + Send + Sync>)?;
+
+if status.success() {
+    println!("✅ Report successfully uploaded to S3");
+} else {
+    eprintln!("❌ Failed to upload report to S3. Status: {:?}", status);
+}
+
+// Send completion email
+match mail::send_mail(
+    &domain_tld,
+    &email,
+    &name,
+    &completion_subject,
+    &completion_mail,
+)
+.await
+{
+    Ok(_) => println!("✅ Completion email sent successfully to: {}", email),
+    Err(e) => eprintln!("❌ Error sending completion email: {}", e),
+}
+
+Ok(())
+
 }
