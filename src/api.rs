@@ -9,9 +9,13 @@ use crate::model;
 use axum::{extract::Query, response::IntoResponse, Json};
 use serde::Deserialize;
 use serde_json::json;
-use std::fs;
 use tokio;
 use crate::model::Root;
+use std::path::PathBuf;
+use tokio::fs;
+use anyhow::{Result, Context};
+
+use log::{info, warn};
 
 #[derive(Deserialize)]
 pub struct ParamsRunLighthouse {
@@ -392,26 +396,55 @@ match mail::send_mail(
     Err(e) => eprintln!("❌ Error sending completion email: {}", e),
 }
 
-delete_reports(&domain_tld);
+delete_reports(&domain_tld).await;
 
 Ok(())
 
 }
 
-fn delete_reports(report_id: &str) -> std::io::Result<()> {
-    // Define the path to the directory
-    let dir_path = format!("./lighthouse_reports/{}/", report_id);
+async fn delete_reports(report_id: &str) -> Result<()> {
+    info!("Starting deletion process for report ID: {}", report_id);
+    
+    let current_dir = std::env::current_dir()
+        .context("Failed to get current directory")?;
+    
+    info!("Current directory: {}", current_dir.display());
 
-    // Remove the directory and its contents
-    fs::remove_dir_all(&dir_path)?;
+    // Define paths using PathBuf for better cross-platform compatibility
+    let paths = [
+        ("directory", current_dir.join("lighthouse_reports").join(report_id)),
+        ("http report", current_dir.join("http").join(format!("{}.txt", report_id))),
+        (
+            "json report",
+            current_dir
+                .join(format!("comprehensive_lighthouse_{}_report.json", report_id)),
+        ),
+    ];
 
-    // Optionally, remove the specific report file
-    let file_path = format!("./http/{}.txt", report_id);
-    fs::remove_file(file_path)?;
+    // Process each path
+    for (path_type, path) in paths.iter() {
+        info!("Checking {} at path: {}", path_type, path.display());
+        
+        if path.exists() {
+            info!("Found {} to delete", path_type);
+            match path_type {
+                &"directory" => {
+                    fs::remove_dir_all(path)
+                        .await
+                        .with_context(|| format!("Failed to delete directory: {}", path.display()))?;
+                }
+                _ => {
+                    fs::remove_file(path)
+                        .await
+                        .with_context(|| format!("Failed to delete file: {}", path.display()))?;
+                }
+            }
+            info!("Successfully deleted {}: {}", path_type, path.display());
+        } else {
+            warn!("{} not found at path: {}", path_type, path.display());
+        }
+    }
 
-    // Optionally, remove the specific report file
-    let file_path = format!("./lighthouse_reports/comprehensive_lighthouse_{}_report.json", report_id);
-    fs::remove_file(file_path)?;
-
+    info!("Deletion process completed for report ID: {}", report_id);
     Ok(())
 }
