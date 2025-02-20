@@ -76,14 +76,6 @@ pub async fn send_mail(
 
     let raw_response = response.text().await?;
     println!("Raw API response: {}", raw_response);
-    //if response.status().is_success() {
-    //    let response_body: EmailResponse = response.json().await?;
-    //    println!("Email sent successfully: {:?}", response_body);
-    //} else {
-    //    let error_body = response.text().await?;
-    //    println!("Failed to send email: {}", error_body);
-    //}
-
     Ok(())
 }
 #[derive(Deserialize)]
