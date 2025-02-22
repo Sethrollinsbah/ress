@@ -404,14 +404,12 @@ async fn run_lighthouse_process(
 
 async fn delete_reports(report_id: &str) -> Result<()> {
     info!("Starting deletion process for report ID: {}", report_id);
-    match update_cloudflare_kv(&report_id).await {
+    info!("Update cloudflare kv to say that no longer processing");
+    let mut email_list = vec!["sethryanrollins@gmail.com".to_string()];
+    match update_cloudflare_kv(&report_id, email_list).await {
         Ok(response) => {
-            println!("Status: {}", response.status());
-            match response.text().await {
-                Ok(text) => println!("Response: {}", text),
-                Err(e) => eprintln!("Error reading response: {}", e),
-            }
-        }
+            println!("Status: OK",);
+                    }
         Err(e) => eprintln!("Error making request: {}", e),
     }
     let current_dir = std::env::current_dir().context("Failed to get current directory")?;
@@ -465,29 +463,71 @@ async fn delete_reports(report_id: &str) -> Result<()> {
     Ok(())
 }
 
-#[derive(Serialize, Deserialize)]
+
+#[derive(Serialize, Deserialize, Debug)]
 struct UserData {
-    email: String,
+    email: Vec<String>,
     name: String,
-    status: i32,
+    status: u16,
 }
 
-async fn update_cloudflare_kv(domain: &str) -> Result<reqwest::Response, Error> {
+async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Result<(), Error> {
     let client = Client::new();
+    let namespace_id = "b40fac2149234730ae88f4bb8bbf3c78";
+    let account_id = "0e9b5fad61935c0d6483962f4a522a89";
+    let api_base = format!(
+        "https://api.cloudflare.com/client/v4/accounts/{}/storage/kv/namespaces/{}/values/{}",
+        account_id, namespace_id, domain
+    );
 
-    let user_data = UserData {
-        email: "sethryanrollins@gmail.com".to_string(),
+    let auth_email = "sethryanrollins@gmail.com";
+    let auth_key = "295cf5944fd33c2f53a43dee2766cd1749ba6"; // Replace with env variable for security
+
+    // Fetch existing record
+    let existing_response = client
+        .get(&api_base)
+        .header("X-Auth-Email", auth_email)
+        .header("X-Auth-Key", auth_key)
+        .send()
+        .await?;
+
+    // let mut email_list = vec!["sethryanrollins@gmail.com".to_string()];
+
+    if existing_response.status().is_success() {
+        if let Ok(existing_data) = existing_response.json::<UserData>().await {
+            email_list = existing_data.email;
+            if !email_list.contains(&"sethryanrollins@gmail.com".to_string()) {
+                email_list.push("sethryanrollins@gmail.com".to_string());
+            }
+        }
+    }
+
+    // Updated data
+    let updated_data = UserData {
+        email: email_list,
         name: "user".to_string(),
         status: 200,
     };
 
+    // Update KV storage
     let response = client
-        .put(format!("https://api.cloudflare.com/client/v4/accounts/0e9b5fad61935c0d6483962f4a522a89/storage/kv/namespaces/b40fac2149234730ae88f4bb8bbf3c78/values/{}", domain))
-        .header("X-Auth-Email", "sethryanrollins@gmail.com")
-        .header("X-Auth-Key", "295cf5944fd33c2f53a43dee2766cd1749ba6")
-        .json(&user_data)
+        .put(&api_base)
+        .header("X-Auth-Email", auth_email)
+        .header("X-Auth-Key", auth_key)
+        .json(&updated_data)
         .send()
         .await?;
 
-    Ok(response)
+    if response.status().is_success() {
+        println!("Cloudflare KV updated successfully for domain: {}", domain);
+    } else {
+        eprintln!(
+            "Failed to update KV. Status: {} - {:?}",
+            response.status(),
+            response.text().await?
+        );
+    }
+
+    Ok(())
 }
+
