@@ -7,6 +7,8 @@ use crate::model::Root;
 use anyhow::{Context, Result};
 use axum::{extract::Query, response::IntoResponse, Json};
 use futures::StreamExt;
+use log::{info, warn};
+use reqwest::{Client, Error};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 use std::path::PathBuf;
@@ -14,8 +16,6 @@ use tokio;
 use tokio::fs;
 use tokio::io::AsyncReadExt;
 use tokio_stream::wrappers::ReadDirStream;
-use reqwest::{Client, Error};
-use log::{info, warn};
 
 #[derive(Deserialize)]
 pub struct ParamsRunLighthouse {
@@ -409,7 +409,7 @@ async fn delete_reports(report_id: &str) -> Result<()> {
     match update_cloudflare_kv(&report_id, email_list).await {
         Ok(response) => {
             println!("Status: OK",);
-                    }
+        }
         Err(e) => eprintln!("Error making request: {}", e),
     }
     let current_dir = std::env::current_dir().context("Failed to get current directory")?;
@@ -462,7 +462,6 @@ async fn delete_reports(report_id: &str) -> Result<()> {
     info!("Deletion process completed for report ID: {}", report_id);
     Ok(())
 }
-
 
 #[derive(Serialize, Deserialize, Debug)]
 struct UserData {
@@ -530,4 +529,3 @@ async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Resu
 
     Ok(())
 }
-
