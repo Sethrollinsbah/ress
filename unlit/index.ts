@@ -245,7 +245,7 @@ export async function bunLog(domain: string, text: string): Promise<void> {
   const filename = `/tmp/${domain}.txt`;
 
   // Format the log entry with the timestamp
-  const logEntry = `${timestamp}::${text}\n`;
+  const logEntry = `${timestamp}::${text}\n-----`;
 
   // Append the log entry to the file (creates it if it doesn't exist)
   try {
