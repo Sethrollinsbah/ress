@@ -106,6 +106,7 @@ pub async fn process_urls(
         handles.push(task::spawn(async move {
             println!("BASEURL {}", &baseurl);
             let _ = api::bun_log(&baseurl, &format!("Processing URL: {}", url));
+            let _ = api::bun_log(&baseurl, &format!("$FOUND_URL::{}", url));
             match run_lighthouse(&url, &baseurl, &output_path).await {
                 Ok(_) => api::bun_log(
                     &baseurl,

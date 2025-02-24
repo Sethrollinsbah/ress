@@ -509,6 +509,7 @@ async fn delete_reports(report_id: &str) -> Result<()> {
         }
     }
     let _ = bun_log(&report_id, "Cleanup process complete");
+    let _ = bun_log(&report_id, "$REDIRECT::goto");
     fs::remove_file(&format!("/tmp/{}.txt", &report_id))
         .await
         .with_context(|| "Failed to delete file")?;
