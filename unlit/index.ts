@@ -1,5 +1,7 @@
 import puppeteer from "puppeteer";
+import { appendFileSync } from "fs";
 
+let DOMAIN = "";
 class DeepRouteCrawler {
   constructor(baseUrl, maxLinks = 100) {
     this.baseUrl = baseUrl;
@@ -54,7 +56,9 @@ class DeepRouteCrawler {
     try {
       await page
         .waitForSelector("a, button, [onclick]", { timeout: 5000 })
-        .catch(() => console.log("No typical elements found, continuing..."));
+        .catch(() =>
+          bunLog(DOMAIN, "WARN:No typical elements found, continuing..."),
+        );
 
       const links = await page.evaluate(() => {
         const results = new Set();
@@ -95,14 +99,14 @@ class DeepRouteCrawler {
         .map((link) => this.normalizeUrl(link))
         .filter((link) => link && link.startsWith("/"));
     } catch (err) {
-      console.error("Error extracting links:", err.message);
+      await bunLog(DOMAIN, `ERROR: Error extracting links: ${err.message}`);
       return [];
     }
   }
 
   async visitPage(page, url) {
     try {
-      console.log(`Visiting: ${url}`);
+      await bunLog(DOMAIN, `Visiting: ${url}`);
       await page.goto(url, {
         waitUntil: "domcontentloaded",
         timeout: 15000,
@@ -113,7 +117,8 @@ class DeepRouteCrawler {
 
       return await this.extractLinks(page);
     } catch (err) {
-      console.error(`Error visiting ${url}:`, err.message);
+      await bunLog(DOMAIN, `ERROR: Error visiting ${url}: ${err.message}`);
+
       return [];
     }
   }
@@ -151,17 +156,22 @@ class DeepRouteCrawler {
           const fullUrl = new URL(currentUrl, this.baseUrl).href;
           const newLinks = await this.visitPage(page, fullUrl);
 
-          console.log(`Found ${newLinks.length} links on ${currentUrl}`);
+          await bunLog(
+            DOMAIN,
+            `Found ${newLinks.length} links on ${currentUrl}`,
+          );
 
           for (const link of newLinks) {
             if (!this.visited.has(link) && this.routes.size < this.maxLinks) {
               this.routes.add(link);
               this.pagesToExplore.add(link);
-              console.log(`Added to explore queue: ${link}`);
+
+              await bunLog(DOMAIN, `Added to explore queue: ${link}`);
             }
           }
 
-          console.log(
+          await bunLog(
+            DOMAIN,
             `Total routes found: ${this.routes.size}/${this.maxLinks}`,
           );
         }
@@ -177,21 +187,22 @@ class DeepRouteCrawler {
 
 // Usage
 async function discoverRoutes(siteUrl, maxLinks = 100) {
-  console.log(`Starting deep route discovery for ${siteUrl}`);
+  await bunLog(DOMAIN, `Starting deep route discovery for ${siteUrl}`);
   const crawler = new DeepRouteCrawler(siteUrl, maxLinks);
 
   try {
     const routes = await crawler.crawl();
-    console.log("\nDiscovered Routes:");
-    routes.forEach((route) => console.log(route));
+
+    await bunLog(DOMAIN, `Discovered Routes: `);
+    routes.forEach(async (route) => await bunLog(DOMAIN, `${route}`));
     Bun.write(
       "http/" + siteUrl.split("https://")[1] + ".txt",
       routes.slice(0, 100).join("\n"),
     );
-    console.log(`\nTotal unique routes found: ${routes.length}`);
+    await bunLog(DOMAIN, `Total unique routes found: ${routes.length}`);
     return routes;
   } catch (err) {
-    console.error("Crawl failed:", err);
+    await bunLog(DOMAIN, `ERROR: Crawl failed: ${err}`);
     throw err;
   }
 }
@@ -208,11 +219,38 @@ args.forEach((arg) => {
   const [key, value] = arg.split("=");
   if (key === "siteUrl") {
     SITE = value || SITE;
+    DOMAIN = SITE.split("//")[1];
   } else if (key === "maxLinks") {
     maxLinks = parseInt(value) || maxLinks;
   }
 });
 
 discoverRoutes(SITE, maxLinks)
-  .then(() => console.log("Deep route discovery completed!"))
-  .catch((err) => console.error("Error:", err));
+  .then(async () => {
+    await bunLog(DOMAIN, "Deep route discovery completed!");
+  })
+  .catch(async (err) => {
+    await bunLog(DOMAIN, "ERROR: Error when crawling webpage for links.");
+  });
+
+/**
+ * Logs a message to a domain-specific file in /tmp directory
+ * @param domain The domain name used in the filename
+ * @param text The text message to log
+ * @returns A promise that resolves when the log is written
+ */
+export async function bunLog(domain: string, text: string): Promise<void> {
+  // Ensure /tmp directory exists (just in case)
+  const timestamp = new Date().toISOString();
+  const filename = `/tmp/${domain}.txt`;
+
+  // Format the log entry with the timestamp
+  const logEntry = `${timestamp}::${text}\n`;
+
+  // Append the log entry to the file (creates it if it doesn't exist)
+  try {
+    appendFileSync(filename, logEntry, "utf8");
+  } catch (error) {
+    console.error(`Error writing to log file: ${error}`);
+  }
+}

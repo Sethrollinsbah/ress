@@ -1,3 +1,4 @@
+use crate::api;
 use crate::model::AverageReport;
 use crate::model::CategoriesStats;
 use crate::model::ComprehensiveReport;
@@ -7,11 +8,10 @@ use futures::future::join_all;
 use std::{
     collections::HashMap,
     error::Error,
-    fs::{create_dir_all, File, OpenOptions},
+    fs::File,
     io::{BufRead, BufReader, Write},
     path::Path,
     process::{Command, Stdio},
-    time::Instant,
 };
 use tokio::{fs, task};
 // Function to run Lighthouse on a given URL
@@ -41,8 +41,8 @@ pub async fn run_lighthouse(
     let output = command.wait_with_output()?;
 
     // Print stdout and stderr for debugging
-    println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    // println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    // println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
     // Check if the command succeeded
     if !output.status.success() {
@@ -54,30 +54,13 @@ pub async fn run_lighthouse(
         .into());
     }
 
-    println!("Lighthouse report saved for URL: {}", full_url);
+    let _ = api::bun_log(&baseurl, &format!("Lighthouse report saved for URL"));
     Ok(())
-}
-
-pub async fn read_urls_from_file(
-    file_path: &str,
-) -> Result<Vec<String>, Box<dyn std::error::Error + Send + Sync>> {
-    if !Path::new(file_path).exists() {
-        let mut file = File::create(file_path)?;
-        file.write_all(b"")?;
-        println!("Created new file: {}", file_path);
-    }
-
-    let file = File::open(file_path)?;
-    let reader = BufReader::new(file);
-    let urls: Vec<String> = reader.lines().filter_map(|line| line.ok()).collect();
-
-    println!("Read {} URLs", urls.len());
-    Ok(urls)
 }
 
 pub async fn process_urls_from_file(
     file_path: &str,
-    output_folder: &str,
+    _output_folder: &str,
 ) -> Result<Vec<String>, Box<dyn Error + Send + Sync>> {
     // ✅ Change return type to Vec<String>
     // Ensure the file exists
@@ -91,8 +74,6 @@ pub async fn process_urls_from_file(
     let file = File::open(file_path)?;
     let reader = BufReader::new(file);
     let urls: Vec<String> = reader.lines().filter_map(|line| line.ok()).collect();
-
-    println!("Read {} URLs", urls.len());
 
     Ok(urls) // ✅ Return the vector of URLs
 }
@@ -110,7 +91,7 @@ pub async fn process_urls(
     );
 
     let urls = process_urls_from_file(&input_file, &output_dir).await?; // ✅ Now `urls` is a Vec<String>
-    println!("URLs: {:?}", &urls);
+                                                                        // println!("URLs: {:?}", &urls);
 
     // Ensure the output directory exists
     fs::create_dir_all(&output_dir).await?;
@@ -123,20 +104,32 @@ pub async fn process_urls(
         let output_path = output_dir.clone(); // Clone since `output_path` is moved into async block
 
         handles.push(task::spawn(async move {
-            println!("Processing URL: {}", url);
-
+            println!("BASEURL {}", &baseurl);
+            let _ = api::bun_log(&baseurl, &format!("Processing URL: {}", url));
             match run_lighthouse(&url, &baseurl, &output_path).await {
-                Ok(_) => println!("Lighthouse ran successfully for {}", url),
-                Err(e) => eprintln!("Error running Lighthouse for {}: {:?}", url, e),
+                Ok(_) => api::bun_log(
+                    &baseurl,
+                    &format!("Lighthouse ran successfully for {}", url),
+                ),
+                Err(e) => api::bun_log(
+                    &baseurl,
+                    &format!("ERROR: Error running Lighthouse for {}: {:?}", url, e),
+                ),
             }
         }));
     }
 
-    println!("✅ All Lighthouse tasks spawned, waiting for completion...");
+    let _ = api::bun_log(
+        &domain_tld,
+        "✅ All Lighthouse tasks spawned, waiting for completion...",
+    );
 
     join_all(handles).await; // Wait for all tasks to finish
 
-    println!("✅ Lighthouse processing completed for all URLs");
+    let _ = api::bun_log(
+        &domain_tld,
+        "✅ Lighthouse processing completed for all URLs",
+    );
     Ok(())
 }
 

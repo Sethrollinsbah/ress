@@ -47,8 +47,8 @@ pub struct Categories {
 
 // Root pub structure for the Lighthouse report
 #[derive(Debug, Deserialize, Serialize)]
+#[allow(non_snake_case)]
 pub struct Root {
-    #[allow(non_snake_case)]
     pub requestedUrl: String, // Store URL for best/worst pages
     pub categories: Categories,
     pub audits: HashMap<String, Audit>, // Store audit results dynamically

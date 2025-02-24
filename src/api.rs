@@ -5,13 +5,14 @@ use crate::mail;
 use crate::model;
 use crate::model::Root;
 use anyhow::{Context, Result};
-use axum::{extract::Query, response::IntoResponse, Json};
+use axum::extract::Query;
+use chrono::Utc;
 use futures::StreamExt;
 use log::{info, warn};
 use reqwest::{Client, Error};
 use serde::{Deserialize, Serialize};
-use serde_json::json;
-use std::path::PathBuf;
+use std::fs::OpenOptions;
+use std::io::{self, Write};
 use tokio;
 use tokio::fs;
 use tokio::io::AsyncReadExt;
@@ -26,7 +27,7 @@ pub struct ParamsRunLighthouse {
 
 pub async fn run_lighthouse_handler(Query(params): Query<ParamsRunLighthouse>) -> &'static str {
     tokio::task::spawn(async move {
-        run_lighthouse_process(params.domain, params.email, params.name).await;
+        let _ = run_lighthouse_process(params.domain, params.email, params.name).await;
     });
     // match run_lighthouse_process(params.domain, params.email, params.name).await {
     //     Ok(_) => Json(json!({"status": "success"})),
@@ -43,6 +44,10 @@ async fn run_lighthouse_process(
     email: String,
     name: String,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let _ = bun_log(
+        &domain,
+        &format!("Initializing website crawl on {}", &domain),
+    );
     let starting_subject = format!("Website Scan in Progress: {}", &domain);
     let starting_message = format!("<!DOCTYPE html>
 <html lang=\"en\">
@@ -254,15 +259,14 @@ async fn run_lighthouse_process(
 
     let _starting_message =
         mail::send_mail(&domain, &email, &name, &starting_subject, &starting_message).await?;
-    let args: Vec<String> = std::env::args().collect();
-    let domain_tld = domain;
-    let https_domain_tld = format!("https://{}.txt", &domain_tld);
+    let domain_tld = domain.clone();
 
     let current_dir = std::env::current_dir()?
         .to_str()
         .ok_or("Failed to convert current directory to string")?
         .to_string();
 
+    let _ = bun_log(&domain, "Starting to crawl the domain.");
     std::process::Command::new("bun")
         .args([
             &format!("{}/unlit/index.ts", &current_dir),
@@ -271,13 +275,14 @@ async fn run_lighthouse_process(
         ])
         .status()?;
 
-    println!("file_name: {}", &current_dir);
+    // println!("file_name: {}", &current_dir);
 
     if let Err(e) = lighthouse::process_urls(&current_dir, &domain_tld).await {
-        eprintln!("❌ process_urls failed: {}", e);
+        // eprintln!("❌ process_urls failed: {}", e);
+        let _ = bun_log(&domain, "❌ Error: Failed to process urls.");
         return Err(e.into()); // Ensure the error propagates if necessary
     } else {
-        println!("✅ process_urls completed successfully");
+        let _ = bun_log(&domain, "✅ Successfully processed all urls found");
     }
 
     let directory = format!("{}/lighthouse_reports/{}/", &current_dir, domain_tld);
@@ -291,55 +296,85 @@ async fn run_lighthouse_process(
 
     while let Some(entry) = stream.next().await {
         let entry = entry?;
-        println!("🔍 Processing entry: {:?}", entry.path());
+
+        let _ = bun_log(&domain, &format!("🔍 Processing entry: {:?}", entry.path()));
 
         if entry.path().is_file() {
-            println!("📄 Found file: {:?}", entry.path());
+            let _ = bun_log(&domain, &format!("📄 Found file: {:?}", entry.path()));
 
             // Try to open the file asynchronously
             match tokio::fs::File::open(entry.path()).await {
                 Ok(mut file) => {
-                    println!("📝 File opened successfully: {:?}", entry.path());
+                    let _ = bun_log(
+                        &domain,
+                        &format!("📝 File opened successfully: {:?}", entry.path()),
+                    );
 
                     let mut buffer = Vec::new();
                     match file.read_to_end(&mut buffer).await {
                         Ok(_) => {
-                            println!(
-                                "📚 File read successfully into buffer. Size: {}",
-                                buffer.len()
+                            let _ = bun_log(
+                                &domain,
+                                &format!(
+                                    "📚 File read successfully into buffer. Size: {}",
+                                    buffer.len()
+                                ),
                             );
 
                             // Try to parse the JSON from the buffer
                             match serde_json::from_slice::<Root>(&buffer) {
                                 Ok(report) => {
-                                    println!("✅ Successfully parsed JSON for: {:?}", entry.path());
+                                    let _ = bun_log(
+                                        &domain,
+                                        &format!(
+                                            "✅ Successfully parsed JSON for: {:?}",
+                                            entry.path()
+                                        ),
+                                    );
                                     reports.push(report);
                                 }
-                                Err(e) => {
-                                    eprintln!(
-                                        "❌ Error parsing JSON from file {:?}: {}",
-                                        entry.path(),
-                                        e
+                                Err(_e) => {
+                                    let _ = bun_log(
+                                        &domain,
+                                        &format!(
+                                            "❌ Error parsing JSON from file {:?}",
+                                            entry.path()
+                                        ),
                                     );
+                                    // eprintln!(
+                                    //     entry.path(),
+                                    //     e
+                                    // );
                                 }
                             }
                         }
-                        Err(e) => {
-                            eprintln!("❌ Error reading file {:?}: {}", entry.path(), e);
+                        Err(_e) => {
+                            let _ = bun_log(
+                                &domain,
+                                &format!("❌ Error reading file  {:?}", entry.path()),
+                            );
+                            // eprintln!("❌ Error reading file {:?}: {}", entry.path(), e);
                         }
                     }
                 }
-                Err(e) => {
-                    eprintln!("❌ Error opening file {:?}: {}", entry.path(), e);
+                Err(_e) => {
+                    let _ = bun_log(
+                        &domain,
+                        &format!("❌ EError opening file  {:?}", entry.path()),
+                    );
+                    // eprintln!("❌ {:?}: {}", entry.path(), e);
                 }
             }
         } else {
-            println!("❌ Skipping non-file entry: {:?}", entry.path());
+            let _ = bun_log(
+                &domain,
+                &format!("❌ Skipping non-file entry: {:?}", entry.path()),
+            );
         }
     }
 
     let average_report = compute_averages(&reports);
-    println!("✅ Averages computed for reports");
+    let _ = bun_log(&domain, "✅ Averages computed for reports");
 
     let comprehensive_report = model::ComprehensiveReport {
         category_stats: average_report.category_stats,
@@ -348,19 +383,24 @@ async fn run_lighthouse_process(
         common_failing_audits: average_report.common_failing_audits,
         lighthouse_reports: reports,
     };
-    println!("✅ Comprehensive report generated");
 
+    let _ = bun_log(&domain, "✅ Comprehensive report generated");
     let output_path = format!(
         "{}/comprehensive_lighthouse_{}_report.json",
         &current_dir, domain_tld
     );
-    println!("📁 Output report path: {}", output_path);
 
     // Save the comprehensive report
     match save_report(&output_path, &comprehensive_report).await {
-        Ok(_) => println!("✅ Report saved successfully at: {}", output_path),
-        Err(e) => eprintln!("❌ Error saving report at {}: {}", output_path, e),
-    }
+        Ok(_) => {
+            let _ = bun_log(&domain, "✅ Comprehensive report generated");
+            println!("✅ Report saved successfully at: {}", &output_path);
+        }
+        Err(_) => bun_log(
+            &domain,
+            &format!("❌ Error saving report at {}", &output_path),
+        )?,
+    };
 
     // Upload the report to S3
     let status = std::process::Command::new("aws")
@@ -378,9 +418,13 @@ async fn run_lighthouse_process(
         .map_err(|e| Box::new(e) as Box<dyn std::error::Error + Send + Sync>)?;
 
     if status.success() {
-        println!("✅ Report successfully uploaded to S3");
+        println!("");
+        let _ = bun_log(
+            &domain,
+            "✅ Report successfully uploaded to PlanetBun bucket",
+        );
     } else {
-        eprintln!("❌ Failed to upload report to S3. Status: {:?}", status);
+        let _ = bun_log(&domain, "❌ Failed to upload report to PlanetBun bucket");
     }
 
     // Send completion email
@@ -393,22 +437,28 @@ async fn run_lighthouse_process(
     )
     .await
     {
-        Ok(_) => println!("✅ Completion email sent successfully to: {}", email),
-        Err(e) => eprintln!("❌ Error sending completion email: {}", e),
+        Ok(_) => {
+            let _ = bun_log(
+                &domain,
+                &format!("✅ Completion email sent successfully to: {}", email),
+            );
+        }
+        Err(e) => {
+            let _ = bun_log(&domain, "❌ Error sending completion email");
+        }
     }
 
-    delete_reports(&domain_tld).await;
+    let _ = delete_reports(&domain_tld).await;
 
     Ok(())
 }
 
 async fn delete_reports(report_id: &str) -> Result<()> {
-    info!("Starting deletion process for report ID: {}", report_id);
-    info!("Update cloudflare kv to say that no longer processing");
-    let mut email_list = vec!["sethryanrollins@gmail.com".to_string()];
+    let _ = bun_log(&report_id, "Running cleanup on servers");
+    let email_list = vec!["sethryanrollins@gmail.com".to_string()];
     match update_cloudflare_kv(&report_id, email_list).await {
         Ok(response) => {
-            println!("Status: OK",);
+            println!("Status: {:?}", response);
         }
         Err(e) => eprintln!("Error making request: {}", e),
     }
@@ -458,8 +508,11 @@ async fn delete_reports(report_id: &str) -> Result<()> {
             warn!("{} not found at path: {}", path_type, path.display());
         }
     }
+    let _ = bun_log(&report_id, "Cleanup process complete");
+    fs::remove_file(&format!("/tmp/{}.txt", &report_id))
+        .await
+        .with_context(|| "Failed to delete file")?;
 
-    info!("Deletion process completed for report ID: {}", report_id);
     Ok(())
 }
 
@@ -526,6 +579,26 @@ async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Resu
             response.text().await?
         );
     }
+
+    Ok(())
+}
+
+pub fn bun_log(domain: &str, text: &str) -> io::Result<()> {
+    // Obtain the current UTC timestamp
+    let filename = format!("/tmp/{}.txt", domain);
+    let timestamp = Utc::now().format("%Y-%m-%dT%H:%M:%S%.fZ");
+
+    // Format the log entry with the timestamp
+    let log_entry = format!("{}::{}    \n", timestamp, text);
+
+    // Open the file in append mode, creating it if it doesn't exist
+    let mut file = OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open(filename)?;
+
+    // Write the log entry to the file
+    file.write_all(log_entry.as_bytes())?;
 
     Ok(())
 }

@@ -1,21 +1,19 @@
-use std::time::Duration;
 use tokio::fs::File;
 use tokio::io::AsyncReadExt;
 use tokio::sync::mpsc::channel;
 
 use axum;
-use similar::{ChangeTag, TextDiff};
-use std::sync::Arc;
-use tokio::sync::Mutex;
-use axum::extract::ws::Utf8Bytes;
 use axum::extract::Query;
 use axum::response::IntoResponse;
 use axum::routing::post;
 use axum::Router;
 use notify::{Event, RecursiveMode, Watcher};
+use similar::{ChangeTag, TextDiff};
 use std::path::Path;
+use std::sync::Arc;
 use tokio;
 use tokio::fs;
+use tokio::sync::Mutex;
 
 use futures::{SinkExt, StreamExt};
 use serde::Deserialize;
@@ -26,7 +24,6 @@ mod model;
 use axum::{
     extract::ws::{Message, WebSocket, WebSocketUpgrade},
     response::Response,
-    routing::get,
 };
 
 #[derive(Deserialize)]
@@ -52,7 +49,7 @@ async fn read_file_contents(path: &str) -> Result<String, String> {
 
     let mut file = match File::open(path).await {
         Ok(file) => file,
-        Err(e) => return Err(format!("Failed to open file: {}", e))
+        Err(e) => return Err(format!("Failed to open file: {}", e)),
     };
 
     let mut contents = String::new();
@@ -63,30 +60,30 @@ async fn read_file_contents(path: &str) -> Result<String, String> {
             }
             Ok(contents)
         }
-        Err(e) => Err(format!("Failed to read file: {}", e))
+        Err(e) => Err(format!("Failed to read file: {}", e)),
     }
 }
 
 fn get_new_content(old_content: &str, new_content: &str) -> String {
     let diff = TextDiff::from_lines(old_content, new_content);
     let mut new_text = String::new();
-    
+
     for change in diff.iter_all_changes() {
         match change.tag() {
             ChangeTag::Insert => new_text.push_str(change.to_string().as_str()),
             _ => {}
         }
     }
-    
+
     new_text
 }
 
 async fn handle_socket(socket: WebSocket, path: String) {
     let (mut sender, mut receiver) = socket.split();
-    
+
     // Store the last known content
     let last_content = Arc::new(Mutex::new(String::new()));
-    
+
     // Initial file check and read
     match read_file_contents(&path).await {
         Ok(contents) => {
@@ -109,13 +106,14 @@ async fn handle_socket(socket: WebSocket, path: String) {
     let (close_tx, mut close_rx) = channel(1);
     let last_content_clone = Arc::clone(&last_content);
 
-    let mut watcher = notify::recommended_watcher(move |res: Result<Event, notify::Error>| match res {
-        Ok(event) => {
-            let _ = tx.blocking_send(event);
-        }
-        Err(e) => println!("Watch error: {:?}", e),
-    })
-    .unwrap();
+    let mut watcher =
+        notify::recommended_watcher(move |res: Result<Event, notify::Error>| match res {
+            Ok(event) => {
+                let _ = tx.blocking_send(event);
+            }
+            Err(e) => println!("Watch error: {:?}", e),
+        })
+        .unwrap();
 
     watcher
         .watch(Path::new(&path), RecursiveMode::NonRecursive)
@@ -130,7 +128,7 @@ async fn handle_socket(socket: WebSocket, path: String) {
                         Ok(new_contents) => {
                             let mut last = last_content_clone.lock().await;
                             let diff = get_new_content(&last, &new_contents);
-                            
+
                             // Only send if there's new content
                             if !diff.is_empty() {
                                 if let Err(e) = sender.send(Message::Text(diff.into())).await {
@@ -236,21 +234,21 @@ async fn main() {
 //     }
 // }
 
-async fn on_open(socket: &mut WebSocket) -> Result<(), axum::Error> {
-    println!("WebSocket connection opened");
-    socket.send(Message::Text("Welcome!".into())).await?;
-    Ok(())
-}
-
-async fn on_message(socket: &mut WebSocket, message: Utf8Bytes) -> Result<(), axum::Error> {
-    println!("Received message: {}", message);
-    socket
-        .send(Message::Text(format!("Echo: {}", message).into()))
-        .await?;
-    Ok(())
-}
-
-async fn on_close(socket: &mut WebSocket) -> Result<(), axum::Error> {
-    println!("WebSocket connection closed");
-    Ok(())
-}
+// async fn on_open(socket: &mut WebSocket) -> Result<(), axum::Error> {
+//     println!("WebSocket connection opened");
+//     socket.send(Message::Text("Welcome!".into())).await?;
+//     Ok(())
+// }
+//
+// async fn on_message(socket: &mut WebSocket, message: Utf8Bytes) -> Result<(), axum::Error> {
+//     println!("Received message: {}", message);
+//     socket
+//         .send(Message::Text(format!("Echo: {}", message).into()))
+//         .await?;
+//     Ok(())
+// }
+//
+// async fn on_close(_socket: &mut WebSocket) -> Result<(), axum::Error> {
+//     println!("WebSocket connection closed");
+//     Ok(())
+// }

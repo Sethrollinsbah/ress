@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "fs": "^0.0.1-security",
     "puppeteer": "^24.2.0"
   }
 }

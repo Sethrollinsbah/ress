@@ -1,10 +1,8 @@
-use axum::extract::Query;
 use axum::response::IntoResponse;
 use axum::Json;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
-use std::error::Error;
 
 #[derive(Serialize)]
 pub struct EmailAddress {
@@ -32,12 +30,12 @@ pub struct EmailRequest {
 
 #[derive(Debug, Deserialize)]
 pub struct EmailResponse {
-    pub success: bool,
-    pub message: String,
+    // pub success: bool,
+    // pub message: String,
 }
 
 pub async fn send_mail(
-    domain: &str,
+    _domain: &str,
     recipient_email: &str,
     recipient_name: &str,
     subject: &str,
