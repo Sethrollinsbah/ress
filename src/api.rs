@@ -44,6 +44,7 @@ async fn run_lighthouse_process(
     email: String,
     name: String,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let file = std::fs::File::create(format!("/tmp/reports/{}.txt", &domain));
     let _ = bun_log(
         &domain,
         &format!("Initializing website crawl on {}", &domain),
@@ -510,7 +511,7 @@ async fn delete_reports(report_id: &str) -> Result<()> {
     }
     let _ = bun_log(&report_id, "Cleanup process complete");
     let _ = bun_log(&report_id, "$REDIRECT::goto");
-    fs::remove_file(&format!("/tmp/{}.txt", &report_id))
+    fs::remove_file(&format!("/tmp/reports/{}.txt", &report_id))
         .await
         .with_context(|| "Failed to delete file")?;
 

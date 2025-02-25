@@ -164,7 +164,7 @@ class DeepRouteCrawler {
 
           await bunLog(
             DOMAIN,
-            `$FOUND_URL::${newLinks}`,
+            `$FOUND_URL::${JSON.stringify([...newLinks])}`,
           );
 
           for (const link of newLinks) {
@@ -248,7 +248,7 @@ discoverRoutes(SITE, maxLinks)
 export async function bunLog(domain: string, text: string): Promise<void> {
   // Ensure /tmp directory exists (just in case)
   const timestamp = new Date().toISOString();
-  const filename = `/tmp/${domain}.txt`;
+  const filename = `/tmp/reports/${domain}.txt`;
 
   // Format the log entry with the timestamp
   const logEntry = `${timestamp}::${text}\n-----`;
