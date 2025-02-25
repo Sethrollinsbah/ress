@@ -32,7 +32,7 @@ struct Params {
 }
 
 async fn websocket_handler(Query(params): Query<Params>, ws: WebSocketUpgrade) -> Response {
-    let path = format!("/tmp/{}", params.filename);
+    let path = format!("/tmp/reports/{}.txt", params.filename);
     // Check if the file exists
     if fs::metadata(&path).await.is_err() {
         // If the file doesn't exist, return a 404 Not Found response

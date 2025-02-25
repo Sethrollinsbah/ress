@@ -586,7 +586,7 @@ async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Resu
 
 pub fn bun_log(domain: &str, text: &str) -> io::Result<()> {
     // Obtain the current UTC timestamp
-    let filename = format!("/tmp/{}.txt", domain);
+    let filename = format!("/tmp/reports/{}.txt", domain);
     let timestamp = Utc::now().format("%Y-%m-%dT%H:%M:%S%.fZ");
 
     // Format the log entry with the timestamp

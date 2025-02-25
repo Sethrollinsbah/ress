@@ -98,7 +98,6 @@ pub async fn process_urls(
 
     let mut handles = Vec::new();
 
-    let _ = api::bun_log(&domain_tld, &format!("$FOUND_URL::{:?}", urls));
     for url in urls {
         // ✅ Now `urls` is iterable
         let baseurl = domain_tld.to_string();

@@ -161,6 +161,12 @@ class DeepRouteCrawler {
             `Found ${newLinks.length} links on ${currentUrl}`,
           );
 
+
+          await bunLog(
+            DOMAIN,
+            `$FOUND_URL::${newLinks}`,
+          );
+
           for (const link of newLinks) {
             if (!this.visited.has(link) && this.routes.size < this.maxLinks) {
               this.routes.add(link);
