@@ -1,5 +1,40 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use redis;
+
+
+#[derive(Deserialize)]
+pub struct Params {
+    pub filename: String,
+}
+
+#[derive(Deserialize)]
+pub struct RedisParams {
+    pub db: Option<u8>,
+    pub key: String,
+}
+
+#[derive(Deserialize)]
+pub struct RedisSetParams {
+    pub db: Option<u8>,
+}
+
+#[derive(Clone)]
+pub struct AppState {
+    pub redis_client: redis::Client,
+}
+
+#[derive(Deserialize)]
+pub struct RedisInput {
+    pub db: Option<u8>,
+    pub key: String,
+    pub value: String,
+}
+
+#[derive(Serialize)]
+pub struct RedisResponse {
+    pub message: String,
+}
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ComprehensiveReport {
