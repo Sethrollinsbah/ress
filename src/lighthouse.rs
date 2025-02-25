@@ -98,6 +98,7 @@ pub async fn process_urls(
 
     let mut handles = Vec::new();
 
+    let _ = api::bun_log(&domain_tld, &format!("$FOUND_URL::{:?}", urls));
     for url in urls {
         // ✅ Now `urls` is iterable
         let baseurl = domain_tld.to_string();
@@ -106,16 +107,21 @@ pub async fn process_urls(
         handles.push(task::spawn(async move {
             println!("BASEURL {}", &baseurl);
             let _ = api::bun_log(&baseurl, &format!("Processing URL: {}", url));
-            let _ = api::bun_log(&baseurl, &format!("$FOUND_URL::{}", url));
             match run_lighthouse(&url, &baseurl, &output_path).await {
-                Ok(_) => api::bun_log(
-                    &baseurl,
-                    &format!("Lighthouse ran successfully for {}", url),
-                ),
-                Err(e) => api::bun_log(
-                    &baseurl,
-                    &format!("ERROR: Error running Lighthouse for {}: {:?}", url, e),
-                ),
+                Ok(_) => {
+                    let _ = api::bun_log(
+                        &baseurl,
+                        &format!("Lighthouse ran successfully for {}", url),
+                    );
+                    let _ = api::bun_log(&baseurl, &format!("$SUCCESS_URL::{}", url));
+                }
+                Err(e) => {
+                    let _ = api::bun_log(
+                        &baseurl,
+                        &format!("ERROR: Error running Lighthouse for {}: {:?}", url, e),
+                    );
+                    let _ = api::bun_log(&baseurl, &format!("$FAIL_URL::{}", url));
+                }
             }
         }));
     }
