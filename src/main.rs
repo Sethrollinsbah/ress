@@ -1,4 +1,3 @@
-use redis::{AsyncCommands, Commands, Client};
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -11,6 +10,7 @@ use axum::{
 };
 use futures::{SinkExt, StreamExt};
 use notify::{Event, RecursiveMode, Watcher};
+use redis::{AsyncCommands, Client, Commands};
 use serde::{Deserialize, Serialize};
 use similar::{ChangeTag, TextDiff};
 use std::{path::Path, sync::Arc};
@@ -24,21 +24,11 @@ use tokio::{
 use tracing_subscriber;
 
 mod api;
+mod kv;
 mod lighthouse;
 mod mail;
-mod kv;
-mod ws;
 mod model;
-
-
-
-
-
-
-
-
-
-
+mod ws;
 
 #[tokio::main]
 async fn main() {
@@ -58,10 +48,13 @@ async fn main() {
 
     // build our application with a route
     let app = Router::new()
-        .route("/lighthouse", axum::routing::get(api::run_lighthouse_handler))
+        .route(
+            "/lighthouse",
+            axum::routing::get(api::run_lighthouse_handler),
+        )
         .route("/ws", axum::routing::get(ws::websocket_handler))
-        .route("/redis", get(kv::get_redis_value)) // Example Redis route
-        .route("/redis", post(kv::set_redis_value)) // POST route
+        .route("/kv", get(kv::get_redis_value)) // Example Redis route
+        .route("/kv", post(kv::set_redis_value)) // POST route
         .route("/mail", post(mail::send_mail_handler))
         .with_state(shared_state);
 
@@ -70,5 +63,3 @@ async fn main() {
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3043").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
-
-

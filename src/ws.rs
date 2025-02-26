@@ -1,5 +1,4 @@
 use crate::model;
-use redis::{AsyncCommands, Commands, Client};
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -12,6 +11,7 @@ use axum::{
 };
 use futures::{SinkExt, StreamExt};
 use notify::{Event, RecursiveMode, Watcher};
+use redis::{AsyncCommands, Client, Commands};
 use serde::{Deserialize, Serialize};
 use similar::{ChangeTag, TextDiff};
 use std::{path::Path, sync::Arc};
@@ -24,8 +24,10 @@ use tokio::{
 };
 use tracing_subscriber;
 
-
-pub async fn websocket_handler(Query(params): Query<model::Params>, ws: WebSocketUpgrade) -> Response {
+pub async fn websocket_handler(
+    Query(params): Query<model::Params>,
+    ws: WebSocketUpgrade,
+) -> Response {
     let path = format!("/tmp/reports/{}.txt", params.filename);
     // Check if the file exists
     if fs::metadata(&path).await.is_err() {

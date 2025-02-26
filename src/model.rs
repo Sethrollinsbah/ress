@@ -1,7 +1,6 @@
+use redis;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use redis;
-
 
 #[derive(Deserialize)]
 pub struct Params {
@@ -33,7 +32,9 @@ pub struct RedisInput {
 
 #[derive(Serialize)]
 pub struct RedisResponse {
-    pub message: String,
+    pub key: String,
+    pub value: Option<String>,
+    pub status: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]

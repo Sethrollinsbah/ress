@@ -1,3 +1,6 @@
+use crate::kv;
+use anyhow;
+use serde_json;
 use crate::lighthouse;
 use crate::lighthouse::compute_averages;
 use crate::lighthouse::save_report;
@@ -525,7 +528,7 @@ struct UserData {
     status: u16,
 }
 
-async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Result<(), Error> {
+async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Result<(), anyhow::Error> {
     let client = Client::new();
     let namespace_id = "b40fac2149234730ae88f4bb8bbf3c78";
     let account_id = "0e9b5fad61935c0d6483962f4a522a89";
@@ -562,32 +565,26 @@ async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Resu
         name: "user".to_string(),
         status: 200,
     };
+    // Create Redis client
+    let redis_client =
+        redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
 
-    // Update KV storage
-    let response = client
-        .put(&api_base)
-        .header("X-Auth-Email", auth_email)
-        .header("X-Auth-Key", auth_key)
-        .json(&updated_data)
-        .send()
-        .await?;
-
-    if response.status().is_success() {
-        println!("Cloudflare KV updated successfully for domain: {}", domain);
-    } else {
-        eprintln!(
-            "Failed to update KV. Status: {} - {:?}",
-            response.status(),
-            response.text().await?
-        );
+    // Call the helper function and handle the result
+    match kv::set_redis_value_helper(&redis_client, 0, domain.to_string(), serde_json::to_string(&updated_data).unwrap()).await {
+        Ok(_) => {
+            println!("Cloudflare KV updated successfully for domain: {}", domain);
+            Ok(())
+        }
+        Err(e) => {
+            eprintln!("Failed to update KV: {}", e);
+            Err(anyhow::Error::msg(e.to_string()))  // If `Error` has a constructor that accepts `String`
+        }
     }
-
-    Ok(())
 }
 
 pub fn bun_log(domain: &str, text: &str) -> io::Result<()> {
     // Obtain the current UTC timestamp
-    let filename = format!("/tmp/reports/{}.txt", domain);
+    let filename = format!("/Users/sethrollins/dev/tmp/reports/{}.txt", domain);
     let timestamp = Utc::now().format("%Y-%m-%dT%H:%M:%S%.fZ");
 
     // Format the log entry with the timestamp
