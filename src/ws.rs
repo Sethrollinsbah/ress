@@ -14,7 +14,8 @@ use notify::{Event, RecursiveMode, Watcher};
 use redis::{AsyncCommands, Client, Commands};
 use serde::{Deserialize, Serialize};
 use similar::{ChangeTag, TextDiff};
-use std::{path::Path, sync::Arc};
+use std::{self,:wa
+    path::Path, sync::Arc};
 use tokio::sync::Mutex;
 use tokio::{
     fs::{self, File},
@@ -28,7 +29,7 @@ pub async fn websocket_handler(
     Query(params): Query<model::Params>,
     ws: WebSocketUpgrade,
 ) -> Response {
-    let path = format!("/tmp/reports/{}.txt", params.filename);
+    let path = format!("{}tmp/reports/{}.txt", stf::env::current_dir, params.filename);
     // Check if the file exists
     if fs::metadata(&path).await.is_err() {
         // If the file doesn't exist, return a 404 Not Found response

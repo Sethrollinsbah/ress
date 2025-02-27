@@ -244,7 +244,7 @@ discoverRoutes(SITE, maxLinks)
 export async function bunLog(domain: string, text: string): Promise<void> {
   // Ensure /tmp directory exists (just in case)
   const timestamp = new Date().toISOString();
-  const filename = `/Users/sethrollins/dev/tmp/reports/${domain}.txt`;
+  const filename = `./tmp/reports/${domain}.txt`;
 
   // Format the log entry with the timestamp
   const logEntry = `${timestamp}::${text}\n-----`;
