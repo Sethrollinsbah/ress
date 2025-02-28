@@ -1,49 +1,94 @@
-use crate::kv;
-use crate::lighthouse;
-use crate::lighthouse::compute_averages;
-use crate::lighthouse::save_report;
-use crate::mail;
-use crate::model;
-use crate::model::Root;
+// use crate::site_audit::;
+use crate::utils::{sanitize_filename, save_report, process_urls};
+
+
 use anyhow;
+use serde_json;
 use anyhow::{Context, Result};
 use axum::extract::Query;
 use chrono::Utc;
 use futures::StreamExt;
 use log::{info, warn};
-use reqwest::{Client, Error};
+use reqwest::{Client};
 use serde::{Deserialize, Serialize};
-use serde_json;
 use std::fs::OpenOptions;
-use std::io::{self, Write};
-use tokio;
-use tokio::fs;
+use std::io::{self};
 use tokio::io::AsyncReadExt;
 use tokio_stream::wrappers::ReadDirStream;
+//
 
-#[derive(Deserialize)]
-pub struct ParamsRunLighthouse {
-    domain: String,
-    email: String,
-    name: String,
+use crate::utils::{
+    delete_reports
+};
+use crate::mail;
+use crate::models;
+use crate::services::{
+    compute_score_stats, compute_averages,
+};
+use crate::utils::{
+    bun_log
+};
+use crate::api;
+use crate::models::CategoriesStats;
+use crate::models::AverageReport;
+use crate::models::ComprehensiveReport;
+use crate::models::Root;
+use crate::models::ScoreStats;
+use futures::future::join_all;
+use std::{
+    collections::HashMap,
+    error::Error,
+    fs::File,
+    io::{BufRead, BufReader, Write},
+    path::Path,
+    process::{Command, Stdio},
+};
+use tokio::{fs, task};
+
+pub async fn run_lighthouse(
+    url: &str,
+    baseurl: &str,
+    output_path: &str,
+) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let full_url = format!("https://{}{}", baseurl, url);
+    let full_local_path = format!("{}/{}.json", &output_path, sanitize_filename(&url));
+
+    // Execute the Lighthouse command with corrected arguments
+    let command = Command::new("lighthouse")
+        .arg(&full_url)
+        .arg("--output=json") // Combine output format flag
+        .arg("--no-enable-error-reporting")
+        .arg("--chrome-flags=\"--headless --no-sandbox\"") // Combine Chrome flags
+        .arg("--max-wait-for-load=120000")
+        .arg("--output-path")
+        .arg(full_local_path)
+        .stdout(Stdio::piped()) // Capture stdout as well
+        .stderr(Stdio::piped())
+        .spawn()?;
+
+    // Wait for the command to finish and capture output
+    let output = command.wait_with_output()?;
+
+    // Print stdout and stderr for debugging
+    // println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+    // println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+
+    // Check if the command succeeded
+    if !output.status.success() {
+        return Err(format!(
+            "Lighthouse failed for {}: {}",
+            full_url,
+            String::from_utf8_lossy(&output.stderr)
+        )
+        .into());
+    }
+
+    let _ = bun_log(&baseurl, &format!("Lighthouse report saved for URL"));
+    Ok(())
 }
 
-pub async fn run_lighthouse_handler(Query(params): Query<ParamsRunLighthouse>) -> &'static str {
-    println!("Started run lighthouse handler");
-    tokio::task::spawn(async move {
-        let _ = run_lighthouse_process(params.domain, params.email, params.name).await;
-    });
-    // match run_lighthouse_process(params.domain, params.email, params.name).await {
-    //     Ok(_) => Json(json!({"status": "success"})),
-    //     Err(e) => Json(json!({
-    //         "status": "error",
-    //         "message": e.to_string()
-    //     })),
-    // }
-    "OK"
-}
 
-async fn run_lighthouse_process(
+pub async fn run_lighthouse_process(
     domain: String,
     email: String,
     name: String,
@@ -282,7 +327,7 @@ async fn run_lighthouse_process(
 
     // println!("file_name: {}", &current_dir);
 
-    if let Err(e) = lighthouse::process_urls(&current_dir, &domain_tld).await {
+    if let Err(e) = process_urls(&current_dir, &domain_tld).await {
         // eprintln!("❌ process_urls failed: {}", e);
         let _ = bun_log(&domain, "❌ Error: Failed to process urls.");
         return Err(e.into()); // Ensure the error propagates if necessary
@@ -381,7 +426,7 @@ async fn run_lighthouse_process(
     let average_report = compute_averages(&reports);
     let _ = bun_log(&domain, "✅ Averages computed for reports");
 
-    let comprehensive_report = model::ComprehensiveReport {
+    let comprehensive_report = models::ComprehensiveReport {
         category_stats: average_report.category_stats,
         best_performance_page: average_report.best_performance_page,
         worst_performance_page: average_report.worst_performance_page,
@@ -454,162 +499,6 @@ async fn run_lighthouse_process(
     }
 
     let _ = delete_reports(&domain_tld).await;
-
-    Ok(())
-}
-
-async fn delete_reports(report_id: &str) -> Result<()> {
-    let _ = bun_log(&report_id, "Running cleanup on servers");
-    let email_list = vec!["sethryanrollins@gmail.com".to_string()];
-    match update_cloudflare_kv(&report_id, email_list).await {
-        Ok(response) => {
-            println!("Status: {:?}", response);
-        }
-        Err(e) => eprintln!("Error making request: {}", e),
-    }
-    let current_dir = std::env::current_dir().context("Failed to get current directory")?;
-
-    info!("Current directory: {}", current_dir.display());
-
-    // Define paths using PathBuf for better cross-platform compatibility
-    let paths = [
-        (
-            "directory",
-            current_dir.join("lighthouse_reports").join(report_id),
-        ),
-        (
-            "http report",
-            current_dir.join("http").join(format!("{}.txt", report_id)),
-        ),
-        (
-            "json report",
-            current_dir.join(format!(
-                "comprehensive_lighthouse_{}_report.json",
-                report_id
-            )),
-        ),
-    ];
-
-    // Process each path
-    for (path_type, path) in paths.iter() {
-        info!("Checking {} at path: {}", path_type, path.display());
-
-        if path.exists() {
-            info!("Found {} to delete", path_type);
-            match path_type {
-                &"directory" => {
-                    fs::remove_dir_all(path).await.with_context(|| {
-                        format!("Failed to delete directory: {}", path.display())
-                    })?;
-                }
-                _ => {
-                    fs::remove_file(path)
-                        .await
-                        .with_context(|| format!("Failed to delete file: {}", path.display()))?;
-                }
-            }
-            info!("Successfully deleted {}: {}", path_type, path.display());
-        } else {
-            warn!("{} not found at path: {}", path_type, path.display());
-        }
-    }
-    let _ = bun_log(&report_id, "Cleanup process complete");
-    let _ = bun_log(&report_id, "$REDIRECT::goto");
-    fs::remove_file(&format!("/tmp/reports/{}.txt", &report_id))
-        .await
-        .with_context(|| "Failed to delete file")?;
-
-    Ok(())
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-struct UserData {
-    email: Vec<String>,
-    name: String,
-    status: u16,
-}
-
-async fn update_cloudflare_kv(
-    domain: &str,
-    mut email_list: Vec<String>,
-) -> Result<(), anyhow::Error> {
-    let client = Client::new();
-    let namespace_id = "b40fac2149234730ae88f4bb8bbf3c78";
-    let account_id = "0e9b5fad61935c0d6483962f4a522a89";
-    let api_base = format!(
-        "https://api.cloudflare.com/client/v4/accounts/{}/storage/kv/namespaces/{}/values/{}",
-        account_id, namespace_id, domain
-    );
-
-    let auth_email = "sethryanrollins@gmail.com";
-    let auth_key = "295cf5944fd33c2f53a43dee2766cd1749ba6"; // Replace with env variable for security
-
-    // Fetch existing record
-    let existing_response = client
-        .get(&api_base)
-        .header("X-Auth-Email", auth_email)
-        .header("X-Auth-Key", auth_key)
-        .send()
-        .await?;
-
-    // let mut email_list = vec!["sethryanrollins@gmail.com".to_string()];
-
-    if existing_response.status().is_success() {
-        if let Ok(existing_data) = existing_response.json::<UserData>().await {
-            email_list = existing_data.email;
-            if !email_list.contains(&"sethryanrollins@gmail.com".to_string()) {
-                email_list.push("sethryanrollins@gmail.com".to_string());
-            }
-        }
-    }
-
-    // Updated data
-    let updated_data = UserData {
-        email: email_list,
-        name: "user".to_string(),
-        status: 200,
-    };
-    // Create Redis client
-    let redis_client =
-        redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
-
-    // Call the helper function and handle the result
-    match kv::set_redis_value_helper(
-        &redis_client,
-        0,
-        domain.to_string(),
-        serde_json::to_string(&updated_data).unwrap(),
-    )
-    .await
-    {
-        Ok(_) => {
-            println!("Cloudflare KV updated successfully for domain: {}", domain);
-            Ok(())
-        }
-        Err(e) => {
-            eprintln!("Failed to update KV: {}", e);
-            Err(anyhow::Error::msg(e.to_string())) // If `Error` has a constructor that accepts `String`
-        }
-    }
-}
-
-pub fn bun_log(domain: &str, text: &str) -> io::Result<()> {
-    // Obtain the current UTC timestamp
-    let base_dir = std::env::current_dir()?.join("tmp/reports");
-    let filename = base_dir.join(format!("{:?}.txt", base_dir));
-    let timestamp = Utc::now().format("%Y-%m-%dT%H:%M:%S%.fZ");
-
-    // Format the log entry with the timestamp
-    let log_entry = format!("{}::{}    \n-----", timestamp, text);
-
-    // Open the file in append mode, creating it if it doesn't exist
-    let mut file = OpenOptions::new()
-        .append(true)
-        .create(true)
-        .open(filename)?;
-
-    // Write the log entry to the file
-    file.write_all(log_entry.as_bytes())?;
 
     Ok(())
 }

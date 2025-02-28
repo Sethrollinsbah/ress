@@ -1,3 +1,12 @@
+mod utils;
+use crate::api::websocket_handler;
+mod services;
+
+mod models;
+mod api;
+
+use crate::utils::mail;
+use models::AppState;
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -10,6 +19,8 @@ use axum::{
 };
 use futures::{SinkExt, StreamExt};
 use notify::{Event, RecursiveMode, Watcher};
+use r2d2::Pool;
+use r2d2_sqlite::SqliteConnectionManager;
 use redis::{AsyncCommands, Client, Commands};
 use serde::{Deserialize, Serialize};
 use similar::{ChangeTag, TextDiff};
@@ -22,18 +33,25 @@ use tokio::{
     sync::mpsc::channel,
 };
 use tracing_subscriber;
-
-mod api;
-mod kv;
-mod lighthouse;
-mod mail;
-mod model;
-mod ws;
-
+use crate::models::{get_redis_value, set_redis_value, check_redis};
 #[tokio::main]
 async fn main() {
+    let manager = SqliteConnectionManager::file("data.db");
+    let db_pool = Pool::new(manager).expect("Failed to create database pool");
+
+    // Initialize table if needed
+    let conn = db_pool.get().expect("Failed to get db connection");
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS items (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        value TEXT
+    )",
+        [],
+    )
+    .expect("Failed to create table");
     // initialize tracing
-    if !kv::check_redis() {
+    if !check_redis() {
         println!("Redis is not running. Please start Redis.");
         std::process::exit(1);
     }
@@ -44,7 +62,10 @@ async fn main() {
     // Create Redis client
     let redis_client =
         redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
-    let shared_state = Arc::new(model::AppState { redis_client });
+    let shared_state = Arc::new(AppState {
+        redis_client,
+        db_pool,
+    });
 
     // build our application with a route
     let app = Router::new()
@@ -52,9 +73,9 @@ async fn main() {
             "/lighthouse",
             axum::routing::get(api::run_lighthouse_handler),
         )
-        .route("/ws", axum::routing::get(ws::websocket_handler))
-        .route("/kv", get(kv::get_redis_value)) // Example Redis route
-        .route("/kv", post(kv::set_redis_value)) // POST route
+        .route("/ws", axum::routing::get(websocket_handler))
+        .route("/kv", get(get_redis_value)) // Example Redis route
+        .route("/kv", post(set_redis_value)) // POST route
         .route("/mail", post(mail::send_mail_handler))
         .with_state(shared_state);
 

@@ -1,4 +1,4 @@
-use crate::model;
+use crate::models::{Params};
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -14,8 +14,7 @@ use notify::{Event, RecursiveMode, Watcher};
 use redis::{AsyncCommands, Client, Commands};
 use serde::{Deserialize, Serialize};
 use similar::{ChangeTag, TextDiff};
-use std::{self,:wa
-    path::Path, sync::Arc};
+use std::{self, path::Path, sync::Arc};
 use tokio::sync::Mutex;
 use tokio::{
     fs::{self, File},
@@ -26,16 +25,18 @@ use tokio::{
 use tracing_subscriber;
 
 pub async fn websocket_handler(
-    Query(params): Query<model::Params>,
+    Query(params): Query<Params>,
     ws: WebSocketUpgrade,
 ) -> Response {
-    let path = format!("{}tmp/reports/{}.txt", stf::env::current_dir, params.filename);
+    // Call the function and handle the Result
+    let current_dir = std::env::current_dir().unwrap_or_default();
+    let path = format!("{:?}/tmp/reports/{}.txt", current_dir, params.filename);
+
     // Check if the file exists
     if fs::metadata(&path).await.is_err() {
         // If the file doesn't exist, return a 404 Not Found response
         return axum::http::StatusCode::NOT_FOUND.into_response();
     }
-
     ws.on_upgrade(move |socket| handle_socket(socket, path))
 }
 
@@ -60,7 +61,7 @@ pub async fn read_file_contents(path: &str) -> Result<String, String> {
         Err(e) => Err(format!("Failed to read file: {}", e)),
     }
 }
-
+// m
 pub fn get_new_content(old_content: &str, new_content: &str) -> String {
     let diff = TextDiff::from_lines(old_content, new_content);
     let mut new_text = String::new();
@@ -74,6 +75,7 @@ pub fn get_new_content(old_content: &str, new_content: &str) -> String {
 
     new_text
 }
+
 
 pub async fn handle_socket(socket: WebSocket, path: String) {
     let (mut sender, mut receiver) = socket.split();
