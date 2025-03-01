@@ -34,3 +34,5 @@ redis = { version = "0.29.0", features = ["tokio-comp"] }
 rusqlite = { version = "0.33.0", features = ["bundled"] }
 r2d2 = "0.8.10"
 r2d2_sqlite = "0.26.0"
+lettre = "0.11.14"
+lettre_email = "0.9.4"

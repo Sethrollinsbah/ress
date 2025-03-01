@@ -84,3 +84,56 @@ async fn main() {
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3043").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use axum::{body::Body, http::{Request, StatusCode}, extract::State};
+    use axum::http::header;
+    use axum::response::IntoResponse;
+    use axum::routing::get;
+    use axum::Router;
+    use axum_test_helper::TestClient;
+    use redis::Commands;
+    use std::sync::Arc;
+    use tokio::sync::Mutex;
+
+    #[tokio::test]
+    async fn test_redis_kv_get_set() {
+        let manager = SqliteConnectionManager::memory();
+        let db_pool = Pool::new(manager).expect("Failed to create database pool");
+        let redis_client = redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
+        let shared_state = Arc::new(AppState {
+            redis_client: redis_client.clone(),
+            db_pool,
+        });
+
+        let app = Router::new()
+            .route("/kv", get(get_redis_value))
+            .route("/kv", post(set_redis_value))
+            .with_state(shared_state.clone());
+
+        let client = TestClient::new(app);
+
+        // Set a value
+        let set_response = client
+            .post("/kv")
+            .header(header::CONTENT_TYPE, "application/json")
+            .body(r#"{ "key": "test_key", "value": "test_value" }"#)
+            .send()
+            .await;
+
+        assert_eq!(set_response.status(), StatusCode::OK);
+
+        // Get the value
+        let get_response = client
+            .get("/kv?key=test_key")
+            .send()
+            .await;
+
+        assert_eq!(get_response.status(), StatusCode::OK);
+        let body = get_response.text().await;
+        assert!(body.contains(r#""value":"test_value""#));
+    }
+}
