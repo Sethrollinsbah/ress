@@ -28,6 +28,7 @@ pub async fn websocket_handler(
     Query(params): Query<Params>,
     ws: WebSocketUpgrade,
 ) -> Response {
+    println!("Called with params:{:?}", &params.filename);
     // Call the function and handle the Result
     let current_dir = std::env::current_dir().unwrap_or_default();
     let path = format!("{:?}/tmp/reports/{}.txt", current_dir, params.filename);

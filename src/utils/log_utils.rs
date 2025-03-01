@@ -4,6 +4,7 @@ use chrono::Utc;
 use std;
 
 pub fn bun_log(domain: &str, text: &str) -> io::Result<()> {
+    println!("{:?}", &text);
     // Obtain the current UTC timestamp
     let base_dir = std::env::current_dir()?.join("tmp/reports");
     let filename = base_dir.join(format!("{:?}.txt", base_dir));

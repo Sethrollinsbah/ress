@@ -79,9 +79,9 @@ async fn main() {
         .route("/mail", post(mail::send_mail_handler))
         .with_state(shared_state);
 
-    println!("🚀 Server running on http://0.0.0.0:3043");
+    println!("🚀 Server running on http://127.0.0.1:3043");
     // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3043").await.unwrap();
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3043").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
 
