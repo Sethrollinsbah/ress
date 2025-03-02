@@ -1,4 +1,4 @@
-use crate::models::{Params};
+use crate::models::Params;
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -24,10 +24,7 @@ use tokio::{
 };
 use tracing_subscriber;
 
-pub async fn websocket_handler(
-    Query(params): Query<Params>,
-    ws: WebSocketUpgrade,
-) -> Response {
+pub async fn websocket_handler(Query(params): Query<Params>, ws: WebSocketUpgrade) -> Response {
     println!("Called with params:{:?}", &params.filename);
     // Call the function and handle the Result
     let current_dir = std::env::current_dir().unwrap_or_default();
@@ -76,7 +73,6 @@ pub fn get_new_content(old_content: &str, new_content: &str) -> String {
 
     new_text
 }
-
 
 pub async fn handle_socket(socket: WebSocket, path: String) {
     let (mut sender, mut receiver) = socket.split();

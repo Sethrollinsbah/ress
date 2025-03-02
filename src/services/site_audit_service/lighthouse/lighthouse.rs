@@ -1,39 +1,32 @@
 // use crate::site_audit::;
-use crate::utils::{sanitize_filename, save_report, process_urls};
-
+use crate::utils::{process_urls, sanitize_filename, save_report};
 
 use anyhow;
-use serde_json;
 use anyhow::{Context, Result};
 use axum::extract::Query;
 use chrono::Utc;
 use futures::StreamExt;
 use log::{info, warn};
-use reqwest::{Client};
+use reqwest::Client;
 use serde::{Deserialize, Serialize};
+use serde_json;
 use std::fs::OpenOptions;
 use std::io::{self};
 use tokio::io::AsyncReadExt;
 use tokio_stream::wrappers::ReadDirStream;
 //
 
-use crate::utils::{
-    delete_reports
-};
+use crate::api;
 use crate::mail;
 use crate::models;
-use crate::services::{
-    compute_score_stats, compute_averages,
-};
-use crate::utils::{
-    bun_log
-};
-use crate::api;
-use crate::models::CategoriesStats;
 use crate::models::AverageReport;
+use crate::models::CategoriesStats;
 use crate::models::ComprehensiveReport;
 use crate::models::Root;
 use crate::models::ScoreStats;
+use crate::services::{compute_averages, compute_score_stats};
+use crate::utils::bun_log;
+use crate::utils::delete_reports;
 use futures::future::join_all;
 use std::{
     collections::HashMap,
@@ -86,7 +79,6 @@ pub async fn run_lighthouse(
     let _ = bun_log(&baseurl, &format!("Lighthouse report saved for URL"));
     Ok(())
 }
-
 
 pub async fn run_lighthouse_process(
     domain: String,

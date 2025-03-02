@@ -1,7 +1,7 @@
-use std::fs::OpenOptions;
-use std::io::{self, Write};
 use chrono::Utc;
 use std;
+use std::fs::OpenOptions;
+use std::io::{self, Write};
 
 pub fn bun_log(domain: &str, text: &str) -> io::Result<()> {
     println!("{:?}", &text);

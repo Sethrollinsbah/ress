@@ -1,8 +1,7 @@
-use crate::utils::bun_log;
 use crate::models::update_cloudflare_kv;
-use anyhow::{Result,Context};
-use crate::models::{
-ComprehensiveReport};
+use crate::models::ComprehensiveReport;
+use crate::utils::bun_log;
+use anyhow::{Context, Result};
 use std::fs::File;
 use tokio::fs;
 
@@ -30,7 +29,6 @@ pub async fn delete_reports(report_id: &str) -> Result<()> {
     }
     let current_dir = std::env::current_dir().context("Failed to get current directory")?;
 
-
     // Define paths using PathBuf for better cross-platform compatibility
     let paths = [
         (
@@ -52,7 +50,6 @@ pub async fn delete_reports(report_id: &str) -> Result<()> {
 
     // Process each path
     for (path_type, path) in paths.iter() {
-
         if path.exists() {
             match path_type {
                 &"directory" => {
@@ -66,7 +63,7 @@ pub async fn delete_reports(report_id: &str) -> Result<()> {
                         .with_context(|| format!("Failed to delete file: {}", path.display()))?;
                 }
             }
-        } 
+        }
     }
     let _ = bun_log(&report_id, "Cleanup process complete");
     let _ = bun_log(&report_id, "$REDIRECT::goto");
@@ -76,5 +73,3 @@ pub async fn delete_reports(report_id: &str) -> Result<()> {
 
     Ok(())
 }
-
-

@@ -1,5 +1,8 @@
+use crate::models::{
+    Audit, AverageReport, Categories, CategoriesStats, Category, ComprehensiveReport, Root,
+    ScoreStats,
+};
 use std::collections::HashMap;
-use crate::models::{ComprehensiveReport, AverageReport, Root, Category, Categories, Audit, ScoreStats, CategoriesStats};
 
 pub fn compute_score_stats(scores: &mut Vec<f64>) -> ScoreStats {
     scores.sort_by(|a, b| a.partial_cmp(b).unwrap());
@@ -104,5 +107,3 @@ pub fn compute_averages(reports: &[Root]) -> AverageReport {
             .collect(),
     }
 }
-
-

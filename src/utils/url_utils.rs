@@ -1,10 +1,10 @@
-use crate::utils::{bun_log};
-use crate::services;
-use crate::models::CategoriesStats;
 use crate::models::AverageReport;
+use crate::models::CategoriesStats;
 use crate::models::ComprehensiveReport;
 use crate::models::Root;
 use crate::models::ScoreStats;
+use crate::services;
+use crate::utils::bun_log;
 use futures::future::join_all;
 use std::{
     collections::HashMap,
@@ -35,7 +35,6 @@ pub async fn process_urls_from_file(
 
     Ok(urls) // ✅ Return the vector of URLs
 }
-
 
 pub async fn process_urls(
     current_dir: &str,

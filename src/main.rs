@@ -2,11 +2,11 @@ mod utils;
 use crate::api::websocket_handler;
 mod services;
 
-mod models;
 mod api;
+mod models;
 
+use crate::models::{check_redis, get_redis_value, set_redis_value};
 use crate::utils::mail;
-use models::AppState;
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -18,6 +18,7 @@ use axum::{
     Router,
 };
 use futures::{SinkExt, StreamExt};
+use models::AppState;
 use notify::{Event, RecursiveMode, Watcher};
 use r2d2::Pool;
 use r2d2_sqlite::SqliteConnectionManager;
@@ -33,7 +34,6 @@ use tokio::{
     sync::mpsc::channel,
 };
 use tracing_subscriber;
-use crate::models::{get_redis_value, set_redis_value, check_redis};
 #[tokio::main]
 async fn main() {
     let manager = SqliteConnectionManager::file("data.db");
@@ -77,23 +77,29 @@ async fn main() {
         .route("/kv", get(get_redis_value)) // Example Redis route
         .route("/kv", post(set_redis_value)) // POST route
         .route("/mail", post(mail::send_mail_handler))
+        // .route("/appointments", post())
         .with_state(shared_state);
 
     println!("🚀 Server running on http://127.0.0.1:3043");
     // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3043").await.unwrap();
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3043")
+        .await
+        .unwrap();
     axum::serve(listener, app).await.unwrap();
 }
-
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use axum::{body::Body, http::{Request, StatusCode}, extract::State};
     use axum::http::header;
     use axum::response::IntoResponse;
     use axum::routing::get;
     use axum::Router;
+    use axum::{
+        body::Body,
+        extract::State,
+        http::{Request, StatusCode},
+    };
     use axum_test_helper::TestClient;
     use redis::Commands;
     use std::sync::Arc;
@@ -103,7 +109,8 @@ mod tests {
     async fn test_redis_kv_get_set() {
         let manager = SqliteConnectionManager::memory();
         let db_pool = Pool::new(manager).expect("Failed to create database pool");
-        let redis_client = redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
+        let redis_client =
+            redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
         let shared_state = Arc::new(AppState {
             redis_client: redis_client.clone(),
             db_pool,
@@ -127,10 +134,7 @@ mod tests {
         assert_eq!(set_response.status(), StatusCode::OK);
 
         // Get the value
-        let get_response = client
-            .get("/kv?key=test_key")
-            .send()
-            .await;
+        let get_response = client.get("/kv?key=test_key").send().await;
 
         assert_eq!(get_response.status(), StatusCode::OK);
         let body = get_response.text().await;

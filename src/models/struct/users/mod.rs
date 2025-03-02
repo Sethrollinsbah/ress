@@ -1,5 +1,3 @@
-
-
 pub mod users;
 
-pub use users::{UserData};
+pub use users::UserData;

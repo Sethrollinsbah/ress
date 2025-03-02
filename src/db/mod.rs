@@ -1,6 +1,11 @@
 use rusqlite::{Connection, Result};
 use crate::models::app::AppState;
 use crate::models::{Person};
+use axum::{
+    http::{
+        StatusCode;
+    };
+};
 
 #[derive(Deserialize)]
 pub struct CreateLeadRequest {

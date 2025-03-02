@@ -1,4 +1,4 @@
-use crate::models::{AppState, UserData, RedisResponse, RedisInput, RedisSetParams,  RedisParams};
+use crate::models::{AppState, RedisInput, RedisParams, RedisResponse, RedisSetParams, UserData};
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
@@ -11,7 +11,7 @@ use axum::{
 };
 use futures::{SinkExt, StreamExt};
 use notify::{Event, RecursiveMode, Watcher};
-use redis::{self, AsyncCommands,  Commands};
+use redis::{self, AsyncCommands, Commands};
 use reqwest::{Client, Error};
 use serde::{Deserialize, Serialize};
 use similar::{ChangeTag, TextDiff};
@@ -187,7 +187,10 @@ pub async fn set_redis_value_helper(
     Ok(())
 }
 
-pub async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> Result<(), anyhow::Error> {
+pub async fn update_cloudflare_kv(
+    domain: &str,
+    mut email_list: Vec<String>,
+) -> Result<(), anyhow::Error> {
     let client = Client::new();
     let namespace_id = "b40fac2149234730ae88f4bb8bbf3c78";
     let account_id = "0e9b5fad61935c0d6483962f4a522a89";
@@ -229,14 +232,21 @@ pub async fn update_cloudflare_kv(domain: &str, mut email_list: Vec<String>) -> 
         redis::Client::open("redis://127.0.0.1/").expect("Failed to connect to Redis");
 
     // Call the helper function and handle the result
-    match set_redis_value_helper(&redis_client, 0, domain.to_string(), serde_json::to_string(&updated_data).unwrap()).await {
+    match set_redis_value_helper(
+        &redis_client,
+        0,
+        domain.to_string(),
+        serde_json::to_string(&updated_data).unwrap(),
+    )
+    .await
+    {
         Ok(_) => {
             println!("Cloudflare KV updated successfully for domain: {}", domain);
             Ok(())
         }
         Err(e) => {
             eprintln!("Failed to update KV: {}", e);
-            Err(anyhow::Error::msg(e.to_string()))  // If `Error` has a constructor that accepts `String`
+            Err(anyhow::Error::msg(e.to_string())) // If `Error` has a constructor that accepts `String`
         }
     }
 }

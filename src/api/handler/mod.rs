@@ -2,4 +2,4 @@
 
 pub mod handler;
 
-pub use handler::{run_lighthouse_handler};
+pub use handler::run_lighthouse_handler;

@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UserData {
@@ -6,5 +6,3 @@ pub struct UserData {
     pub name: String,
     pub status: u16,
 }
-
-

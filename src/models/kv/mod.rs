@@ -3,5 +3,5 @@
 pub mod models;
 pub mod util;
 
-pub use models::{RedisInput, RedisParams, RedisSetParams, RedisResponse};
-pub use util::{set_redis_value, get_redis_value, check_redis, update_cloudflare_kv};
+pub use models::{RedisInput, RedisParams, RedisResponse, RedisSetParams};
+pub use util::{check_redis, get_redis_value, set_redis_value, update_cloudflare_kv};

@@ -1,7 +1,7 @@
+use crate::models::lighthouse::audit::Audit;
+use crate::models::lighthouse::category::{Categories, CategoriesStats};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use crate::models::lighthouse::category::{Categories, CategoriesStats};
-use crate::models::lighthouse::audit::Audit;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ComprehensiveReport {

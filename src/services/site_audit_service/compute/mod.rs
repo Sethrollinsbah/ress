@@ -1,5 +1,3 @@
-
-
 pub mod stats;
 
-pub use stats::{compute_score_stats, compute_averages};
+pub use stats::{compute_averages, compute_score_stats};
