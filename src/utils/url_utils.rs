@@ -1,18 +1,11 @@
-use crate::models::AverageReport;
-use crate::models::CategoriesStats;
-use crate::models::ComprehensiveReport;
-use crate::models::Root;
-use crate::models::ScoreStats;
 use crate::services;
 use crate::utils::bun_log;
 use futures::future::join_all;
 use std::{
-    collections::HashMap,
     error::Error,
     fs::File,
     io::{BufRead, BufReader, Write},
     path::Path,
-    process::{Command, Stdio},
 };
 use tokio::{fs, task};
 
