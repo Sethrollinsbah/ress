@@ -1,0 +1,483 @@
+2025-03-02T21:54:31.405Z::Starting website mapping for https://planetbun.com/en/home
+-----2025-03-02T21:54:33.661Z::Navigating to: https://planetbun.com/en/home
+-----2025-03-02T21:54:35.605Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:35.606Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:35.660Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:35.682Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:35.759Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:36.466Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:36.467Z::PAGE ERROR on https://planetbun.com/en/home: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:36.989Z::Navigating to: https://planetbun.com/
+-----2025-03-02T21:54:37.255Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.256Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.256Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.257Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.257Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.259Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.259Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.259Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.260Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.260Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.260Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:37.260Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:38.752Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:38.752Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:38.753Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:38.757Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:38.790Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:39.016Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:39.023Z::PAGE ERROR on https://planetbun.com/en/home: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:40.555Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.556Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.556Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.558Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.569Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.570Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.572Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.573Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.596Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.597Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.597Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.598Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:40.623Z::Found 6 links on /
+-----2025-03-02T21:54:40.623Z::$FOUND_URL::["/","/en/quiz","/partners/001aq000007teyaAAA/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:54:40.624Z::Added to exploration queue: /en/quiz
+-----2025-03-02T21:54:40.624Z::Added to exploration queue: /partners/001aq000007teyaAAA/
+-----2025-03-02T21:54:40.624Z::Added to exploration queue: /en/terms
+-----2025-03-02T21:54:40.624Z::Added to exploration queue: /en/privacy
+-----2025-03-02T21:54:40.624Z::Added to exploration queue: /en/login
+-----2025-03-02T21:54:40.625Z::Total routes discovered: 6/30
+-----2025-03-02T21:54:40.625Z::Navigating to: https://planetbun.com/en/terms
+-----2025-03-02T21:54:41.283Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:41.284Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:41.285Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:41.285Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:41.517Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:41.518Z::PAGE ERROR on https://planetbun.com/en/terms: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:42.991Z::Found 4 links on /en/terms
+-----2025-03-02T21:54:42.991Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:54:42.991Z::Added to exploration queue: /en/privacy
+-----2025-03-02T21:54:42.991Z::Added to exploration queue: /en/login
+-----2025-03-02T21:54:42.992Z::Total routes discovered: 6/30
+-----2025-03-02T21:54:42.992Z::Navigating to: https://planetbun.com/en/privacy
+-----2025-03-02T21:54:43.521Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:43.521Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:43.521Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:43.522Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:43.952Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:43.953Z::PAGE ERROR on https://planetbun.com/en/privacy: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:45.525Z::Found 4 links on /en/privacy
+-----2025-03-02T21:54:45.525Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:54:45.526Z::Added to exploration queue: /en/login
+-----2025-03-02T21:54:45.526Z::Total routes discovered: 6/30
+-----2025-03-02T21:54:45.527Z::Navigating to: https://planetbun.com/en/login
+-----2025-03-02T21:54:46.276Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:46.325Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:46.330Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:46.331Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:46.683Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:46.685Z::PAGE ERROR on https://planetbun.com/en/login: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:47.359Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:47.831Z::Found 4 links on /en/login
+-----2025-03-02T21:54:47.831Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:54:47.831Z::Total routes discovered: 6/30
+-----2025-03-02T21:54:47.832Z::Navigating to: https://planetbun.com/en/quiz
+-----2025-03-02T21:54:48.564Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:48.566Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:48.567Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:48.567Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:49.077Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:49.078Z::PAGE ERROR on https://planetbun.com/en/quiz: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:51.072Z::Found 4 links on /en/quiz
+-----2025-03-02T21:54:51.073Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:54:51.073Z::Total routes discovered: 6/30
+-----2025-03-02T21:54:51.073Z::Navigating to: https://planetbun.com/partners/001aq000007teyaAAA/
+-----2025-03-02T21:54:51.552Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: the server responded with a status of 404 ()
+-----2025-03-02T21:54:51.631Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:51.631Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:51.636Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:51.637Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:51.637Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.749Z::Found 4 links on /partners/001aq000007teyaAAA/
+-----2025-03-02T21:54:52.749Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:54:52.749Z::Total routes discovered: 6/30
+-----2025-03-02T21:54:52.750Z::==========================================
+-----2025-03-02T21:54:52.750Z::CLIENT-SIDE ERROR SUMMARY
+-----2025-03-02T21:54:52.751Z::==========================================
+-----2025-03-02T21:54:52.751Z::
+URL: https://planetbun.com/en/home
+-----2025-03-02T21:54:52.751Z::Errors detected: 38
+-----2025-03-02T21:54:52.751Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.751Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  6. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  7. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:52.752Z::  8. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  9. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  10. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.752Z::  11. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.753Z::  12. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.753Z::  13. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.753Z::  14. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.753Z::  15. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.753Z::  16. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.753Z::  17. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  18. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  19. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  20. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  21. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  22. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  23. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  24. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  25. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.754Z::  26. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:52.755Z::  27. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.755Z::  28. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.755Z::  29. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.755Z::  30. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.755Z::  31. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  32. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  33. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  34. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  35. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  36. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  37. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::  38. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.756Z::
+URL: https://planetbun.com/en/terms
+-----2025-03-02T21:54:52.756Z::Errors detected: 6
+-----2025-03-02T21:54:52.756Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:52.757Z::
+URL: https://planetbun.com/en/privacy
+-----2025-03-02T21:54:52.757Z::Errors detected: 6
+-----2025-03-02T21:54:52.757Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.757Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.758Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.758Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.758Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:52.758Z::
+URL: https://planetbun.com/en/login
+-----2025-03-02T21:54:52.758Z::Errors detected: 7
+-----2025-03-02T21:54:52.758Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.758Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.758Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.758Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.759Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.759Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:52.759Z::  7. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.759Z::
+URL: https://planetbun.com/en/quiz
+-----2025-03-02T21:54:52.759Z::Errors detected: 6
+-----2025-03-02T21:54:52.759Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.759Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.760Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.760Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.760Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.760Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:54:52.760Z::
+URL: https://planetbun.com/partners/001aq000007teyaAAA/
+-----2025-03-02T21:54:52.760Z::Errors detected: 6
+-----2025-03-02T21:54:52.762Z::  1. Failed to load resource: the server responded with a status of 404 ()
+-----2025-03-02T21:54:52.762Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.762Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.762Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.762Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.763Z::  6. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:54:52.763Z::
+==========================================
+-----2025-03-02T21:54:52.763Z::TOTAL ERRORS: 69 across 6 pages
+-----2025-03-02T21:54:52.763Z::==========================================
+-----2025-03-02T21:54:52.764Z::Error report saved to ./tmp/reports/planetbun.com-errors.txt
+-----2025-03-02T21:54:53.243Z::Discovered Routes: 
+-----2025-03-02T21:54:53.244Z::/
+-----2025-03-02T21:54:53.244Z::/en/login
+-----2025-03-02T21:54:53.244Z::/en/privacy
+-----2025-03-02T21:54:53.244Z::/en/quiz
+-----2025-03-02T21:54:53.244Z::/en/terms
+-----2025-03-02T21:54:53.244Z::/partners/001aq000007teyaAAA/
+-----2025-03-02T21:54:53.247Z::Total unique routes discovered: 6
+-----2025-03-02T21:54:53.248Z::Website mapping completed successfully!
+-----2025-03-02T21:56:36.289Z::Starting website mapping for https://planetbun.com/en/home
+-----2025-03-02T21:56:38.588Z::Navigating to: https://planetbun.com/en/home
+-----2025-03-02T21:56:39.785Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:39.819Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:39.824Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:39.830Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:39.831Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:40.519Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:40.536Z::PAGE ERROR on https://planetbun.com/en/home: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:41.110Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.111Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.111Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.115Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.128Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.129Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.130Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.130Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.132Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.137Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.142Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.145Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:41.716Z::Navigating to: https://planetbun.com/
+-----2025-03-02T21:56:42.709Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:42.710Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:42.710Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:42.710Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:42.744Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:42.992Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:42.993Z::PAGE ERROR on https://planetbun.com/en/home: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:43.345Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.347Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.347Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.413Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.422Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.425Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.426Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.426Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.426Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.426Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.428Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:43.428Z::CLIENT ERROR on https://planetbun.com/en/home: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:44.882Z::Found 6 links on /
+-----2025-03-02T21:56:44.882Z::$FOUND_URL::["/","/en/quiz","/partners/001aq000007teyaAAA/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:56:44.882Z::Added to exploration queue: /en/quiz
+-----2025-03-02T21:56:44.883Z::Added to exploration queue: /partners/001aq000007teyaAAA/
+-----2025-03-02T21:56:44.883Z::Added to exploration queue: /en/terms
+-----2025-03-02T21:56:44.883Z::Added to exploration queue: /en/privacy
+-----2025-03-02T21:56:44.883Z::Added to exploration queue: /en/login
+-----2025-03-02T21:56:44.883Z::Total routes discovered: 6/30
+-----2025-03-02T21:56:44.883Z::Navigating to: https://planetbun.com/en/quiz
+-----2025-03-02T21:56:45.534Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:45.536Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:45.539Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:45.539Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:46.040Z::CLIENT ERROR on https://planetbun.com/en/quiz: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:46.042Z::PAGE ERROR on https://planetbun.com/en/quiz: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:46.980Z::Found 4 links on /en/quiz
+-----2025-03-02T21:56:46.981Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:56:46.981Z::Added to exploration queue: /en/terms
+-----2025-03-02T21:56:46.981Z::Added to exploration queue: /en/privacy
+-----2025-03-02T21:56:46.981Z::Added to exploration queue: /en/login
+-----2025-03-02T21:56:46.982Z::Total routes discovered: 6/30
+-----2025-03-02T21:56:46.982Z::Navigating to: https://planetbun.com/partners/001aq000007teyaAAA/
+-----2025-03-02T21:56:47.663Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: the server responded with a status of 404 ()
+-----2025-03-02T21:56:47.776Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:47.776Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:47.777Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:47.777Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:47.777Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:49.558Z::Found 4 links on /partners/001aq000007teyaAAA/
+-----2025-03-02T21:56:49.558Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:56:49.558Z::Added to exploration queue: /en/terms
+-----2025-03-02T21:56:49.558Z::Added to exploration queue: /en/privacy
+-----2025-03-02T21:56:49.558Z::Added to exploration queue: /en/login
+-----2025-03-02T21:56:49.558Z::Total routes discovered: 6/30
+-----2025-03-02T21:56:49.559Z::Navigating to: https://planetbun.com/en/terms
+-----2025-03-02T21:56:50.212Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:50.213Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:50.213Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:50.213Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:50.478Z::CLIENT ERROR on https://planetbun.com/en/terms: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:50.479Z::PAGE ERROR on https://planetbun.com/en/terms: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:52.784Z::Found 4 links on /en/terms
+-----2025-03-02T21:56:52.784Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:56:52.784Z::Added to exploration queue: /en/privacy
+-----2025-03-02T21:56:52.785Z::Added to exploration queue: /en/login
+-----2025-03-02T21:56:52.785Z::Total routes discovered: 6/30
+-----2025-03-02T21:56:52.785Z::Navigating to: https://planetbun.com/en/privacy
+-----2025-03-02T21:56:53.349Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:53.353Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:53.358Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:53.358Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:53.870Z::CLIENT ERROR on https://planetbun.com/en/privacy: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:53.878Z::PAGE ERROR on https://planetbun.com/en/privacy: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:55.478Z::Found 4 links on /en/privacy
+-----2025-03-02T21:56:55.478Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:56:55.478Z::Added to exploration queue: /en/login
+-----2025-03-02T21:56:55.478Z::Total routes discovered: 6/30
+-----2025-03-02T21:56:55.478Z::Navigating to: https://planetbun.com/en/login
+-----2025-03-02T21:56:56.176Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:56.180Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:56.181Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:56.182Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:57.075Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:57.089Z::PAGE ERROR on https://planetbun.com/en/login: Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:57.572Z::CLIENT ERROR on https://planetbun.com/en/login: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.425Z::Found 4 links on /en/login
+-----2025-03-02T21:56:58.425Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T21:56:58.438Z::Total routes discovered: 6/30
+-----2025-03-02T21:56:58.439Z::==========================================
+-----2025-03-02T21:56:58.439Z::CLIENT-SIDE ERROR SUMMARY
+-----2025-03-02T21:56:58.440Z::==========================================
+-----2025-03-02T21:56:58.441Z::
+URL: https://planetbun.com/en/home
+-----2025-03-02T21:56:58.441Z::Errors detected: 38
+-----2025-03-02T21:56:58.441Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.442Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.442Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.443Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.443Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.443Z::  6. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.444Z::  7. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:58.444Z::  8. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.444Z::  9. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.444Z::  10. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.444Z::  11. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.444Z::  12. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.445Z::  13. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.449Z::  14. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.449Z::  15. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.449Z::  16. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.453Z::  17. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.453Z::  18. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.454Z::  19. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.488Z::  20. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.489Z::  21. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.489Z::  22. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.490Z::  23. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.493Z::  24. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.496Z::  25. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.497Z::  26. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:58.499Z::  27. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.500Z::  28. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.500Z::  29. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.501Z::  30. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.502Z::  31. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.503Z::  32. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.504Z::  33. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.505Z::  34. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.505Z::  35. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.511Z::  36. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.512Z::  37. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.516Z::  38. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.518Z::
+URL: https://planetbun.com/en/quiz
+-----2025-03-02T21:56:58.518Z::Errors detected: 6
+-----2025-03-02T21:56:58.518Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.518Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.518Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.518Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.519Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.519Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:58.519Z::
+URL: https://planetbun.com/partners/001aq000007teyaAAA/
+-----2025-03-02T21:56:58.519Z::Errors detected: 6
+-----2025-03-02T21:56:58.519Z::  1. Failed to load resource: the server responded with a status of 404 ()
+-----2025-03-02T21:56:58.520Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.520Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.520Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.520Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.521Z::  6. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.521Z::
+URL: https://planetbun.com/en/terms
+-----2025-03-02T21:56:58.521Z::Errors detected: 6
+-----2025-03-02T21:56:58.521Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.521Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.521Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.522Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.522Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.522Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:58.522Z::
+URL: https://planetbun.com/en/privacy
+-----2025-03-02T21:56:58.522Z::Errors detected: 6
+-----2025-03-02T21:56:58.522Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.522Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.523Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.523Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.523Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.523Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:58.523Z::
+URL: https://planetbun.com/en/login
+-----2025-03-02T21:56:58.523Z::Errors detected: 7
+-----2025-03-02T21:56:58.523Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.523Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.523Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.524Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.524Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.524Z::  6. Unable to preload CSS for https://planetbun.com/_app/immutable/assets/1.Oj7B3pQf.css
+-----2025-03-02T21:56:58.524Z::  7. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T21:56:58.524Z::
+==========================================
+-----2025-03-02T21:56:58.524Z::TOTAL ERRORS: 69 across 6 pages
+-----2025-03-02T21:56:58.524Z::==========================================
+-----2025-03-02T21:56:58.525Z::Error report saved to ./tmp/reports/planetbun.com-errors.txt
+-----2025-03-02T21:56:59.398Z::Discovered Routes: 
+-----2025-03-02T21:56:59.399Z::/
+-----2025-03-02T21:56:59.399Z::/en/login
+-----2025-03-02T21:56:59.399Z::/en/privacy
+-----2025-03-02T21:56:59.399Z::/en/quiz
+-----2025-03-02T21:56:59.400Z::/en/terms
+-----2025-03-02T21:56:59.400Z::/partners/001aq000007teyaAAA/
+-----2025-03-02T21:56:59.400Z::Total unique routes discovered: 6
+-----2025-03-02T21:56:59.401Z::Website mapping completed successfully!
+-----2025-03-02T22:03:37.155Z::Starting website mapping for https://planetbun.com/en/home
+-----2025-03-02T22:03:40.044Z::Navigating to: https://planetbun.com/en/home
+-----2025-03-02T22:03:45.548Z::Navigating to: https://planetbun.com/
+-----2025-03-02T22:03:49.806Z::Found 6 links on /
+-----2025-03-02T22:03:49.806Z::$FOUND_URL::["/","/en/quiz","/partners/001aq000007teyaAAA/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T22:03:49.806Z::Added to exploration queue: /en/quiz
+-----2025-03-02T22:03:49.806Z::Added to exploration queue: /partners/001aq000007teyaAAA/
+-----2025-03-02T22:03:49.807Z::Added to exploration queue: /en/terms
+-----2025-03-02T22:03:49.807Z::Added to exploration queue: /en/privacy
+-----2025-03-02T22:03:49.807Z::Added to exploration queue: /en/login
+-----2025-03-02T22:03:49.807Z::Total routes discovered: 6/30
+-----2025-03-02T22:03:49.807Z::Navigating to: https://planetbun.com/en/quiz
+-----2025-03-02T22:03:52.374Z::Found 4 links on /en/quiz
+-----2025-03-02T22:03:52.374Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T22:03:52.375Z::Added to exploration queue: /en/terms
+-----2025-03-02T22:03:52.375Z::Added to exploration queue: /en/privacy
+-----2025-03-02T22:03:52.375Z::Added to exploration queue: /en/login
+-----2025-03-02T22:03:52.375Z::Total routes discovered: 6/30
+-----2025-03-02T22:03:52.376Z::Navigating to: https://planetbun.com/partners/001aq000007teyaAAA/
+-----2025-03-02T22:03:52.969Z::CLIENT ERROR on https://planetbun.com/partners/001aq000007teyaAAA/: Failed to load resource: the server responded with a status of 404 ()
+-----2025-03-02T22:03:56.345Z::Found 4 links on /partners/001aq000007teyaAAA/
+-----2025-03-02T22:03:56.345Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T22:03:56.346Z::Added to exploration queue: /en/terms
+-----2025-03-02T22:03:56.346Z::Added to exploration queue: /en/privacy
+-----2025-03-02T22:03:56.346Z::Added to exploration queue: /en/login
+-----2025-03-02T22:03:56.347Z::Total routes discovered: 6/30
+-----2025-03-02T22:03:56.347Z::Navigating to: https://planetbun.com/en/terms
+-----2025-03-02T22:03:58.743Z::Found 4 links on /en/terms
+-----2025-03-02T22:03:58.743Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T22:03:58.744Z::Added to exploration queue: /en/privacy
+-----2025-03-02T22:03:58.744Z::Added to exploration queue: /en/login
+-----2025-03-02T22:03:58.744Z::Total routes discovered: 6/30
+-----2025-03-02T22:03:58.744Z::Navigating to: https://planetbun.com/en/privacy
+-----2025-03-02T22:04:01.555Z::Found 4 links on /en/privacy
+-----2025-03-02T22:04:01.555Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T22:04:01.556Z::Added to exploration queue: /en/login
+-----2025-03-02T22:04:01.556Z::Total routes discovered: 6/30
+-----2025-03-02T22:04:01.556Z::Navigating to: https://planetbun.com/en/login
+-----2025-03-02T22:04:04.148Z::Found 4 links on /en/login
+-----2025-03-02T22:04:04.148Z::$FOUND_URL::["/","/en/terms","/en/privacy","/en/login"]
+-----2025-03-02T22:04:04.148Z::Total routes discovered: 6/30
+-----2025-03-02T22:04:04.151Z::==========================================
+-----2025-03-02T22:04:04.151Z::CLIENT-SIDE ERROR SUMMARY
+-----2025-03-02T22:04:04.151Z::==========================================
+-----2025-03-02T22:04:04.152Z::
+URL: https://planetbun.com/partners/001aq000007teyaAAA/
+-----2025-03-02T22:04:04.152Z::Errors detected: 1
+-----2025-03-02T22:04:04.152Z::  1. Failed to load resource: the server responded with a status of 404 ()
+-----2025-03-02T22:04:04.152Z::
+==========================================
+-----2025-03-02T22:04:04.152Z::TOTAL ERRORS: 1 across 1 pages
+-----2025-03-02T22:04:04.152Z::==========================================
+-----2025-03-02T22:04:04.154Z::Error report saved to ./tmp/reports/planetbun.com-errors.txt
+-----2025-03-02T22:04:04.672Z::Discovered Routes: 
+-----2025-03-02T22:04:04.673Z::/
+-----2025-03-02T22:04:04.673Z::/en/login
+-----2025-03-02T22:04:04.673Z::/en/privacy
+-----2025-03-02T22:04:04.673Z::/en/quiz
+-----2025-03-02T22:04:04.673Z::/en/terms
+-----2025-03-02T22:04:04.673Z::/partners/001aq000007teyaAAA/
+-----2025-03-02T22:04:04.673Z::Total unique routes discovered: 6
+-----2025-03-02T22:04:04.674Z::Website mapping completed successfully!
+-----

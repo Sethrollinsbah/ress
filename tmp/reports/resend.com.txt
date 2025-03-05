@@ -1,0 +1,165 @@
+2025-03-02T22:07:29.348Z::Starting website mapping for https://resend.com
+-----2025-03-02T22:07:32.559Z::Navigating to: https://resend.com
+-----2025-03-02T22:07:44.008Z::No client-side errors detected during crawl.
+-----2025-03-02T22:07:44.467Z::Discovered Routes: 
+-----2025-03-02T22:07:44.468Z::/about
+-----2025-03-02T22:07:44.468Z::/blog
+-----2025-03-02T22:07:44.468Z::/blog/introducing-new-email
+-----2025-03-02T22:07:44.468Z::/brand
+-----2025-03-02T22:07:44.469Z::/careers
+-----2025-03-02T22:07:44.469Z::/changelog
+-----2025-03-02T22:07:44.469Z::/channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-02T22:07:44.470Z::/company/resend
+-----2025-03-02T22:07:44.470Z::/contact
+-----2025-03-02T22:07:44.470Z::/customers
+-----2025-03-02T22:07:44.470Z::/docs
+-----2025-03-02T22:07:44.470Z::/docs/api-reference/introduction
+-----2025-03-02T22:07:44.470Z::/docs/dashboard/emails/send-test-emails
+-----2025-03-02T22:07:44.470Z::/docs/dashboard/webhooks/introduction
+-----2025-03-02T22:07:44.471Z::/docs/examples
+-----2025-03-02T22:07:44.471Z::/docs/integrations
+-----2025-03-02T22:07:44.471Z::/docs/introduction
+-----2025-03-02T22:07:44.471Z::/docs/sdks
+-----2025-03-02T22:07:44.471Z::/docs/send-with-nextjs
+-----2025-03-02T22:07:44.471Z::/features/audiences
+-----2025-03-02T22:07:44.472Z::/features/broadcasts
+-----2025-03-02T22:07:44.472Z::/get-started
+-----2025-03-02T22:07:44.472Z::/handbook/company/why-we-exist
+-----2025-03-02T22:07:44.472Z::/handbook/design/what-is-our-design-process
+-----2025-03-02T22:07:44.473Z::/handbook/engineering/what-is-our-tech-stack
+-----2025-03-02T22:07:44.473Z::/handbook/marketing/how-we-approach-marketing
+-----2025-03-02T22:07:44.473Z::/handbook/people/how-we-work
+-----2025-03-02T22:07:44.473Z::/handbook/support/how-we-help-users
+-----2025-03-02T22:07:44.473Z::/home
+-----2025-03-02T22:07:44.473Z::/legal/acceptable-use
+-----2025-03-02T22:07:44.474Z::/legal/cookie-policy
+-----2025-03-02T22:07:44.474Z::/legal/dpa
+-----2025-03-02T22:07:44.474Z::/legal/privacy-policy
+-----2025-03-02T22:07:44.474Z::/legal/subprocessors
+-----2025-03-02T22:07:44.474Z::/legal/terms-of-service
+-----2025-03-02T22:07:44.474Z::/login
+-----2025-03-02T22:07:44.475Z::/philosophy
+-----2025-03-02T22:07:44.475Z::/pricing
+-----2025-03-02T22:07:44.475Z::/resend
+-----2025-03-02T22:07:44.475Z::/resend/resend-node-example
+-----2025-03-02T22:07:44.475Z::/resend/resend-node-example/archive/refs/heads/main.zip
+-----2025-03-02T22:07:44.475Z::/security
+-----2025-03-02T22:07:44.476Z::/security/gdpr
+-----2025-03-02T22:07:44.476Z::/security/soc-2
+-----2025-03-02T22:07:44.476Z::/signup
+-----2025-03-02T22:07:44.476Z::/status
+-----2025-03-02T22:07:44.477Z::Total unique routes discovered: 46
+-----2025-03-02T22:07:44.477Z::Website mapping completed successfully!
+-----2025-03-02T22:17:31.396Z::Starting website mapping for https://resend.com
+-----2025-03-02T22:17:34.621Z::Navigating to: https://resend.com
+-----2025-03-02T22:17:35.322Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.390Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.391Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.392Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.392Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.393Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.394Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.395Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.396Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.397Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.398Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.399Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.399Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.399Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.400Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.400Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.402Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.404Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.460Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.461Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.794Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.800Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:35.803Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:37.998Z::RESOURCE ERROR on https://resend.com/: Failed to load fetch: https://resend.com/login?_rsc=p1ys2 - net::ERR_ABORTED
+-----2025-03-02T22:17:38.020Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.272Z::==========================================
+-----2025-03-02T22:17:43.272Z::CLIENT-SIDE ERROR SUMMARY
+-----2025-03-02T22:17:43.273Z::==========================================
+-----2025-03-02T22:17:43.273Z::
+URL: https://resend.com/
+-----2025-03-02T22:17:43.273Z::Errors detected: 25
+-----2025-03-02T22:17:43.273Z::  1. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.273Z::  2. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.273Z::  3. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  4. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  5. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  6. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  7. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  8. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  9. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.274Z::  10. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.275Z::  11. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.275Z::  12. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.275Z::  13. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.275Z::  14. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.275Z::  15. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.275Z::  16. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.276Z::  17. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.276Z::  18. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.276Z::  19. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.276Z::  20. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.276Z::  21. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.276Z::  22. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.277Z::  23. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.277Z::  24. Failed to load fetch: https://resend.com/login?_rsc=p1ys2 - net::ERR_ABORTED
+-----2025-03-02T22:17:43.277Z::  25. Failed to load resource: net::ERR_FAILED
+-----2025-03-02T22:17:43.277Z::
+==========================================
+-----2025-03-02T22:17:43.277Z::TOTAL ERRORS: 25 across 1 pages
+-----2025-03-02T22:17:43.277Z::==========================================
+-----2025-03-02T22:17:43.279Z::Error report saved to ./tmp/reports/resend.com-errors.txt
+-----2025-03-02T22:17:44.147Z::Discovered Routes: 
+-----2025-03-02T22:17:44.147Z::/about
+-----2025-03-02T22:17:44.147Z::/blog
+-----2025-03-02T22:17:44.147Z::/blog/introducing-new-email
+-----2025-03-02T22:17:44.148Z::/brand
+-----2025-03-02T22:17:44.148Z::/careers
+-----2025-03-02T22:17:44.148Z::/changelog
+-----2025-03-02T22:17:44.148Z::/channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-02T22:17:44.148Z::/company/resend
+-----2025-03-02T22:17:44.148Z::/contact
+-----2025-03-02T22:17:44.149Z::/customers
+-----2025-03-02T22:17:44.149Z::/docs
+-----2025-03-02T22:17:44.149Z::/docs/api-reference/introduction
+-----2025-03-02T22:17:44.149Z::/docs/dashboard/emails/send-test-emails
+-----2025-03-02T22:17:44.149Z::/docs/dashboard/webhooks/introduction
+-----2025-03-02T22:17:44.149Z::/docs/examples
+-----2025-03-02T22:17:44.150Z::/docs/integrations
+-----2025-03-02T22:17:44.150Z::/docs/introduction
+-----2025-03-02T22:17:44.150Z::/docs/sdks
+-----2025-03-02T22:17:44.150Z::/docs/send-with-nextjs
+-----2025-03-02T22:17:44.150Z::/features/audiences
+-----2025-03-02T22:17:44.150Z::/features/broadcasts
+-----2025-03-02T22:17:44.150Z::/get-started
+-----2025-03-02T22:17:44.150Z::/handbook/company/why-we-exist
+-----2025-03-02T22:17:44.151Z::/handbook/design/what-is-our-design-process
+-----2025-03-02T22:17:44.151Z::/handbook/engineering/what-is-our-tech-stack
+-----2025-03-02T22:17:44.151Z::/handbook/marketing/how-we-approach-marketing
+-----2025-03-02T22:17:44.151Z::/handbook/people/how-we-work
+-----2025-03-02T22:17:44.151Z::/handbook/support/how-we-help-users
+-----2025-03-02T22:17:44.151Z::/home
+-----2025-03-02T22:17:44.151Z::/legal/acceptable-use
+-----2025-03-02T22:17:44.151Z::/legal/cookie-policy
+-----2025-03-02T22:17:44.151Z::/legal/dpa
+-----2025-03-02T22:17:44.152Z::/legal/privacy-policy
+-----2025-03-02T22:17:44.152Z::/legal/subprocessors
+-----2025-03-02T22:17:44.153Z::/legal/terms-of-service
+-----2025-03-02T22:17:44.153Z::/login
+-----2025-03-02T22:17:44.153Z::/philosophy
+-----2025-03-02T22:17:44.154Z::/pricing
+-----2025-03-02T22:17:44.154Z::/resend
+-----2025-03-02T22:17:44.154Z::/resend/resend-node-example
+-----2025-03-02T22:17:44.154Z::/resend/resend-node-example/archive/refs/heads/main.zip
+-----2025-03-02T22:17:44.154Z::/security
+-----2025-03-02T22:17:44.155Z::/security/gdpr
+-----2025-03-02T22:17:44.155Z::/security/soc-2
+-----2025-03-02T22:17:44.155Z::/signup
+-----2025-03-02T22:17:44.155Z::/status
+-----2025-03-02T22:17:44.156Z::Total unique routes discovered: 46
+-----2025-03-02T22:17:44.156Z::Website mapping completed successfully!
+-----

@@ -17,7 +17,7 @@ use tokio_stream::wrappers::ReadDirStream;
 //
 
 use crate::api;
-use crate::mail;
+use crate::utils::mail;
 use crate::models;
 use crate::models::AverageReport;
 use crate::models::CategoriesStats;

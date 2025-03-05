@@ -1,4 +1,5 @@
 use axum::response::IntoResponse;
+use dotenv::dotenv;
 use axum::Json;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
@@ -41,7 +42,13 @@ pub async fn send_mail(
     subject: &str,
     html_body: &str,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let api_token = "Zoho-enczapikey wSsVR60n/BH5XK8pnDb8I7trkAtUBV32FER03QGg4iX1GqjLoMc8wRCcAwL1GfhJGWI7FjFD8L8vkE9T0zUPjt9+yg4DCSiF9mqRe1U4J3x17qnvhDzIXmVekRSAKosPwwtimWNkFMlu";
+    dotenv().ok();
+
+
+    // Retrieve API token, with error handling
+    let api_token = std::env::var("ZOHO_KEY")
+        .map_err(|_| "ZOHO_KEY environment variable not set")?;
+
     let client = Client::new();
 
     let email_request = EmailRequest {
