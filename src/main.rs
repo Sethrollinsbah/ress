@@ -74,6 +74,7 @@ fn initialize_database(
 async fn main() {
     dotenv().ok();
     let server_address = std::env::var("SERVER_ADDRESS");
+    let port_number = std::env::var("PORT_NUMBER");
     let manager = SqliteConnectionManager::file("data.db");
     let schema_file = "schema.sql";
     let db_pool = Pool::new(manager).expect("Failed to create database pool.");
@@ -119,9 +120,9 @@ match initialize_database(&db_pool, "./schema.sql") {
         // .route("/appointments", post())
         .with_state(shared_state);
 
-    println!("{:?}", format!("🚀 Server running on http://{:?}:3043", &server_address));
+    println!("{:?}", format!("🚀 Server running on http://{:?}:{:?}", &server_address, &port_number));
     // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind(format!("{:?}:3043", &server_address))
+    let listener = tokio::net::TcpListener::bind(format!("{:?}:{:?}", &server_address, &port_number))
         .await
         .unwrap();
     axum::serve(listener, app).await.unwrap();
