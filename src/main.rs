@@ -35,40 +35,10 @@ use tokio::{
     sync::mpsc::channel,
 };
 use tracing_subscriber;
+use log::{info, error};
 
 use rusqlite::{Connection, Result};
-fn initialize_database(
-    db_pool: &Pool<SqliteConnectionManager>, 
-    schema_file: &str
-) -> Result<(), Box<dyn std::error::Error>> {
-    // Get a connection from the pool
-    let conn = db_pool.get()?;
 
-    // Check if the SQL file exists
-    if Path::new(schema_file).exists() {
-        // Read the contents of the SQL file
-        let sql_script = stdfs::read_to_string(schema_file)
-            .map_err(|e| rusqlite::Error::InvalidParameterName(
-                format!("Failed to read SQL file: {}", e)
-            ))?;
-
-        // Split the script into individual statements
-        let statements = sql_script.split(';')
-            .filter(|s| !s.trim().is_empty());
-
-        // Execute each SQL statement
-        for statement in statements {
-            conn.execute(statement, [])?;
-        }
-
-    } else {
-        return Err(rusqlite::Error::InvalidParameterName(
-            "SQL initialization file not found".to_string()
-        ).into());
-    }
-
-    Ok(())
-}
 
 #[tokio::main]
 async fn main() {
@@ -79,29 +49,27 @@ async fn main() {
     let schema_file = "schema.sql";
     let db_pool = Pool::new(manager).expect("Failed to create database pool.");
     
-    // Optional: Run initialization SQL if needed
-match initialize_database(&db_pool, "./schema.sql") {
-
-    Ok(db_pool) => {
-        println!("Database initialized successfully");
-        // Use db_pool for further operations
-    },
-    Err(e) => {
-        eprintln!("Database initialization error: {}", e);
-        std::process::exit(1);
-    }
-}
-    if !check_redis() {
+    tracing_subscriber::fmt::init();
+    let redis_url = match std::env::var("REDIS_URL") {
+        Ok(url) => {
+            info!("Using Redis URL from environment: {}", url);
+            url
+        }
+        Err(_) => {
+            error!("REDIS_URL environment variable is not set");
+            std::process::exit(1);
+        }
+    };
+    // Create Redis client
+    let redis_client =
+        redis::Client::open(format!("{}", &redis_url)).expect("Failed to connect to Redis");
+        if !check_redis(&redis_url) {
         println!("Redis is not running. Please start Redis.");
         std::process::exit(1);
     }
 
     println!("Redis is running. Proceeding with application...");
-    tracing_subscriber::fmt::init();
 
-    // Create Redis client
-    let redis_client =
-        redis::Client::open(format!("redis://{:?}/", &server_address)).expect("Failed to connect to Redis");
     let shared_state = Arc::new(AppState {
         redis_client,
         db_pool,
@@ -122,7 +90,7 @@ match initialize_database(&db_pool, "./schema.sql") {
 
     println!("{:?}", format!("🚀 Server running on http://{:?}:{:?}", &server_address, &port_number));
     // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind(format!("{:?}:{:?}", &server_address, &port_number))
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3012")
         .await
         .unwrap();
     axum::serve(listener, app).await.unwrap();
@@ -153,7 +121,6 @@ mod tests {
             redis::Client::open(format!("redis://{}/", &server_address)).expect("Failed to connect to Redis");
         let shared_state = Arc::new(AppState {
             redis_client: redis_client.clone(),
-            db_pool,
         });
 
         let app = Router::new()

@@ -154,8 +154,8 @@ pub async fn set_redis_value(
     }
 }
 
-pub fn check_redis() -> bool {
-    match redis::Client::open("redis://127.0.0.1:6379").and_then(|client| client.get_connection()) {
+pub fn check_redis(redis_url: &str) -> bool {
+    match redis::Client::open(redis_url).and_then(|client| client.get_connection()) {
         Ok(mut con) => con.ping::<String>().is_ok(), // Specify `String` as the return type
         Err(_) => false,
     }
