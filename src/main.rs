@@ -62,6 +62,7 @@ async fn main() {
         )
     );
     // run our app with hyper, listening globally on port 3000
-    let listener = TcpListener::bind("0.0.0.0:3012").await.unwrap();
+    let port = port_number.unwrap_or_else(|_| "3012".to_string());
+let listener = TcpListener::bind(format!("[::]:{}", port)).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
