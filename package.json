@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "lighthouse": "^12.4.0",
-    "sqlite3": "^5.1.7"
-  }
-}
