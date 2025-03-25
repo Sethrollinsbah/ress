@@ -1,29 +1,13 @@
-2025-03-02T22:05:10.946Z::Starting website mapping for https://example.com
------2025-03-02T22:05:13.315Z::Navigating to: https://example.com
------2025-03-02T22:05:14.159Z::CLIENT ERROR on https://example.com/: Failed to load resource: the server responded with a status of 404 ()
------2025-03-02T22:05:17.480Z::Navigating to: https://example.com/domains/example
------2025-03-02T22:05:17.963Z::CLIENT ERROR on https://example.com/domains/example: Failed to load resource: the server responded with a status of 404 ()
------2025-03-02T22:05:21.971Z::Found 1 links on /domains/example
------2025-03-02T22:05:21.971Z::$FOUND_URL::["/domains/example"]
------2025-03-02T22:05:21.972Z::Total routes discovered: 1/30
------2025-03-02T22:05:21.972Z::==========================================
------2025-03-02T22:05:21.973Z::CLIENT-SIDE ERROR SUMMARY
------2025-03-02T22:05:21.973Z::==========================================
------2025-03-02T22:05:21.973Z::
-URL: https://example.com/
------2025-03-02T22:05:21.973Z::Errors detected: 1
------2025-03-02T22:05:21.973Z::  1. Failed to load resource: the server responded with a status of 404 ()
------2025-03-02T22:05:21.974Z::
-URL: https://example.com/domains/example
------2025-03-02T22:05:21.974Z::Errors detected: 1
------2025-03-02T22:05:21.974Z::  1. Failed to load resource: the server responded with a status of 404 ()
------2025-03-02T22:05:21.974Z::
-==========================================
------2025-03-02T22:05:21.974Z::TOTAL ERRORS: 2 across 2 pages
------2025-03-02T22:05:21.974Z::==========================================
------2025-03-02T22:05:21.975Z::Error report saved to ./tmp/reports/example.com-errors.txt
------2025-03-02T22:05:22.338Z::Discovered Routes: 
------2025-03-02T22:05:22.338Z::/domains/example
------2025-03-02T22:05:22.344Z::Total unique routes discovered: 1
------2025-03-02T22:05:22.345Z::Website mapping completed successfully!
+2025-03-23T23:55:45.884Z::Starting deep route discovery for https://example.com
+-----2025-03-23T23:55:45.893Z::ERROR: Crawl failed: Error: Could not find Chrome (ver. 134.0.6998.35). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: /Users/sethrollins/.cache/puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+-----2025-03-23T23:55:45.894Z::ERROR: Error when crawling webpage for links.
+-----2025-03-23T23:56:23.388Z::Starting deep route discovery for https://example.com
+-----2025-03-23T23:56:23.398Z::ERROR: Crawl failed: Error: Could not find Chrome (ver. 134.0.6998.35). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: /Users/sethrollins/.cache/puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+-----2025-03-23T23:56:23.398Z::ERROR: Error when crawling webpage for links.
 -----

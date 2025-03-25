@@ -5,10 +5,7 @@ pub mod app;
 pub mod database;
 pub mod kv;
 pub mod lighthouse;
-pub mod r#struct;
-pub mod appointments;
-
-pub use appointments::{Appointment, CreateAppointmentRequest, AppointmentResponse};
+pub mod users;
 pub use api::{Params, ParamsRunLighthouse};
 pub use app::AppState;
 pub use database::Person;
@@ -20,4 +17,4 @@ pub use lighthouse::{
     Audit, AverageReport, Categories, CategoriesStats, Category, ComprehensiveReport, Root,
     ScoreStats,
 };
-pub use r#struct::UserData;
+pub use users::UserData;

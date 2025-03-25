@@ -1,0 +1,13 @@
+{
+  "category_stats": {
+    "performance": null,
+    "accessibility": null,
+    "best_practices": null,
+    "seo": null,
+    "pwa": null
+  },
+  "best_performance_page": null,
+  "worst_performance_page": null,
+  "common_failing_audits": [],
+  "lighthouse_reports": []
+}

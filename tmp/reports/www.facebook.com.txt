@@ -1,0 +1,270 @@
+2025-03-25T03:19:34.234Z::Starting deep route discovery for https://www.facebook.com
+-----2025-03-25T03:19:37.446Z::Visiting: https://www.facebook.com
+-----2025-03-25T03:19:39.583Z::Visiting: https://www.facebook.com/
+-----2025-03-25T03:19:41.475Z::Found 43 links on /
+-----2025-03-25T03:19:41.475Z::$FOUND_URL::["/","/recover/initiate/","/r.php","/pages/create/","/","/","/","/","/","/","/","/","/","/","/reg/","/login/","/","/lite/","/watch/","/technologies/meta-pay","/","/quest/","/smart-glasses/","/","/l.php","/","/votinginformationcenter/","/privacy/policy/","/privacy/policies/health/","/privacy/center/","/","/ad_campaign/landing.php","/pages/create/","/","/careers/","/policies/cookies/","/help/568137493302217","/policies","/help/","/help/637205020878504","/settings","/allactivity","/login/"]
+-----2025-03-25T03:19:41.476Z::Added to explore queue: /recover/initiate/
+-----2025-03-25T03:19:41.476Z::Added to explore queue: /r.php
+-----2025-03-25T03:19:41.477Z::Added to explore queue: /pages/create/
+-----2025-03-25T03:19:41.477Z::Added to explore queue: /reg/
+-----2025-03-25T03:19:41.477Z::Added to explore queue: /login/
+-----2025-03-25T03:19:41.477Z::Added to explore queue: /lite/
+-----2025-03-25T03:19:41.477Z::Added to explore queue: /watch/
+-----2025-03-25T03:19:41.478Z::Added to explore queue: /technologies/meta-pay
+-----2025-03-25T03:19:41.478Z::Added to explore queue: /quest/
+-----2025-03-25T03:19:41.478Z::Added to explore queue: /smart-glasses/
+-----2025-03-25T03:19:41.478Z::Added to explore queue: /l.php
+-----2025-03-25T03:19:41.478Z::Added to explore queue: /votinginformationcenter/
+-----2025-03-25T03:19:41.478Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /privacy/center/
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /ad_campaign/landing.php
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /pages/create/
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /careers/
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:41.479Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:41.480Z::Added to explore queue: /policies
+-----2025-03-25T03:19:41.480Z::Added to explore queue: /help/
+-----2025-03-25T03:19:41.480Z::Added to explore queue: /help/637205020878504
+-----2025-03-25T03:19:41.480Z::Added to explore queue: /settings
+-----2025-03-25T03:19:41.480Z::Added to explore queue: /allactivity
+-----2025-03-25T03:19:41.481Z::Added to explore queue: /login/
+-----2025-03-25T03:19:41.481Z::Total routes found: 25/50
+-----2025-03-25T03:19:41.481Z::Visiting: https://www.facebook.com/recover/initiate/
+-----2025-03-25T03:19:44.155Z::Found 44 links on /recover/initiate/
+-----2025-03-25T03:19:44.156Z::$FOUND_URL::["/login/device-based/regular/login/","/recover/initiate","/login.php","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/login/identify/","/reg/","/login/","/","/lite/","/watch/","/technologies/meta-pay","/","/quest/","/smart-glasses/","/","/l.php","/","/votinginformationcenter/","/privacy/policy/","/privacy/policies/health/","/privacy/center/","/","/ad_campaign/landing.php","/pages/create/","/","/careers/","/policies/cookies/","/help/568137493302217","/policies","/help/","/help/637205020878504","/settings","/allactivity","/login/device-based/regular/login/","/ajax/login/help/identify.php"]
+-----2025-03-25T03:19:44.156Z::Added to explore queue: /login/device-based/regular/login/
+-----2025-03-25T03:19:44.156Z::Added to explore queue: /recover/initiate
+-----2025-03-25T03:19:44.157Z::Added to explore queue: /login.php
+-----2025-03-25T03:19:44.157Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.157Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.157Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.157Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.158Z::Added to explore queue: /login/identify/
+-----2025-03-25T03:19:44.159Z::Added to explore queue: /reg/
+-----2025-03-25T03:19:44.159Z::Added to explore queue: /login/
+-----2025-03-25T03:19:44.159Z::Added to explore queue: /lite/
+-----2025-03-25T03:19:44.159Z::Added to explore queue: /watch/
+-----2025-03-25T03:19:44.159Z::Added to explore queue: /technologies/meta-pay
+-----2025-03-25T03:19:44.159Z::Added to explore queue: /quest/
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /smart-glasses/
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /l.php
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /votinginformationcenter/
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /privacy/center/
+-----2025-03-25T03:19:44.160Z::Added to explore queue: /ad_campaign/landing.php
+-----2025-03-25T03:19:44.161Z::Added to explore queue: /pages/create/
+-----2025-03-25T03:19:44.161Z::Added to explore queue: /careers/
+-----2025-03-25T03:19:44.161Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:44.161Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:44.161Z::Added to explore queue: /policies
+-----2025-03-25T03:19:44.162Z::Added to explore queue: /help/
+-----2025-03-25T03:19:44.162Z::Added to explore queue: /help/637205020878504
+-----2025-03-25T03:19:44.162Z::Added to explore queue: /settings
+-----2025-03-25T03:19:44.162Z::Added to explore queue: /allactivity
+-----2025-03-25T03:19:44.162Z::Added to explore queue: /login/device-based/regular/login/
+-----2025-03-25T03:19:44.162Z::Added to explore queue: /ajax/login/help/identify.php
+-----2025-03-25T03:19:44.163Z::Total routes found: 30/50
+-----2025-03-25T03:19:44.163Z::Visiting: https://www.facebook.com/r.php
+-----2025-03-25T03:19:46.745Z::Found 43 links on /r.php
+-----2025-03-25T03:19:46.745Z::$FOUND_URL::["/","/recover/initiate/","/r.php","/pages/create/","/","/","/","/","/","/","/","/","/","/","/reg/","/login/","/","/lite/","/watch/","/technologies/meta-pay","/","/quest/","/smart-glasses/","/","/l.php","/","/votinginformationcenter/","/privacy/policy/","/privacy/policies/health/","/privacy/center/","/","/ad_campaign/landing.php","/pages/create/","/","/careers/","/policies/cookies/","/help/568137493302217","/policies","/help/","/help/637205020878504","/settings","/allactivity","/login/"]
+-----2025-03-25T03:19:46.746Z::Added to explore queue: /pages/create/
+-----2025-03-25T03:19:46.746Z::Added to explore queue: /reg/
+-----2025-03-25T03:19:46.746Z::Added to explore queue: /login/
+-----2025-03-25T03:19:46.746Z::Added to explore queue: /lite/
+-----2025-03-25T03:19:46.746Z::Added to explore queue: /watch/
+-----2025-03-25T03:19:46.746Z::Added to explore queue: /technologies/meta-pay
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /quest/
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /smart-glasses/
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /l.php
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /votinginformationcenter/
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:46.747Z::Added to explore queue: /privacy/center/
+-----2025-03-25T03:19:46.748Z::Added to explore queue: /ad_campaign/landing.php
+-----2025-03-25T03:19:46.748Z::Added to explore queue: /pages/create/
+-----2025-03-25T03:19:46.748Z::Added to explore queue: /careers/
+-----2025-03-25T03:19:46.748Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /policies
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /help/
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /help/637205020878504
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /settings
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /allactivity
+-----2025-03-25T03:19:46.749Z::Added to explore queue: /login/
+-----2025-03-25T03:19:46.750Z::Total routes found: 30/50
+-----2025-03-25T03:19:46.750Z::Visiting: https://www.facebook.com/pages/create/
+-----2025-03-25T03:19:49.567Z::Found 6 links on /pages/create/
+-----2025-03-25T03:19:49.567Z::$FOUND_URL::["/","/recover/initiate","/reg/","/r.php","/page_guidelines.php","/login/device-based/regular/login/"]
+-----2025-03-25T03:19:49.568Z::Added to explore queue: /recover/initiate
+-----2025-03-25T03:19:49.569Z::Added to explore queue: /reg/
+-----2025-03-25T03:19:49.569Z::Added to explore queue: /page_guidelines.php
+-----2025-03-25T03:19:49.569Z::Added to explore queue: /login/device-based/regular/login/
+-----2025-03-25T03:19:49.569Z::Total routes found: 31/50
+-----2025-03-25T03:19:49.570Z::Visiting: https://www.facebook.com/reg/
+-----2025-03-25T03:19:51.642Z::Found 43 links on /reg/
+-----2025-03-25T03:19:51.642Z::$FOUND_URL::["/","/recover/initiate/","/r.php","/pages/create/","/","/","/","/","/","/","/","/","/","/","/reg/","/login/","/","/lite/","/watch/","/technologies/meta-pay","/","/quest/","/smart-glasses/","/","/l.php","/","/votinginformationcenter/","/privacy/policy/","/privacy/policies/health/","/privacy/center/","/","/ad_campaign/landing.php","/pages/create/","/","/careers/","/policies/cookies/","/help/568137493302217","/policies","/help/","/help/637205020878504","/settings","/allactivity","/login/"]
+-----2025-03-25T03:19:51.643Z::Added to explore queue: /login/
+-----2025-03-25T03:19:51.643Z::Added to explore queue: /lite/
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /watch/
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /technologies/meta-pay
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /quest/
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /smart-glasses/
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /l.php
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /votinginformationcenter/
+-----2025-03-25T03:19:51.644Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /privacy/center/
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /ad_campaign/landing.php
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /careers/
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:51.645Z::Added to explore queue: /policies
+-----2025-03-25T03:19:51.646Z::Added to explore queue: /help/
+-----2025-03-25T03:19:51.646Z::Added to explore queue: /help/637205020878504
+-----2025-03-25T03:19:51.646Z::Added to explore queue: /settings
+-----2025-03-25T03:19:51.646Z::Added to explore queue: /allactivity
+-----2025-03-25T03:19:51.646Z::Added to explore queue: /login/
+-----2025-03-25T03:19:51.646Z::Total routes found: 31/50
+-----2025-03-25T03:19:51.647Z::Visiting: https://www.facebook.com/login/
+-----2025-03-25T03:19:53.128Z::Found 41 links on /login/
+-----2025-03-25T03:19:53.128Z::$FOUND_URL::["/login/","/recover/initiate/","/r.php","/login/","/login/","/login/","/login/","/login/","/login/","/login/","/login/","/login/","/login/","/reg/","/","/lite/","/watch/","/technologies/meta-pay","/","/quest/","/smart-glasses/","/","/l.php","/","/votinginformationcenter/","/privacy/policy/","/privacy/policies/health/","/privacy/center/","/","/ad_campaign/landing.php","/pages/create/","/","/careers/","/policies/cookies/","/help/568137493302217","/policies","/help/","/help/637205020878504","/settings","/allactivity","/login/device-based/regular/login/"]
+-----2025-03-25T03:19:53.129Z::Added to explore queue: /lite/
+-----2025-03-25T03:19:53.130Z::Added to explore queue: /watch/
+-----2025-03-25T03:19:53.130Z::Added to explore queue: /technologies/meta-pay
+-----2025-03-25T03:19:53.130Z::Added to explore queue: /quest/
+-----2025-03-25T03:19:53.130Z::Added to explore queue: /smart-glasses/
+-----2025-03-25T03:19:53.130Z::Added to explore queue: /l.php
+-----2025-03-25T03:19:53.130Z::Added to explore queue: /votinginformationcenter/
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /privacy/center/
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /ad_campaign/landing.php
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /careers/
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:53.131Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:53.132Z::Added to explore queue: /policies
+-----2025-03-25T03:19:53.132Z::Added to explore queue: /help/
+-----2025-03-25T03:19:53.132Z::Added to explore queue: /help/637205020878504
+-----2025-03-25T03:19:53.132Z::Added to explore queue: /settings
+-----2025-03-25T03:19:53.132Z::Added to explore queue: /allactivity
+-----2025-03-25T03:19:53.133Z::Added to explore queue: /login/device-based/regular/login/
+-----2025-03-25T03:19:53.133Z::Total routes found: 31/50
+-----2025-03-25T03:19:53.133Z::Visiting: https://www.facebook.com/lite/
+-----2025-03-25T03:19:54.681Z::Found 39 links on /lite/
+-----2025-03-25T03:19:54.681Z::$FOUND_URL::["/sideload/lite/googleplay/","/lite/","/lite/","/lite/","/lite/","/lite/","/lite/","/lite/","/lite/","/lite/","/lite/","/lite/","/reg/","/login/","/","/watch/","/technologies/meta-pay","/","/quest/","/smart-glasses/","/","/l.php","/","/votinginformationcenter/","/privacy/policy/","/privacy/policies/health/","/privacy/center/","/","/ad_campaign/landing.php","/pages/create/","/","/careers/","/policies/cookies/","/help/568137493302217","/policies","/help/","/help/637205020878504","/settings","/allactivity"]
+-----2025-03-25T03:19:54.681Z::Added to explore queue: /sideload/lite/googleplay/
+-----2025-03-25T03:19:54.682Z::Added to explore queue: /watch/
+-----2025-03-25T03:19:54.682Z::Added to explore queue: /technologies/meta-pay
+-----2025-03-25T03:19:54.682Z::Added to explore queue: /quest/
+-----2025-03-25T03:19:54.682Z::Added to explore queue: /smart-glasses/
+-----2025-03-25T03:19:54.682Z::Added to explore queue: /l.php
+-----2025-03-25T03:19:54.682Z::Added to explore queue: /votinginformationcenter/
+-----2025-03-25T03:19:54.683Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:54.683Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:54.683Z::Added to explore queue: /privacy/center/
+-----2025-03-25T03:19:54.683Z::Added to explore queue: /ad_campaign/landing.php
+-----2025-03-25T03:19:54.683Z::Added to explore queue: /careers/
+-----2025-03-25T03:19:54.683Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:54.684Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:54.684Z::Added to explore queue: /policies
+-----2025-03-25T03:19:54.684Z::Added to explore queue: /help/
+-----2025-03-25T03:19:54.684Z::Added to explore queue: /help/637205020878504
+-----2025-03-25T03:19:54.684Z::Added to explore queue: /settings
+-----2025-03-25T03:19:54.685Z::Added to explore queue: /allactivity
+-----2025-03-25T03:19:54.685Z::Total routes found: 32/50
+-----2025-03-25T03:19:54.685Z::Visiting: https://www.facebook.com/watch/
+-----2025-03-25T03:19:58.547Z::Found 48 links on /watch/
+-----2025-03-25T03:19:58.547Z::$FOUND_URL::["/login/device-based/regular/login/","/recover/initiate","/watch/","/watch/live/","/reel/","/watch/shows/","/watch/topic/","/watch/hashtag/","/privacy/policy/","/privacy/policies/health/","/policies","/business/","/help/568137493302217","/policies/cookies/","/100044337223804/videos/1030726568912358/","/watch/100044337223804/","/watch/100044337223804/","/61553650461977/videos/1391640611968631/","/watch/61553650461977/","/watch/61553650461977/","/100058775405086/videos/483845817649897/","/watch/100058775405086/","/watch/100058775405086/","/100082812126326/videos/1255536878846978/","/watch/100082812126326/","/watch/100082812126326/","/100059510560668/videos/647413801210568/","/watch/100059510560668/","/watch/100059510560668/","/100063916321715/videos/1631110641103177/","/watch/100063916321715/","/watch/100063916321715/","/61553650461977/videos/2097634840752549/","/watch/61553650461977/","/watch/61553650461977/","/100064811313777/videos/1913458922393772/","/watch/100064811313777/","/watch/100064811313777/","/reel/2562504370626204/","/reel/1181419180342596/","/reel/648109327946986/","/reel/517906534695855/","/reel/1075728887932268/","/reel/689792386901569/","/reel/4395063374054028/","/reel/1129867108940854/","/reel/449247664876741/","/login/device-based/regular/login/"]
+-----2025-03-25T03:19:58.548Z::Added to explore queue: /login/device-based/regular/login/
+-----2025-03-25T03:19:58.548Z::Added to explore queue: /recover/initiate
+-----2025-03-25T03:19:58.548Z::Added to explore queue: /watch/live/
+-----2025-03-25T03:19:58.548Z::Added to explore queue: /reel/
+-----2025-03-25T03:19:58.548Z::Added to explore queue: /watch/shows/
+-----2025-03-25T03:19:58.548Z::Added to explore queue: /watch/topic/
+-----2025-03-25T03:19:58.549Z::Added to explore queue: /watch/hashtag/
+-----2025-03-25T03:19:58.549Z::Added to explore queue: /privacy/policy/
+-----2025-03-25T03:19:58.549Z::Added to explore queue: /privacy/policies/health/
+-----2025-03-25T03:19:58.549Z::Added to explore queue: /policies
+-----2025-03-25T03:19:58.549Z::Added to explore queue: /business/
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /help/568137493302217
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /policies/cookies/
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /100044337223804/videos/1030726568912358/
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /watch/100044337223804/
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /watch/100044337223804/
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /61553650461977/videos/1391640611968631/
+-----2025-03-25T03:19:58.550Z::Added to explore queue: /watch/61553650461977/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /watch/61553650461977/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /100058775405086/videos/483845817649897/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /watch/100058775405086/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /watch/100058775405086/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /100082812126326/videos/1255536878846978/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /watch/100082812126326/
+-----2025-03-25T03:19:58.551Z::Added to explore queue: /watch/100082812126326/
+-----2025-03-25T03:19:58.552Z::Added to explore queue: /100059510560668/videos/647413801210568/
+-----2025-03-25T03:19:58.552Z::Added to explore queue: /watch/100059510560668/
+-----2025-03-25T03:19:58.552Z::Added to explore queue: /watch/100059510560668/
+-----2025-03-25T03:19:58.552Z::Added to explore queue: /100063916321715/videos/1631110641103177/
+-----2025-03-25T03:19:58.552Z::Added to explore queue: /watch/100063916321715/
+-----2025-03-25T03:19:58.552Z::Total routes found: 50/50
+-----2025-03-25T03:19:58.981Z::Discovered Routes: 
+-----2025-03-25T03:19:58.981Z::/
+-----2025-03-25T03:19:58.981Z::/100044337223804/videos/1030726568912358/
+-----2025-03-25T03:19:58.981Z::/100058775405086/videos/483845817649897/
+-----2025-03-25T03:19:58.981Z::/100059510560668/videos/647413801210568/
+-----2025-03-25T03:19:58.982Z::/100063916321715/videos/1631110641103177/
+-----2025-03-25T03:19:58.982Z::/100082812126326/videos/1255536878846978/
+-----2025-03-25T03:19:58.982Z::/61553650461977/videos/1391640611968631/
+-----2025-03-25T03:19:58.982Z::/ad_campaign/landing.php
+-----2025-03-25T03:19:58.982Z::/ajax/login/help/identify.php
+-----2025-03-25T03:19:58.982Z::/allactivity
+-----2025-03-25T03:19:58.982Z::/business/
+-----2025-03-25T03:19:58.983Z::/careers/
+-----2025-03-25T03:19:58.983Z::/help/
+-----2025-03-25T03:19:58.983Z::/help/568137493302217
+-----2025-03-25T03:19:58.983Z::/help/637205020878504
+-----2025-03-25T03:19:58.983Z::/l.php
+-----2025-03-25T03:19:58.983Z::/lite/
+-----2025-03-25T03:19:58.983Z::/login.php
+-----2025-03-25T03:19:58.983Z::/login/
+-----2025-03-25T03:19:58.984Z::/login/device-based/regular/login/
+-----2025-03-25T03:19:58.984Z::/login/identify/
+-----2025-03-25T03:19:58.984Z::/page_guidelines.php
+-----2025-03-25T03:19:58.984Z::/pages/create/
+-----2025-03-25T03:19:58.984Z::/policies
+-----2025-03-25T03:19:58.984Z::/policies/cookies/
+-----2025-03-25T03:19:58.985Z::/privacy/center/
+-----2025-03-25T03:19:58.985Z::/privacy/policies/health/
+-----2025-03-25T03:19:58.985Z::/privacy/policy/
+-----2025-03-25T03:19:58.985Z::/quest/
+-----2025-03-25T03:19:58.985Z::/r.php
+-----2025-03-25T03:19:58.985Z::/recover/initiate
+-----2025-03-25T03:19:58.985Z::/recover/initiate/
+-----2025-03-25T03:19:58.985Z::/reel/
+-----2025-03-25T03:19:58.986Z::/reg/
+-----2025-03-25T03:19:58.986Z::/settings
+-----2025-03-25T03:19:58.986Z::/sideload/lite/googleplay/
+-----2025-03-25T03:19:58.986Z::/smart-glasses/
+-----2025-03-25T03:19:58.986Z::/technologies/meta-pay
+-----2025-03-25T03:19:58.986Z::/votinginformationcenter/
+-----2025-03-25T03:19:58.986Z::/watch/
+-----2025-03-25T03:19:58.986Z::/watch/100044337223804/
+-----2025-03-25T03:19:58.987Z::/watch/100058775405086/
+-----2025-03-25T03:19:58.987Z::/watch/100059510560668/
+-----2025-03-25T03:19:58.987Z::/watch/100063916321715/
+-----2025-03-25T03:19:58.987Z::/watch/100082812126326/
+-----2025-03-25T03:19:58.987Z::/watch/61553650461977/
+-----2025-03-25T03:19:58.987Z::/watch/hashtag/
+-----2025-03-25T03:19:58.987Z::/watch/live/
+-----2025-03-25T03:19:58.987Z::/watch/shows/
+-----2025-03-25T03:19:58.987Z::/watch/topic/
+-----2025-03-25T03:19:58.988Z::Total unique routes found: 50
+-----2025-03-25T03:19:58.988Z::Deep route discovery completed!
+-----

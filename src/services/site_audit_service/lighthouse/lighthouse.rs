@@ -62,11 +62,6 @@ pub async fn run_lighthouse(
     // Wait for the command to finish and capture output
     let output = command.wait_with_output()?;
 
-    // Print stdout and stderr for debugging
-    // println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-    // println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
-
-    // Check if the command succeeded
     if !output.status.success() {
         return Err(format!(
             "Lighthouse failed for {}: {}",
@@ -85,12 +80,13 @@ pub async fn run_lighthouse_process(
     email: String,
     name: String,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let file = std::fs::File::create(format!("/tmp/reports/{}.txt", &domain));
+    let file = std::fs::File::create(format!("/Users/sethrollins/tmp/reports/{}.txt", &domain));
     let _ = bun_log(
         &domain,
         &format!("Initializing website crawl on {}", &domain),
     );
     let starting_subject = format!("Website Scan in Progress: {}", &domain);
+
     let starting_message = format!("<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -238,6 +234,7 @@ pub async fn run_lighthouse_process(
 </html>", &domain,  &domain,  &domain);
 
     let completion_subject = format!("Website Scan Results: {}", &domain);
+
     let completion_mail = format!("
         <!DOCTYPE html>
 <html lang=\"en\">
@@ -309,18 +306,24 @@ pub async fn run_lighthouse_process(
         .to_string();
 
     let _ = bun_log(&domain, "Starting to crawl the domain.");
-    std::process::Command::new("bun")
-        .args([
-            &format!("{}/unlit/index.ts", &current_dir),
-            &format!("siteUrl=https://{}", &domain_tld),
-            "maxLinks=100",
-        ])
-        .status()?;
+    // std::process::Command::new("bun")
+    //     .args([
+    //         &format!("{}/unlit/index.ts", &current_dir),
+    //         &format!("siteUrl=https://{}", &domain_tld),
+    //         "maxLinks=100",
+    //     ])
+    //     .status()?;
+
+    let body = reqwest::get(&format!("http://localhost:3000/crawl?url=https://{}&maxRoutes=50", &domain_tld))
+    .await?
+    .text()
+    .await?;
+
+println!("body = {body:?}");
 
     // println!("file_name: {}", &current_dir);
 
     if let Err(e) = process_urls(&current_dir, &domain_tld).await {
-        // eprintln!("❌ process_urls failed: {}", e);
         let _ = bun_log(&domain, "❌ Error: Failed to process urls.");
         return Err(e.into()); // Ensure the error propagates if necessary
     } else {
@@ -383,10 +386,6 @@ pub async fn run_lighthouse_process(
                                             entry.path()
                                         ),
                                     );
-                                    // eprintln!(
-                                    //     entry.path(),
-                                    //     e
-                                    // );
                                 }
                             }
                         }
@@ -395,7 +394,6 @@ pub async fn run_lighthouse_process(
                                 &domain,
                                 &format!("❌ Error reading file  {:?}", entry.path()),
                             );
-                            // eprintln!("❌ Error reading file {:?}: {}", entry.path(), e);
                         }
                     }
                 }
@@ -404,7 +402,6 @@ pub async fn run_lighthouse_process(
                         &domain,
                         &format!("❌ EError opening file  {:?}", entry.path()),
                     );
-                    // eprintln!("❌ {:?}: {}", entry.path(), e);
                 }
             }
         } else {

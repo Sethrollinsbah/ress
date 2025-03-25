@@ -1,0 +1,141 @@
+2025-03-25T03:23:02.445Z::Starting deep route discovery for https://www.google.com
+-----2025-03-25T03:23:04.343Z::Visiting: https://www.google.com
+-----2025-03-25T03:23:07.423Z::Visiting: https://www.google.com/
+-----2025-03-25T03:23:10.581Z::Found 19 links on /
+-----2025-03-25T03:23:10.581Z::$FOUND_URL::["/","/US","/mail/&ogbl","/imghp","/intl/en/about/products","/ServiceLogin","/search","/intl/en_us/ads/","/services/","/search/howsearchworks/","/","/privacy","/terms","/preferences","/advanced_search","/history/privacyadvisor/search/unauth","/history/optout","/websearch/","/search"]
+-----2025-03-25T03:23:10.583Z::Added to explore queue: /US
+-----2025-03-25T03:23:10.583Z::Added to explore queue: /mail/&ogbl
+-----2025-03-25T03:23:10.583Z::Added to explore queue: /imghp
+-----2025-03-25T03:23:10.583Z::Added to explore queue: /intl/en/about/products
+-----2025-03-25T03:23:10.583Z::Added to explore queue: /ServiceLogin
+-----2025-03-25T03:23:10.583Z::Added to explore queue: /search
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /intl/en_us/ads/
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /services/
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /search/howsearchworks/
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /privacy
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /terms
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /preferences
+-----2025-03-25T03:23:10.584Z::Added to explore queue: /advanced_search
+-----2025-03-25T03:23:10.585Z::Added to explore queue: /history/privacyadvisor/search/unauth
+-----2025-03-25T03:23:10.585Z::Added to explore queue: /history/optout
+-----2025-03-25T03:23:10.585Z::Added to explore queue: /websearch/
+-----2025-03-25T03:23:10.585Z::Added to explore queue: /search
+-----2025-03-25T03:23:10.585Z::Total routes found: 17/50
+-----2025-03-25T03:23:10.585Z::Visiting: https://www.google.com/US
+-----2025-03-25T03:23:12.431Z::Found 1 links on /US
+-----2025-03-25T03:23:12.431Z::$FOUND_URL::["/"]
+-----2025-03-25T03:23:12.431Z::Total routes found: 17/50
+-----2025-03-25T03:23:12.431Z::Visiting: https://www.google.com/mail/&ogbl
+-----2025-03-25T03:23:14.863Z::Found 1 links on /mail/&ogbl
+-----2025-03-25T03:23:14.863Z::$FOUND_URL::["/"]
+-----2025-03-25T03:23:14.864Z::Total routes found: 17/50
+-----2025-03-25T03:23:14.864Z::Visiting: https://www.google.com/imghp
+-----2025-03-25T03:23:17.424Z::Found 13 links on /imghp
+-----2025-03-25T03:23:17.424Z::$FOUND_URL::["/intl/en/about/products","/ServiceLogin","/","/intl/en_us/ads/","/services/","/search/howsearchworks/","/privacy","/terms","/preferences","/advanced_image_search","/history/optout","/websearch/","/search"]
+-----2025-03-25T03:23:17.425Z::Added to explore queue: /intl/en/about/products
+-----2025-03-25T03:23:17.425Z::Added to explore queue: /ServiceLogin
+-----2025-03-25T03:23:17.425Z::Added to explore queue: /intl/en_us/ads/
+-----2025-03-25T03:23:17.425Z::Added to explore queue: /services/
+-----2025-03-25T03:23:17.426Z::Added to explore queue: /search/howsearchworks/
+-----2025-03-25T03:23:17.426Z::Added to explore queue: /privacy
+-----2025-03-25T03:23:17.426Z::Added to explore queue: /terms
+-----2025-03-25T03:23:17.426Z::Added to explore queue: /preferences
+-----2025-03-25T03:23:17.426Z::Added to explore queue: /advanced_image_search
+-----2025-03-25T03:23:17.426Z::Added to explore queue: /history/optout
+-----2025-03-25T03:23:17.427Z::Added to explore queue: /websearch/
+-----2025-03-25T03:23:17.427Z::Added to explore queue: /search
+-----2025-03-25T03:23:17.427Z::Total routes found: 18/50
+-----2025-03-25T03:23:17.427Z::Visiting: https://www.google.com/intl/en/about/products
+-----2025-03-25T03:23:20.742Z::Found 157 links on /intl/en/about/products
+-----2025-03-25T03:23:20.743Z::$FOUND_URL::["/products/","/","/google-in-america/","/products/","/commitments/","/","/","/accessibility/answer/7641084","/","/products/","/search/howsearchworks/","/new-features-on-android/","/phones/","/tablets/","/","/auto/","/category/phones","/","/certificates/","/playlist","/applied-digital-skills/","/intl/en_us/","/intl/en_us/auto/","/tv/","/calendar/about/","/cars/","/chrome/","/","/chromebook/","/product/chromecast","/store/apps/details","/docs/about/","/webstore/detail/google-drawings/mkaakpdehdafacodkgkpghoibnmamcme","/drive/","/earth/","/edu/expeditions/","/familylink/","/","/finance","/flights","/forms/about/","/store/apps/details","/","/intl/en_us/mail/help/about.html","/alerts","/","/","/store/apps/details","/cast/","/products/chat/","/workspace-for-education/classroom/","/about/","/store/apps/details","/fonts","/for-everyone/health-studies","/welcome","/inputtools/","/maps/about/","/products/meet/","/about","/about/","/photos/about","/store","/store/apps/details","/store/apps/details","/u/0/","/regionpicker/","/","/","/","/","/keep/","/ways-to-search/lens/","/","/category/connected_home","/product/nest_wifi","/","/category/phones","/product/pixel_buds","/product/pixelbook_go","/play-protect/","/intl/en-US/scholar/about.html","/","/sheets/about/","/new","/slides/about/","/about","/travel/","/","/","/","/yt/about/","/2015/02/youtube-kids.html","/musicpremium","/","/admob/","/adsense/start/","/analytics/","/android/","/features","/","/business/","/search/","/home/","/home/","/business/","/","/digitalgarage","/maps/products/mapsapi.html","/","/retail/shopping-campaigns/","/trends/","/webdesigner/","/retail/solutions/manufacturer-center/","/retail/merchant-center/","/business/","/webmasters/tools/home","/retail/local-inventory-ads/","/tagmanager/","/","/business-communications/business-messages/guides","/products/","/google/","/user/Google","/google","/Google","/company/google","/intl/es_us/products/","/","/brand-resource-center/","/","/contact-google/","/","/investor/","/locations/","/press/","/accessibility","/","/","/","/","/","/","/","/","/","/","/","/","/","/human-rights/","/","/progress/supplier-responsibility/","/","/","/privacy","/terms"]
+-----2025-03-25T03:23:20.744Z::Added to explore queue: /products/
+-----2025-03-25T03:23:20.744Z::Added to explore queue: /google-in-america/
+-----2025-03-25T03:23:20.744Z::Added to explore queue: /products/
+-----2025-03-25T03:23:20.744Z::Added to explore queue: /commitments/
+-----2025-03-25T03:23:20.744Z::Added to explore queue: /accessibility/answer/7641084
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /products/
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /search/howsearchworks/
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /new-features-on-android/
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /phones/
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /tablets/
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /auto/
+-----2025-03-25T03:23:20.745Z::Added to explore queue: /category/phones
+-----2025-03-25T03:23:20.746Z::Added to explore queue: /certificates/
+-----2025-03-25T03:23:20.746Z::Added to explore queue: /playlist
+-----2025-03-25T03:23:20.746Z::Added to explore queue: /applied-digital-skills/
+-----2025-03-25T03:23:20.746Z::Added to explore queue: /intl/en_us/
+-----2025-03-25T03:23:20.746Z::Added to explore queue: /intl/en_us/auto/
+-----2025-03-25T03:23:20.746Z::Added to explore queue: /tv/
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /calendar/about/
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /cars/
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /chrome/
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /chromebook/
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /product/chromecast
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /store/apps/details
+-----2025-03-25T03:23:20.747Z::Added to explore queue: /docs/about/
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /webstore/detail/google-drawings/mkaakpdehdafacodkgkpghoibnmamcme
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /drive/
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /earth/
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /edu/expeditions/
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /familylink/
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /finance
+-----2025-03-25T03:23:20.748Z::Added to explore queue: /flights
+-----2025-03-25T03:23:20.749Z::Added to explore queue: /forms/about/
+-----2025-03-25T03:23:20.749Z::Added to explore queue: /store/apps/details
+-----2025-03-25T03:23:20.749Z::Added to explore queue: /intl/en_us/mail/help/about.html
+-----2025-03-25T03:23:20.749Z::Added to explore queue: /alerts
+-----2025-03-25T03:23:20.749Z::Total routes found: 50/50
+-----2025-03-25T03:23:21.117Z::Discovered Routes: 
+-----2025-03-25T03:23:21.117Z::/
+-----2025-03-25T03:23:21.117Z::/ServiceLogin
+-----2025-03-25T03:23:21.118Z::/US
+-----2025-03-25T03:23:21.118Z::/accessibility/answer/7641084
+-----2025-03-25T03:23:21.118Z::/advanced_image_search
+-----2025-03-25T03:23:21.118Z::/advanced_search
+-----2025-03-25T03:23:21.118Z::/alerts
+-----2025-03-25T03:23:21.118Z::/applied-digital-skills/
+-----2025-03-25T03:23:21.119Z::/auto/
+-----2025-03-25T03:23:21.119Z::/calendar/about/
+-----2025-03-25T03:23:21.119Z::/cars/
+-----2025-03-25T03:23:21.119Z::/category/phones
+-----2025-03-25T03:23:21.119Z::/certificates/
+-----2025-03-25T03:23:21.119Z::/chrome/
+-----2025-03-25T03:23:21.119Z::/chromebook/
+-----2025-03-25T03:23:21.120Z::/commitments/
+-----2025-03-25T03:23:21.120Z::/docs/about/
+-----2025-03-25T03:23:21.120Z::/drive/
+-----2025-03-25T03:23:21.120Z::/earth/
+-----2025-03-25T03:23:21.120Z::/edu/expeditions/
+-----2025-03-25T03:23:21.120Z::/familylink/
+-----2025-03-25T03:23:21.121Z::/finance
+-----2025-03-25T03:23:21.121Z::/flights
+-----2025-03-25T03:23:21.121Z::/forms/about/
+-----2025-03-25T03:23:21.121Z::/google-in-america/
+-----2025-03-25T03:23:21.121Z::/history/optout
+-----2025-03-25T03:23:21.121Z::/history/privacyadvisor/search/unauth
+-----2025-03-25T03:23:21.122Z::/imghp
+-----2025-03-25T03:23:21.122Z::/intl/en/about/products
+-----2025-03-25T03:23:21.122Z::/intl/en_us/
+-----2025-03-25T03:23:21.122Z::/intl/en_us/ads/
+-----2025-03-25T03:23:21.122Z::/intl/en_us/auto/
+-----2025-03-25T03:23:21.122Z::/intl/en_us/mail/help/about.html
+-----2025-03-25T03:23:21.122Z::/mail/&ogbl
+-----2025-03-25T03:23:21.122Z::/new-features-on-android/
+-----2025-03-25T03:23:21.123Z::/phones/
+-----2025-03-25T03:23:21.123Z::/playlist
+-----2025-03-25T03:23:21.123Z::/preferences
+-----2025-03-25T03:23:21.123Z::/privacy
+-----2025-03-25T03:23:21.123Z::/product/chromecast
+-----2025-03-25T03:23:21.123Z::/products/
+-----2025-03-25T03:23:21.123Z::/search
+-----2025-03-25T03:23:21.124Z::/search/howsearchworks/
+-----2025-03-25T03:23:21.124Z::/services/
+-----2025-03-25T03:23:21.124Z::/store/apps/details
+-----2025-03-25T03:23:21.124Z::/tablets/
+-----2025-03-25T03:23:21.124Z::/terms
+-----2025-03-25T03:23:21.124Z::/tv/
+-----2025-03-25T03:23:21.125Z::/websearch/
+-----2025-03-25T03:23:21.125Z::/webstore/detail/google-drawings/mkaakpdehdafacodkgkpghoibnmamcme
+-----2025-03-25T03:23:21.125Z::Total unique routes found: 50
+-----2025-03-25T03:23:21.125Z::Deep route discovery completed!
+-----

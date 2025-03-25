@@ -1,165 +1,420 @@
-2025-03-02T22:07:29.348Z::Starting website mapping for https://resend.com
------2025-03-02T22:07:32.559Z::Navigating to: https://resend.com
------2025-03-02T22:07:44.008Z::No client-side errors detected during crawl.
------2025-03-02T22:07:44.467Z::Discovered Routes: 
------2025-03-02T22:07:44.468Z::/about
------2025-03-02T22:07:44.468Z::/blog
------2025-03-02T22:07:44.468Z::/blog/introducing-new-email
------2025-03-02T22:07:44.468Z::/brand
------2025-03-02T22:07:44.469Z::/careers
------2025-03-02T22:07:44.469Z::/changelog
------2025-03-02T22:07:44.469Z::/channel/UC0FkhoSz2kYqHVBk4L0QYIg
------2025-03-02T22:07:44.470Z::/company/resend
------2025-03-02T22:07:44.470Z::/contact
------2025-03-02T22:07:44.470Z::/customers
------2025-03-02T22:07:44.470Z::/docs
------2025-03-02T22:07:44.470Z::/docs/api-reference/introduction
------2025-03-02T22:07:44.470Z::/docs/dashboard/emails/send-test-emails
------2025-03-02T22:07:44.470Z::/docs/dashboard/webhooks/introduction
------2025-03-02T22:07:44.471Z::/docs/examples
------2025-03-02T22:07:44.471Z::/docs/integrations
------2025-03-02T22:07:44.471Z::/docs/introduction
------2025-03-02T22:07:44.471Z::/docs/sdks
------2025-03-02T22:07:44.471Z::/docs/send-with-nextjs
------2025-03-02T22:07:44.471Z::/features/audiences
------2025-03-02T22:07:44.472Z::/features/broadcasts
------2025-03-02T22:07:44.472Z::/get-started
------2025-03-02T22:07:44.472Z::/handbook/company/why-we-exist
------2025-03-02T22:07:44.472Z::/handbook/design/what-is-our-design-process
------2025-03-02T22:07:44.473Z::/handbook/engineering/what-is-our-tech-stack
------2025-03-02T22:07:44.473Z::/handbook/marketing/how-we-approach-marketing
------2025-03-02T22:07:44.473Z::/handbook/people/how-we-work
------2025-03-02T22:07:44.473Z::/handbook/support/how-we-help-users
------2025-03-02T22:07:44.473Z::/home
------2025-03-02T22:07:44.473Z::/legal/acceptable-use
------2025-03-02T22:07:44.474Z::/legal/cookie-policy
------2025-03-02T22:07:44.474Z::/legal/dpa
------2025-03-02T22:07:44.474Z::/legal/privacy-policy
------2025-03-02T22:07:44.474Z::/legal/subprocessors
------2025-03-02T22:07:44.474Z::/legal/terms-of-service
------2025-03-02T22:07:44.474Z::/login
------2025-03-02T22:07:44.475Z::/philosophy
------2025-03-02T22:07:44.475Z::/pricing
------2025-03-02T22:07:44.475Z::/resend
------2025-03-02T22:07:44.475Z::/resend/resend-node-example
------2025-03-02T22:07:44.475Z::/resend/resend-node-example/archive/refs/heads/main.zip
------2025-03-02T22:07:44.475Z::/security
------2025-03-02T22:07:44.476Z::/security/gdpr
------2025-03-02T22:07:44.476Z::/security/soc-2
------2025-03-02T22:07:44.476Z::/signup
------2025-03-02T22:07:44.476Z::/status
------2025-03-02T22:07:44.477Z::Total unique routes discovered: 46
------2025-03-02T22:07:44.477Z::Website mapping completed successfully!
------2025-03-02T22:17:31.396Z::Starting website mapping for https://resend.com
------2025-03-02T22:17:34.621Z::Navigating to: https://resend.com
------2025-03-02T22:17:35.322Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.390Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.391Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.392Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.392Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.393Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.394Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.395Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.396Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.397Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.398Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.399Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.399Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.399Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.400Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.400Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.402Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.404Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.460Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.461Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.794Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.800Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:35.803Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:37.998Z::RESOURCE ERROR on https://resend.com/: Failed to load fetch: https://resend.com/login?_rsc=p1ys2 - net::ERR_ABORTED
------2025-03-02T22:17:38.020Z::CLIENT ERROR on https://resend.com/: Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.272Z::==========================================
------2025-03-02T22:17:43.272Z::CLIENT-SIDE ERROR SUMMARY
------2025-03-02T22:17:43.273Z::==========================================
------2025-03-02T22:17:43.273Z::
-URL: https://resend.com/
------2025-03-02T22:17:43.273Z::Errors detected: 25
------2025-03-02T22:17:43.273Z::  1. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.273Z::  2. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.273Z::  3. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  4. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  5. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  6. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  7. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  8. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  9. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.274Z::  10. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.275Z::  11. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.275Z::  12. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.275Z::  13. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.275Z::  14. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.275Z::  15. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.275Z::  16. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.276Z::  17. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.276Z::  18. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.276Z::  19. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.276Z::  20. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.276Z::  21. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.276Z::  22. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.277Z::  23. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.277Z::  24. Failed to load fetch: https://resend.com/login?_rsc=p1ys2 - net::ERR_ABORTED
------2025-03-02T22:17:43.277Z::  25. Failed to load resource: net::ERR_FAILED
------2025-03-02T22:17:43.277Z::
-==========================================
------2025-03-02T22:17:43.277Z::TOTAL ERRORS: 25 across 1 pages
------2025-03-02T22:17:43.277Z::==========================================
------2025-03-02T22:17:43.279Z::Error report saved to ./tmp/reports/resend.com-errors.txt
------2025-03-02T22:17:44.147Z::Discovered Routes: 
------2025-03-02T22:17:44.147Z::/about
------2025-03-02T22:17:44.147Z::/blog
------2025-03-02T22:17:44.147Z::/blog/introducing-new-email
------2025-03-02T22:17:44.148Z::/brand
------2025-03-02T22:17:44.148Z::/careers
------2025-03-02T22:17:44.148Z::/changelog
------2025-03-02T22:17:44.148Z::/channel/UC0FkhoSz2kYqHVBk4L0QYIg
------2025-03-02T22:17:44.148Z::/company/resend
------2025-03-02T22:17:44.148Z::/contact
------2025-03-02T22:17:44.149Z::/customers
------2025-03-02T22:17:44.149Z::/docs
------2025-03-02T22:17:44.149Z::/docs/api-reference/introduction
------2025-03-02T22:17:44.149Z::/docs/dashboard/emails/send-test-emails
------2025-03-02T22:17:44.149Z::/docs/dashboard/webhooks/introduction
------2025-03-02T22:17:44.149Z::/docs/examples
------2025-03-02T22:17:44.150Z::/docs/integrations
------2025-03-02T22:17:44.150Z::/docs/introduction
------2025-03-02T22:17:44.150Z::/docs/sdks
------2025-03-02T22:17:44.150Z::/docs/send-with-nextjs
------2025-03-02T22:17:44.150Z::/features/audiences
------2025-03-02T22:17:44.150Z::/features/broadcasts
------2025-03-02T22:17:44.150Z::/get-started
------2025-03-02T22:17:44.150Z::/handbook/company/why-we-exist
------2025-03-02T22:17:44.151Z::/handbook/design/what-is-our-design-process
------2025-03-02T22:17:44.151Z::/handbook/engineering/what-is-our-tech-stack
------2025-03-02T22:17:44.151Z::/handbook/marketing/how-we-approach-marketing
------2025-03-02T22:17:44.151Z::/handbook/people/how-we-work
------2025-03-02T22:17:44.151Z::/handbook/support/how-we-help-users
------2025-03-02T22:17:44.151Z::/home
------2025-03-02T22:17:44.151Z::/legal/acceptable-use
------2025-03-02T22:17:44.151Z::/legal/cookie-policy
------2025-03-02T22:17:44.151Z::/legal/dpa
------2025-03-02T22:17:44.152Z::/legal/privacy-policy
------2025-03-02T22:17:44.152Z::/legal/subprocessors
------2025-03-02T22:17:44.153Z::/legal/terms-of-service
------2025-03-02T22:17:44.153Z::/login
------2025-03-02T22:17:44.153Z::/philosophy
------2025-03-02T22:17:44.154Z::/pricing
------2025-03-02T22:17:44.154Z::/resend
------2025-03-02T22:17:44.154Z::/resend/resend-node-example
------2025-03-02T22:17:44.154Z::/resend/resend-node-example/archive/refs/heads/main.zip
------2025-03-02T22:17:44.154Z::/security
------2025-03-02T22:17:44.155Z::/security/gdpr
------2025-03-02T22:17:44.155Z::/security/soc-2
------2025-03-02T22:17:44.155Z::/signup
------2025-03-02T22:17:44.155Z::/status
------2025-03-02T22:17:44.156Z::Total unique routes discovered: 46
------2025-03-02T22:17:44.156Z::Website mapping completed successfully!
+2025-03-24T00:19:56.737Z::Starting deep route discovery for https://resend.com
+-----2025-03-24T00:19:58.922Z::Visiting: https://resend.com
+-----2025-03-24T00:20:03.710Z::Visiting: https://resend.com/home
+-----2025-03-24T00:20:06.665Z::Found 48 links on /home
+-----2025-03-24T00:20:06.665Z::$FOUND_URL::["/home","/pricing","/login","/signup","/forward","/docs","/resend/resend-node-example","/resend/resend-node-example/archive/refs/heads/main.zip","/docs/dashboard/emails/send-test-emails","/docs/dashboard/webhooks/introduction","/features/audiences","/features/broadcasts","/docs","/get-started","/docs/send-with-nextjs","/contact","/resend","/resend","/company/resend","/channel/UC0FkhoSz2kYqHVBk4L0QYIg","/status","/docs/introduction","/docs/api-reference/introduction","/docs/integrations","/docs/examples","/docs/sdks","/changelog","/security","/security/soc-2","/security/gdpr","/brand","/about","/blog","/careers","/customers","/philosophy","/handbook/company/why-we-exist","/handbook/people/how-we-work","/handbook/engineering/what-is-our-tech-stack","/handbook/design/what-is-our-design-process","/handbook/support/how-we-help-users","/handbook/marketing/how-we-approach-marketing","/legal/acceptable-use","/legal/cookie-policy","/legal/privacy-policy","/legal/terms-of-service","/legal/subprocessors","/legal/dpa"]
+-----2025-03-24T00:20:06.666Z::Added to explore queue: /pricing
+-----2025-03-24T00:20:06.666Z::Added to explore queue: /login
+-----2025-03-24T00:20:06.666Z::Added to explore queue: /signup
+-----2025-03-24T00:20:06.666Z::Added to explore queue: /forward
+-----2025-03-24T00:20:06.667Z::Added to explore queue: /docs
+-----2025-03-24T00:20:06.667Z::Added to explore queue: /resend/resend-node-example
+-----2025-03-24T00:20:06.667Z::Added to explore queue: /resend/resend-node-example/archive/refs/heads/main.zip
+-----2025-03-24T00:20:06.667Z::Added to explore queue: /docs/dashboard/emails/send-test-emails
+-----2025-03-24T00:20:06.667Z::Added to explore queue: /docs/dashboard/webhooks/introduction
+-----2025-03-24T00:20:06.668Z::Added to explore queue: /features/audiences
+-----2025-03-24T00:20:06.668Z::Added to explore queue: /features/broadcasts
+-----2025-03-24T00:20:06.668Z::Added to explore queue: /docs
+-----2025-03-24T00:20:06.668Z::Added to explore queue: /get-started
+-----2025-03-24T00:20:06.669Z::Added to explore queue: /docs/send-with-nextjs
+-----2025-03-24T00:20:06.669Z::Added to explore queue: /contact
+-----2025-03-24T00:20:06.669Z::Added to explore queue: /resend
+-----2025-03-24T00:20:06.669Z::Added to explore queue: /resend
+-----2025-03-24T00:20:06.669Z::Added to explore queue: /company/resend
+-----2025-03-24T00:20:06.669Z::Added to explore queue: /channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-24T00:20:06.670Z::Added to explore queue: /status
+-----2025-03-24T00:20:06.670Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:06.670Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:06.670Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:06.671Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:06.671Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:06.671Z::Added to explore queue: /changelog
+-----2025-03-24T00:20:06.671Z::Added to explore queue: /security
+-----2025-03-24T00:20:06.671Z::Added to explore queue: /security/soc-2
+-----2025-03-24T00:20:06.672Z::Added to explore queue: /security/gdpr
+-----2025-03-24T00:20:06.673Z::Added to explore queue: /brand
+-----2025-03-24T00:20:06.674Z::Added to explore queue: /about
+-----2025-03-24T00:20:06.675Z::Added to explore queue: /blog
+-----2025-03-24T00:20:06.677Z::Added to explore queue: /careers
+-----2025-03-24T00:20:06.677Z::Added to explore queue: /customers
+-----2025-03-24T00:20:06.677Z::Added to explore queue: /philosophy
+-----2025-03-24T00:20:06.677Z::Added to explore queue: /handbook/company/why-we-exist
+-----2025-03-24T00:20:06.677Z::Added to explore queue: /handbook/people/how-we-work
+-----2025-03-24T00:20:06.677Z::Added to explore queue: /handbook/engineering/what-is-our-tech-stack
+-----2025-03-24T00:20:06.678Z::Added to explore queue: /handbook/design/what-is-our-design-process
+-----2025-03-24T00:20:06.678Z::Added to explore queue: /handbook/support/how-we-help-users
+-----2025-03-24T00:20:06.678Z::Added to explore queue: /handbook/marketing/how-we-approach-marketing
+-----2025-03-24T00:20:06.678Z::Added to explore queue: /legal/acceptable-use
+-----2025-03-24T00:20:06.678Z::Added to explore queue: /legal/cookie-policy
+-----2025-03-24T00:20:06.678Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:06.679Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:06.679Z::Added to explore queue: /legal/subprocessors
+-----2025-03-24T00:20:06.679Z::Added to explore queue: /legal/dpa
+-----2025-03-24T00:20:06.679Z::Total routes found: 46/100
+-----2025-03-24T00:20:06.679Z::Visiting: https://resend.com/pricing
+-----2025-03-24T00:20:10.059Z::Found 38 links on /pricing
+-----2025-03-24T00:20:10.060Z::$FOUND_URL::["/home","/pricing","/login","/signup","/enterprise","/contact","/resend","/resend","/company/resend","/channel/UC0FkhoSz2kYqHVBk4L0QYIg","/status","/docs/introduction","/docs/api-reference/introduction","/docs/integrations","/docs/examples","/docs/sdks","/changelog","/security","/security/soc-2","/security/gdpr","/brand","/about","/blog","/careers","/customers","/philosophy","/handbook/company/why-we-exist","/handbook/people/how-we-work","/handbook/engineering/what-is-our-tech-stack","/handbook/design/what-is-our-design-process","/handbook/support/how-we-help-users","/handbook/marketing/how-we-approach-marketing","/legal/acceptable-use","/legal/cookie-policy","/legal/privacy-policy","/legal/terms-of-service","/legal/subprocessors","/legal/dpa"]
+-----2025-03-24T00:20:10.060Z::Added to explore queue: /login
+-----2025-03-24T00:20:10.060Z::Added to explore queue: /signup
+-----2025-03-24T00:20:10.060Z::Added to explore queue: /enterprise
+-----2025-03-24T00:20:10.061Z::Added to explore queue: /contact
+-----2025-03-24T00:20:10.061Z::Added to explore queue: /resend
+-----2025-03-24T00:20:10.061Z::Added to explore queue: /resend
+-----2025-03-24T00:20:10.061Z::Added to explore queue: /company/resend
+-----2025-03-24T00:20:10.061Z::Added to explore queue: /channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-24T00:20:10.062Z::Added to explore queue: /status
+-----2025-03-24T00:20:10.062Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:10.062Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:10.062Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:10.062Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:10.063Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:10.063Z::Added to explore queue: /changelog
+-----2025-03-24T00:20:10.063Z::Added to explore queue: /security
+-----2025-03-24T00:20:10.063Z::Added to explore queue: /security/soc-2
+-----2025-03-24T00:20:10.064Z::Added to explore queue: /security/gdpr
+-----2025-03-24T00:20:10.064Z::Added to explore queue: /brand
+-----2025-03-24T00:20:10.064Z::Added to explore queue: /about
+-----2025-03-24T00:20:10.064Z::Added to explore queue: /blog
+-----2025-03-24T00:20:10.065Z::Added to explore queue: /careers
+-----2025-03-24T00:20:10.065Z::Added to explore queue: /customers
+-----2025-03-24T00:20:10.065Z::Added to explore queue: /philosophy
+-----2025-03-24T00:20:10.065Z::Added to explore queue: /handbook/company/why-we-exist
+-----2025-03-24T00:20:10.065Z::Added to explore queue: /handbook/people/how-we-work
+-----2025-03-24T00:20:10.066Z::Added to explore queue: /handbook/engineering/what-is-our-tech-stack
+-----2025-03-24T00:20:10.066Z::Added to explore queue: /handbook/design/what-is-our-design-process
+-----2025-03-24T00:20:10.066Z::Added to explore queue: /handbook/support/how-we-help-users
+-----2025-03-24T00:20:10.066Z::Added to explore queue: /handbook/marketing/how-we-approach-marketing
+-----2025-03-24T00:20:10.066Z::Added to explore queue: /legal/acceptable-use
+-----2025-03-24T00:20:10.067Z::Added to explore queue: /legal/cookie-policy
+-----2025-03-24T00:20:10.067Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:10.067Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:10.067Z::Added to explore queue: /legal/subprocessors
+-----2025-03-24T00:20:10.067Z::Added to explore queue: /legal/dpa
+-----2025-03-24T00:20:10.067Z::Total routes found: 47/100
+-----2025-03-24T00:20:10.067Z::Visiting: https://resend.com/login
+-----2025-03-24T00:20:13.080Z::Found 8 links on /login
+-----2025-03-24T00:20:13.080Z::$FOUND_URL::["/home","/signup","/auth/reset-password","/legal/terms-of-service","/legal/privacy-policy","/login","/api/auth/signin/github","/api/auth/signin/google"]
+-----2025-03-24T00:20:13.081Z::Added to explore queue: /signup
+-----2025-03-24T00:20:13.081Z::Added to explore queue: /auth/reset-password
+-----2025-03-24T00:20:13.081Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:13.082Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:13.082Z::Added to explore queue: /api/auth/signin/github
+-----2025-03-24T00:20:13.082Z::Added to explore queue: /api/auth/signin/google
+-----2025-03-24T00:20:13.082Z::Total routes found: 50/100
+-----2025-03-24T00:20:13.083Z::Visiting: https://resend.com/signup
+-----2025-03-24T00:20:15.420Z::Found 8 links on /signup
+-----2025-03-24T00:20:15.421Z::$FOUND_URL::["/home","/login","/legal/terms-of-service","/legal/acceptable-use","/legal/privacy-policy","/signup","/api/auth/signin/github","/api/auth/signin/google"]
+-----2025-03-24T00:20:15.421Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:15.421Z::Added to explore queue: /legal/acceptable-use
+-----2025-03-24T00:20:15.421Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:15.421Z::Added to explore queue: /api/auth/signin/github
+-----2025-03-24T00:20:15.421Z::Added to explore queue: /api/auth/signin/google
+-----2025-03-24T00:20:15.422Z::Total routes found: 50/100
+-----2025-03-24T00:20:15.422Z::Visiting: https://resend.com/forward
+-----2025-03-24T00:20:17.428Z::Found 5 links on /forward
+-----2025-03-24T00:20:17.429Z::$FOUND_URL::["/home","/pricing","/login","/signup","/forward"]
+-----2025-03-24T00:20:17.430Z::Total routes found: 50/100
+-----2025-03-24T00:20:17.430Z::Visiting: https://resend.com/docs
+-----2025-03-24T00:20:20.193Z::Found 31 links on /docs
+-----2025-03-24T00:20:20.193Z::$FOUND_URL::["/","/login","/signup","/docs/introduction","/docs/api-reference/introduction","/docs/knowledge-base/introduction","/docs/examples","/docs/sdks","/docs/security","/docs/integrations","/docs/introduction","/docs/send-with-nodejs","/docs/send-with-nextjs","/docs/send-with-express/","/docs/send-with-php/","/docs/send-with-laravel/","/docs/send-with-python","/docs/send-with-ruby","/docs/send-with-rails","/docs/send-with-go","/docs/send-with-rust","/docs/send-with-elixir","/docs/send-with-java","/docs/send-with-dotnet","/docs/introduction","/docs/dashboard/emails","/docs/dashboard/domains/introduction","/docs/dashboard/webhooks","/resend","/resend","/discord"]
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /docs/knowledge-base/introduction
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:20.194Z::Added to explore queue: /docs/security
+-----2025-03-24T00:20:20.195Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:20.195Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:20.195Z::Added to explore queue: /docs/send-with-nodejs
+-----2025-03-24T00:20:20.195Z::Added to explore queue: /docs/send-with-nextjs
+-----2025-03-24T00:20:20.196Z::Added to explore queue: /docs/send-with-express/
+-----2025-03-24T00:20:20.196Z::Added to explore queue: /docs/send-with-php/
+-----2025-03-24T00:20:20.196Z::Added to explore queue: /docs/send-with-laravel/
+-----2025-03-24T00:20:20.196Z::Added to explore queue: /docs/send-with-python
+-----2025-03-24T00:20:20.197Z::Added to explore queue: /docs/send-with-ruby
+-----2025-03-24T00:20:20.197Z::Added to explore queue: /docs/send-with-rails
+-----2025-03-24T00:20:20.197Z::Added to explore queue: /docs/send-with-go
+-----2025-03-24T00:20:20.197Z::Added to explore queue: /docs/send-with-rust
+-----2025-03-24T00:20:20.197Z::Added to explore queue: /docs/send-with-elixir
+-----2025-03-24T00:20:20.198Z::Added to explore queue: /docs/send-with-java
+-----2025-03-24T00:20:20.198Z::Added to explore queue: /docs/send-with-dotnet
+-----2025-03-24T00:20:20.198Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:20.198Z::Added to explore queue: /docs/dashboard/emails
+-----2025-03-24T00:20:20.199Z::Added to explore queue: /docs/dashboard/domains/introduction
+-----2025-03-24T00:20:20.199Z::Added to explore queue: /docs/dashboard/webhooks
+-----2025-03-24T00:20:20.199Z::Added to explore queue: /resend
+-----2025-03-24T00:20:20.199Z::Added to explore queue: /resend
+-----2025-03-24T00:20:20.199Z::Added to explore queue: /discord
+-----2025-03-24T00:20:20.199Z::Total routes found: 69/100
+-----2025-03-24T00:20:20.199Z::Visiting: https://resend.com/resend/resend-node-example
+-----2025-03-24T00:20:23.086Z::Found 4 links on /resend/resend-node-example
+-----2025-03-24T00:20:23.087Z::$FOUND_URL::["/home","/pricing","/login","/signup"]
+-----2025-03-24T00:20:23.087Z::Total routes found: 69/100
+-----2025-03-24T00:20:23.087Z::Visiting: https://resend.com/resend/resend-node-example/archive/refs/heads/main.zip
+-----2025-03-24T00:20:25.172Z::Found 4 links on /resend/resend-node-example/archive/refs/heads/main.zip
+-----2025-03-24T00:20:25.172Z::$FOUND_URL::["/home","/pricing","/login","/signup"]
+-----2025-03-24T00:20:25.172Z::Total routes found: 69/100
+-----2025-03-24T00:20:25.172Z::Visiting: https://resend.com/docs/dashboard/emails/send-test-emails
+-----2025-03-24T00:20:26.961Z::Found 28 links on /docs/dashboard/emails/send-test-emails
+-----2025-03-24T00:20:26.961Z::$FOUND_URL::["/","/login","/signup","/docs/introduction","/docs/api-reference/introduction","/docs/knowledge-base/introduction","/docs/dashboard/emails/introduction","/docs/dashboard/emails/attachments","/docs/dashboard/emails/schedule-email","/docs/dashboard/emails/send-test-emails","/docs/dashboard/emails/custom-headers","/docs/dashboard/emails/email-bounces","/docs/dashboard/emails/email-templates","/docs/dashboard/emails/deliverability-insights","/docs/dashboard/emails/add-unsubscribe-to-transactional-emails","/docs/dashboard/emails/tags","/docs/examples","/docs/sdks","/docs/security","/docs/integrations","/docs/dashboard/emails/send-test-emails","/docs/dashboard/webhooks/introduction","/docs/dashboard/emails/send-test-emails","/docs/dashboard/emails/send-test-emails","/docs/dashboard/emails/send-test-emails","/resend","/resend","/discord"]
+-----2025-03-24T00:20:26.961Z::Added to explore queue: /
+-----2025-03-24T00:20:26.962Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:26.962Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:26.962Z::Added to explore queue: /docs/knowledge-base/introduction
+-----2025-03-24T00:20:26.962Z::Added to explore queue: /docs/dashboard/emails/introduction
+-----2025-03-24T00:20:26.962Z::Added to explore queue: /docs/dashboard/emails/attachments
+-----2025-03-24T00:20:26.963Z::Added to explore queue: /docs/dashboard/emails/schedule-email
+-----2025-03-24T00:20:26.963Z::Added to explore queue: /docs/dashboard/emails/custom-headers
+-----2025-03-24T00:20:26.963Z::Added to explore queue: /docs/dashboard/emails/email-bounces
+-----2025-03-24T00:20:26.963Z::Added to explore queue: /docs/dashboard/emails/email-templates
+-----2025-03-24T00:20:26.963Z::Added to explore queue: /docs/dashboard/emails/deliverability-insights
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/dashboard/emails/add-unsubscribe-to-transactional-emails
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/dashboard/emails/tags
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/security
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:26.964Z::Added to explore queue: /docs/dashboard/webhooks/introduction
+-----2025-03-24T00:20:26.965Z::Added to explore queue: /resend
+-----2025-03-24T00:20:26.965Z::Added to explore queue: /resend
+-----2025-03-24T00:20:26.965Z::Added to explore queue: /discord
+-----2025-03-24T00:20:26.965Z::Total routes found: 78/100
+-----2025-03-24T00:20:26.965Z::Visiting: https://resend.com/docs/dashboard/webhooks/introduction
+-----2025-03-24T00:20:29.591Z::Found 28 links on /docs/dashboard/webhooks/introduction
+-----2025-03-24T00:20:29.592Z::$FOUND_URL::["/","/login","/signup","/docs/introduction","/docs/api-reference/introduction","/docs/knowledge-base/introduction","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/event-types","/docs/dashboard/webhooks/verify-webhooks-requests","/docs/examples","/docs/sdks","/docs/security","/docs/integrations","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/download","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/docs/dashboard/webhooks/introduction","/resend/resend-examples/tree/main/with-webhooks","/docs/dashboard/api-keys/introduction","/resend","/resend","/discord"]
+-----2025-03-24T00:20:29.592Z::Added to explore queue: /
+-----2025-03-24T00:20:29.592Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:29.592Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:29.592Z::Added to explore queue: /docs/knowledge-base/introduction
+-----2025-03-24T00:20:29.593Z::Added to explore queue: /docs/dashboard/webhooks/event-types
+-----2025-03-24T00:20:29.593Z::Added to explore queue: /docs/dashboard/webhooks/verify-webhooks-requests
+-----2025-03-24T00:20:29.593Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:29.593Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:29.593Z::Added to explore queue: /docs/security
+-----2025-03-24T00:20:29.594Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:29.594Z::Added to explore queue: /download
+-----2025-03-24T00:20:29.594Z::Added to explore queue: /resend/resend-examples/tree/main/with-webhooks
+-----2025-03-24T00:20:29.594Z::Added to explore queue: /docs/dashboard/api-keys/introduction
+-----2025-03-24T00:20:29.594Z::Added to explore queue: /resend
+-----2025-03-24T00:20:29.595Z::Added to explore queue: /resend
+-----2025-03-24T00:20:29.595Z::Added to explore queue: /discord
+-----2025-03-24T00:20:29.595Z::Total routes found: 83/100
+-----2025-03-24T00:20:29.595Z::Visiting: https://resend.com/features/audiences
+-----2025-03-24T00:20:31.669Z::Found 42 links on /features/audiences
+-----2025-03-24T00:20:31.669Z::$FOUND_URL::["/home","/pricing","/login","/signup","/docs/dashboard/audiences/introduction","/docs/dashboard/audiences/contacts","/customers/hike-medical","/docs/api-reference/contacts/create-contact","/api-keys","/resend","/resend","/company/resend","/channel/UC0FkhoSz2kYqHVBk4L0QYIg","/status","/docs/introduction","/docs/api-reference/introduction","/docs/integrations","/docs/examples","/docs/sdks","/changelog","/security","/security/soc-2","/security/gdpr","/brand","/about","/blog","/careers","/contact","/customers","/philosophy","/handbook/company/why-we-exist","/handbook/people/how-we-work","/handbook/engineering/what-is-our-tech-stack","/handbook/design/what-is-our-design-process","/handbook/support/how-we-help-users","/handbook/marketing/how-we-approach-marketing","/legal/acceptable-use","/legal/cookie-policy","/legal/privacy-policy","/legal/terms-of-service","/legal/subprocessors","/legal/dpa"]
+-----2025-03-24T00:20:31.669Z::Added to explore queue: /docs/dashboard/audiences/introduction
+-----2025-03-24T00:20:31.670Z::Added to explore queue: /docs/dashboard/audiences/contacts
+-----2025-03-24T00:20:31.670Z::Added to explore queue: /customers/hike-medical
+-----2025-03-24T00:20:31.670Z::Added to explore queue: /docs/api-reference/contacts/create-contact
+-----2025-03-24T00:20:31.670Z::Added to explore queue: /api-keys
+-----2025-03-24T00:20:31.670Z::Added to explore queue: /resend
+-----2025-03-24T00:20:31.670Z::Added to explore queue: /resend
+-----2025-03-24T00:20:31.671Z::Added to explore queue: /company/resend
+-----2025-03-24T00:20:31.671Z::Added to explore queue: /channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-24T00:20:31.671Z::Added to explore queue: /status
+-----2025-03-24T00:20:31.671Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:31.671Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:31.671Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:31.672Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:31.672Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:31.672Z::Added to explore queue: /changelog
+-----2025-03-24T00:20:31.672Z::Added to explore queue: /security
+-----2025-03-24T00:20:31.672Z::Added to explore queue: /security/soc-2
+-----2025-03-24T00:20:31.672Z::Added to explore queue: /security/gdpr
+-----2025-03-24T00:20:31.673Z::Added to explore queue: /brand
+-----2025-03-24T00:20:31.673Z::Added to explore queue: /about
+-----2025-03-24T00:20:31.673Z::Added to explore queue: /blog
+-----2025-03-24T00:20:31.673Z::Added to explore queue: /careers
+-----2025-03-24T00:20:31.673Z::Added to explore queue: /contact
+-----2025-03-24T00:20:31.673Z::Added to explore queue: /customers
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /philosophy
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /handbook/company/why-we-exist
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /handbook/people/how-we-work
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /handbook/engineering/what-is-our-tech-stack
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /handbook/design/what-is-our-design-process
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /handbook/support/how-we-help-users
+-----2025-03-24T00:20:31.674Z::Added to explore queue: /handbook/marketing/how-we-approach-marketing
+-----2025-03-24T00:20:31.675Z::Added to explore queue: /legal/acceptable-use
+-----2025-03-24T00:20:31.675Z::Added to explore queue: /legal/cookie-policy
+-----2025-03-24T00:20:31.675Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:31.675Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:31.675Z::Added to explore queue: /legal/subprocessors
+-----2025-03-24T00:20:31.675Z::Added to explore queue: /legal/dpa
+-----2025-03-24T00:20:31.675Z::Total routes found: 88/100
+-----2025-03-24T00:20:31.676Z::Visiting: https://resend.com/features/broadcasts
+-----2025-03-24T00:20:34.103Z::Found 39 links on /features/broadcasts
+-----2025-03-24T00:20:34.103Z::$FOUND_URL::["/home","/pricing","/login","/signup","/docs/dashboard/broadcasts/introduction","/customers/nuxt","/resend","/resend","/company/resend","/channel/UC0FkhoSz2kYqHVBk4L0QYIg","/status","/docs/introduction","/docs/api-reference/introduction","/docs/integrations","/docs/examples","/docs/sdks","/changelog","/security","/security/soc-2","/security/gdpr","/brand","/about","/blog","/careers","/contact","/customers","/philosophy","/handbook/company/why-we-exist","/handbook/people/how-we-work","/handbook/engineering/what-is-our-tech-stack","/handbook/design/what-is-our-design-process","/handbook/support/how-we-help-users","/handbook/marketing/how-we-approach-marketing","/legal/acceptable-use","/legal/cookie-policy","/legal/privacy-policy","/legal/terms-of-service","/legal/subprocessors","/legal/dpa"]
+-----2025-03-24T00:20:34.103Z::Added to explore queue: /docs/dashboard/broadcasts/introduction
+-----2025-03-24T00:20:34.104Z::Added to explore queue: /customers/nuxt
+-----2025-03-24T00:20:34.104Z::Added to explore queue: /resend
+-----2025-03-24T00:20:34.104Z::Added to explore queue: /resend
+-----2025-03-24T00:20:34.104Z::Added to explore queue: /company/resend
+-----2025-03-24T00:20:34.104Z::Added to explore queue: /channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-24T00:20:34.105Z::Added to explore queue: /status
+-----2025-03-24T00:20:34.105Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:34.105Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:34.106Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:34.106Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:34.106Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:34.106Z::Added to explore queue: /changelog
+-----2025-03-24T00:20:34.106Z::Added to explore queue: /security
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /security/soc-2
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /security/gdpr
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /brand
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /about
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /blog
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /careers
+-----2025-03-24T00:20:34.107Z::Added to explore queue: /contact
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /customers
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /philosophy
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /handbook/company/why-we-exist
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /handbook/people/how-we-work
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /handbook/engineering/what-is-our-tech-stack
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /handbook/design/what-is-our-design-process
+-----2025-03-24T00:20:34.108Z::Added to explore queue: /handbook/support/how-we-help-users
+-----2025-03-24T00:20:34.109Z::Added to explore queue: /handbook/marketing/how-we-approach-marketing
+-----2025-03-24T00:20:34.109Z::Added to explore queue: /legal/acceptable-use
+-----2025-03-24T00:20:34.109Z::Added to explore queue: /legal/cookie-policy
+-----2025-03-24T00:20:34.109Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:34.109Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:34.109Z::Added to explore queue: /legal/subprocessors
+-----2025-03-24T00:20:34.110Z::Added to explore queue: /legal/dpa
+-----2025-03-24T00:20:34.110Z::Total routes found: 90/100
+-----2025-03-24T00:20:34.110Z::Visiting: https://resend.com/get-started
+-----2025-03-24T00:20:36.112Z::Found 8 links on /get-started
+-----2025-03-24T00:20:36.113Z::$FOUND_URL::["/home","/login","/legal/terms-of-service","/legal/acceptable-use","/legal/privacy-policy","/signup","/api/auth/signin/github","/api/auth/signin/google"]
+-----2025-03-24T00:20:36.113Z::Added to explore queue: /legal/terms-of-service
+-----2025-03-24T00:20:36.113Z::Added to explore queue: /legal/acceptable-use
+-----2025-03-24T00:20:36.113Z::Added to explore queue: /legal/privacy-policy
+-----2025-03-24T00:20:36.114Z::Added to explore queue: /api/auth/signin/github
+-----2025-03-24T00:20:36.114Z::Added to explore queue: /api/auth/signin/google
+-----2025-03-24T00:20:36.114Z::Total routes found: 90/100
+-----2025-03-24T00:20:36.114Z::Visiting: https://resend.com/docs/send-with-nextjs
+-----2025-03-24T00:20:39.622Z::Found 33 links on /docs/send-with-nextjs
+-----2025-03-24T00:20:39.622Z::$FOUND_URL::["/","/login","/signup","/docs/introduction","/docs/api-reference/introduction","/docs/knowledge-base/introduction","/docs/send-with-nodejs","/docs/send-with-nextjs","/docs/send-with-remix","/docs/send-with-nuxt","/docs/send-with-express","/docs/send-with-redwoodjs","/docs/send-with-hono","/docs/send-with-bun","/docs/send-with-astro","/docs/examples","/docs/sdks","/docs/security","/docs/integrations","/docs/send-with-nextjs","/api-keys","/domains","/docs/send-with-nextjs","/docs/send-with-nextjs","/docs/send-with-nextjs","/docs/pages/building-your-application/routing/api-routes","/docs/app/building-your-application/routing/router-handlers","/docs/send-with-nextjs","/resend/resend-nextjs-pages-router-example","/resend/resend-nextjs-app-router-example","/resend","/resend","/discord"]
+-----2025-03-24T00:20:39.622Z::Added to explore queue: /
+-----2025-03-24T00:20:39.623Z::Added to explore queue: /docs/introduction
+-----2025-03-24T00:20:39.623Z::Added to explore queue: /docs/api-reference/introduction
+-----2025-03-24T00:20:39.623Z::Added to explore queue: /docs/knowledge-base/introduction
+-----2025-03-24T00:20:39.623Z::Added to explore queue: /docs/send-with-nodejs
+-----2025-03-24T00:20:39.623Z::Added to explore queue: /docs/send-with-remix
+-----2025-03-24T00:20:39.623Z::Added to explore queue: /docs/send-with-nuxt
+-----2025-03-24T00:20:39.624Z::Added to explore queue: /docs/send-with-express
+-----2025-03-24T00:20:39.624Z::Added to explore queue: /docs/send-with-redwoodjs
+-----2025-03-24T00:20:39.624Z::Added to explore queue: /docs/send-with-hono
+-----2025-03-24T00:20:39.624Z::Added to explore queue: /docs/send-with-bun
+-----2025-03-24T00:20:39.624Z::Added to explore queue: /docs/send-with-astro
+-----2025-03-24T00:20:39.624Z::Added to explore queue: /docs/examples
+-----2025-03-24T00:20:39.625Z::Added to explore queue: /docs/sdks
+-----2025-03-24T00:20:39.625Z::Added to explore queue: /docs/security
+-----2025-03-24T00:20:39.625Z::Added to explore queue: /docs/integrations
+-----2025-03-24T00:20:39.625Z::Added to explore queue: /api-keys
+-----2025-03-24T00:20:39.625Z::Added to explore queue: /domains
+-----2025-03-24T00:20:39.625Z::Added to explore queue: /docs/pages/building-your-application/routing/api-routes
+-----2025-03-24T00:20:39.626Z::Added to explore queue: /docs/app/building-your-application/routing/router-handlers
+-----2025-03-24T00:20:39.626Z::Total routes found: 100/100
+-----2025-03-24T00:20:40.204Z::Discovered Routes: 
+-----2025-03-24T00:20:40.204Z::/
+-----2025-03-24T00:20:40.204Z::/about
+-----2025-03-24T00:20:40.205Z::/api-keys
+-----2025-03-24T00:20:40.205Z::/api/auth/signin/github
+-----2025-03-24T00:20:40.205Z::/api/auth/signin/google
+-----2025-03-24T00:20:40.205Z::/auth/reset-password
+-----2025-03-24T00:20:40.205Z::/blog
+-----2025-03-24T00:20:40.205Z::/brand
+-----2025-03-24T00:20:40.205Z::/careers
+-----2025-03-24T00:20:40.206Z::/changelog
+-----2025-03-24T00:20:40.206Z::/channel/UC0FkhoSz2kYqHVBk4L0QYIg
+-----2025-03-24T00:20:40.206Z::/company/resend
+-----2025-03-24T00:20:40.206Z::/contact
+-----2025-03-24T00:20:40.206Z::/customers
+-----2025-03-24T00:20:40.206Z::/customers/hike-medical
+-----2025-03-24T00:20:40.206Z::/customers/nuxt
+-----2025-03-24T00:20:40.207Z::/discord
+-----2025-03-24T00:20:40.207Z::/docs
+-----2025-03-24T00:20:40.207Z::/docs/api-reference/contacts/create-contact
+-----2025-03-24T00:20:40.207Z::/docs/api-reference/introduction
+-----2025-03-24T00:20:40.207Z::/docs/app/building-your-application/routing/router-handlers
+-----2025-03-24T00:20:40.207Z::/docs/dashboard/api-keys/introduction
+-----2025-03-24T00:20:40.207Z::/docs/dashboard/audiences/contacts
+-----2025-03-24T00:20:40.207Z::/docs/dashboard/audiences/introduction
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/broadcasts/introduction
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/domains/introduction
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/emails
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/emails/add-unsubscribe-to-transactional-emails
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/emails/attachments
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/emails/custom-headers
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/emails/deliverability-insights
+-----2025-03-24T00:20:40.208Z::/docs/dashboard/emails/email-bounces
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/emails/email-templates
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/emails/introduction
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/emails/schedule-email
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/emails/send-test-emails
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/emails/tags
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/webhooks
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/webhooks/event-types
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/webhooks/introduction
+-----2025-03-24T00:20:40.209Z::/docs/dashboard/webhooks/verify-webhooks-requests
+-----2025-03-24T00:20:40.210Z::/docs/examples
+-----2025-03-24T00:20:40.210Z::/docs/integrations
+-----2025-03-24T00:20:40.210Z::/docs/introduction
+-----2025-03-24T00:20:40.210Z::/docs/knowledge-base/introduction
+-----2025-03-24T00:20:40.210Z::/docs/pages/building-your-application/routing/api-routes
+-----2025-03-24T00:20:40.210Z::/docs/sdks
+-----2025-03-24T00:20:40.210Z::/docs/security
+-----2025-03-24T00:20:40.210Z::/docs/send-with-astro
+-----2025-03-24T00:20:40.210Z::/docs/send-with-bun
+-----2025-03-24T00:20:40.210Z::/docs/send-with-dotnet
+-----2025-03-24T00:20:40.210Z::/docs/send-with-elixir
+-----2025-03-24T00:20:40.211Z::/docs/send-with-express
+-----2025-03-24T00:20:40.211Z::/docs/send-with-express/
+-----2025-03-24T00:20:40.211Z::/docs/send-with-go
+-----2025-03-24T00:20:40.211Z::/docs/send-with-hono
+-----2025-03-24T00:20:40.211Z::/docs/send-with-java
+-----2025-03-24T00:20:40.211Z::/docs/send-with-laravel/
+-----2025-03-24T00:20:40.211Z::/docs/send-with-nextjs
+-----2025-03-24T00:20:40.211Z::/docs/send-with-nodejs
+-----2025-03-24T00:20:40.212Z::/docs/send-with-nuxt
+-----2025-03-24T00:20:40.212Z::/docs/send-with-php/
+-----2025-03-24T00:20:40.212Z::/docs/send-with-python
+-----2025-03-24T00:20:40.212Z::/docs/send-with-rails
+-----2025-03-24T00:20:40.212Z::/docs/send-with-redwoodjs
+-----2025-03-24T00:20:40.212Z::/docs/send-with-remix
+-----2025-03-24T00:20:40.212Z::/docs/send-with-ruby
+-----2025-03-24T00:20:40.212Z::/docs/send-with-rust
+-----2025-03-24T00:20:40.212Z::/domains
+-----2025-03-24T00:20:40.212Z::/download
+-----2025-03-24T00:20:40.213Z::/enterprise
+-----2025-03-24T00:20:40.213Z::/features/audiences
+-----2025-03-24T00:20:40.213Z::/features/broadcasts
+-----2025-03-24T00:20:40.213Z::/forward
+-----2025-03-24T00:20:40.213Z::/get-started
+-----2025-03-24T00:20:40.213Z::/handbook/company/why-we-exist
+-----2025-03-24T00:20:40.213Z::/handbook/design/what-is-our-design-process
+-----2025-03-24T00:20:40.213Z::/handbook/engineering/what-is-our-tech-stack
+-----2025-03-24T00:20:40.213Z::/handbook/marketing/how-we-approach-marketing
+-----2025-03-24T00:20:40.213Z::/handbook/people/how-we-work
+-----2025-03-24T00:20:40.214Z::/handbook/support/how-we-help-users
+-----2025-03-24T00:20:40.214Z::/home
+-----2025-03-24T00:20:40.214Z::/legal/acceptable-use
+-----2025-03-24T00:20:40.214Z::/legal/cookie-policy
+-----2025-03-24T00:20:40.214Z::/legal/dpa
+-----2025-03-24T00:20:40.214Z::/legal/privacy-policy
+-----2025-03-24T00:20:40.214Z::/legal/subprocessors
+-----2025-03-24T00:20:40.214Z::/legal/terms-of-service
+-----2025-03-24T00:20:40.214Z::/login
+-----2025-03-24T00:20:40.214Z::/philosophy
+-----2025-03-24T00:20:40.215Z::/pricing
+-----2025-03-24T00:20:40.215Z::/resend
+-----2025-03-24T00:20:40.215Z::/resend/resend-examples/tree/main/with-webhooks
+-----2025-03-24T00:20:40.215Z::/resend/resend-node-example
+-----2025-03-24T00:20:40.215Z::/resend/resend-node-example/archive/refs/heads/main.zip
+-----2025-03-24T00:20:40.215Z::/security
+-----2025-03-24T00:20:40.215Z::/security/gdpr
+-----2025-03-24T00:20:40.215Z::/security/soc-2
+-----2025-03-24T00:20:40.215Z::/signup
+-----2025-03-24T00:20:40.215Z::/status
+-----2025-03-24T00:20:40.216Z::Total unique routes found: 100
+-----2025-03-24T00:20:40.216Z::Deep route discovery completed!
 -----
