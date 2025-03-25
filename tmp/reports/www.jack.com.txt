@@ -1,0 +1,7 @@
+2025-03-25T17:00:51.157Z::Starting deep route discovery for https://www.jack.com
+-----2025-03-25T17:00:52.848Z::Visiting: https://www.jack.com
+-----2025-03-25T17:00:53.314Z::ERROR: Error visiting https://www.jack.com: net::ERR_NAME_NOT_RESOLVED at https://www.jack.com
+-----2025-03-25T17:00:53.549Z::Discovered Routes: 
+-----2025-03-25T17:00:53.549Z::Total unique routes found: 0
+-----2025-03-25T17:00:53.550Z::Deep route discovery completed!
+-----

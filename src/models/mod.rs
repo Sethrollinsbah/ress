@@ -5,6 +5,7 @@ pub mod app;
 pub mod database;
 pub mod kv;
 pub mod lighthouse;
+pub mod crawl;
 pub mod users;
 pub use api::{Params, ParamsRunLighthouse};
 pub use app::AppState;
@@ -18,3 +19,4 @@ pub use lighthouse::{
     ScoreStats,
 };
 pub use users::UserData;
+pub use crawl::CrawlResponse;

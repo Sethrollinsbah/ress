@@ -32,6 +32,7 @@ pub async fn process_urls_from_file(
 pub async fn process_urls(
     current_dir: &str,
     domain_tld: &str,
+    urls: Vec<String>
 ) -> Result<(), Box<dyn Error + Send + Sync>> {
     // Read URLs from file
     let input_file = format!("{}/http/{}.txt", current_dir, domain_tld);
@@ -40,9 +41,9 @@ pub async fn process_urls(
         current_dir,
         domain_tld.replace("/", "___")
     );
-
-    let urls = process_urls_from_file(&input_file, &output_dir).await?; // ✅ Now `urls` is a Vec<String>
-                                                                        // println!("URLs: {:?}", &urls);
+    //
+    // let urls = process_urls_from_file(&input_file, &output_dir).await?; // ✅ Now `urls` is a Vec<String>
+    //                                                                     // println!("URLs: {:?}", &urls);
 
     // Ensure the output directory exists
     fs::create_dir_all(&output_dir).await?;

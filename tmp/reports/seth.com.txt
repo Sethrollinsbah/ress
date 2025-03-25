@@ -1,0 +1,7 @@
+2025-03-25T16:51:49.212Z::Starting deep route discovery for https://seth.com
+-----2025-03-25T16:51:53.071Z::Visiting: https://seth.com
+-----2025-03-25T16:51:53.528Z::ERROR: Error visiting https://seth.com: net::ERR_NAME_NOT_RESOLVED at https://seth.com
+-----2025-03-25T16:51:53.821Z::Discovered Routes: 
+-----2025-03-25T16:51:53.825Z::Total unique routes found: 0
+-----2025-03-25T16:51:53.825Z::Deep route discovery completed!
+-----

@@ -1,0 +1,7 @@
+2025-03-25T18:36:25.997Z::Starting deep route discovery for https://.com
+-----2025-03-25T18:36:29.303Z::Visiting: https://.com
+-----2025-03-25T18:36:29.683Z::ERROR: Error visiting https://.com: net::ERR_NAME_NOT_RESOLVED at https://.com
+-----2025-03-25T18:36:30.508Z::Discovered Routes: 
+-----2025-03-25T18:36:30.509Z::Total unique routes found: 0
+-----2025-03-25T18:36:30.509Z::Deep route discovery completed!
+-----

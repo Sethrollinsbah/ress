@@ -66,8 +66,8 @@ pub fn get_new_content(old_content: &str, new_content: &str) -> String {
 
     for change in diff.iter_all_changes() {
         if change.tag() == ChangeTag::Insert {
-    new_text.push_str(change.to_string().as_str());
-}
+            new_text.push_str(change.to_string().as_str());
+        }
     }
 
     new_text

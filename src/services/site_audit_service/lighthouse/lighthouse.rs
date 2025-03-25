@@ -15,10 +15,10 @@ use std::io::{self};
 use tokio::io::AsyncReadExt;
 use tokio_stream::wrappers::ReadDirStream;
 //
-
+use log::error;
 use crate::api;
-use crate::utils::mail;
 use crate::models;
+use crate::models::CrawlResponse;
 use crate::models::AverageReport;
 use crate::models::CategoriesStats;
 use crate::models::ComprehensiveReport;
@@ -27,6 +27,7 @@ use crate::models::ScoreStats;
 use crate::services::{compute_averages, compute_score_stats};
 use crate::utils::bun_log;
 use crate::utils::delete_reports;
+use crate::utils::mail;
 use futures::future::join_all;
 use std::{
     collections::HashMap,
@@ -46,15 +47,24 @@ pub async fn run_lighthouse(
     let full_url = format!("https://{}{}", baseurl, url);
     let full_local_path = format!("{}/{}.json", &output_path, sanitize_filename(&url));
 
+    let chrome_endpoint = match std::env::var("CHROME_ENDPOINT") {
+        Ok(var) => {
+            info!("Using Chrome endpoint: {}", &var);
+            var
+        }
+        Err(_) => {
+            error!("CHROME_ENDPOINT var not assigned");
+            std::process::exit(1);
+        }
+    };
+
     // Execute the Lighthouse command with corrected arguments
-    let command = Command::new("lighthouse")
+    let command = Command::new("./lighthouse_secure")
         .arg(&full_url)
-        .arg("--output=json") // Combine output format flag
-        .arg("--no-enable-error-reporting")
-        .arg("--chrome-flags=\"--headless --no-sandbox\"") // Combine Chrome flags
-        .arg("--max-wait-for-load=120000")
         .arg("--output-path")
         .arg(full_local_path)
+        .arg("--chrome-endpoint")
+        .arg(chrome_endpoint)
         .stdout(Stdio::piped()) // Capture stdout as well
         .stderr(Stdio::piped())
         .spawn()?;
@@ -80,6 +90,17 @@ pub async fn run_lighthouse_process(
     email: String,
     name: String,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let crawler_url = match std::env::var("CRAWLER_URL") {
+        Ok(url) => {
+            info!("Using Bunscore Crawler URL from environment: {}", url);
+            url
+        }
+        Err(_) => {
+            error!("CRAWLER_URL environment variable is not set");
+            std::process::exit(1);
+        }
+    };
+
     let file = std::fs::File::create(format!("/Users/sethrollins/tmp/reports/{}.txt", &domain));
     let _ = bun_log(
         &domain,
@@ -306,24 +327,36 @@ pub async fn run_lighthouse_process(
         .to_string();
 
     let _ = bun_log(&domain, "Starting to crawl the domain.");
-    // std::process::Command::new("bun")
-    //     .args([
-    //         &format!("{}/unlit/index.ts", &current_dir),
-    //         &format!("siteUrl=https://{}", &domain_tld),
-    //         "maxLinks=100",
-    //     ])
-    //     .status()?;
-
-    let body = reqwest::get(&format!("http://localhost:3000/crawl?url=https://{}&maxRoutes=50", &domain_tld))
+    let crawl_body = reqwest::get(&format!(
+        "{}/crawl?url=https://{}&maxRoutes=50",
+        crawler_url,
+        &domain_tld
+    ))
     .await?
     .text()
     .await?;
 
-println!("body = {body:?}");
+        // Parse the JSON string into your struct
+    let crawl_response: CrawlResponse = serde_json::from_str(&crawl_body)?;
 
+    // Now you can work with the structured data
+    
+    // Print first 5 routes
+    println!("First 5 routes:");
+    for (i, route) in crawl_response.routes.iter().take(5).enumerate() {
+        println!("  {}. {}", i + 1, route);
+    }
+
+    let max_routes = 50;
+
+// Create a new vector to store routes (limited to max_routes)
+let crawl_routes: Vec<String> = crawl_response.routes.iter()
+    .take(max_routes)
+    .cloned()  // Clone each String from the reference (&String)
+    .collect();
     // println!("file_name: {}", &current_dir);
 
-    if let Err(e) = process_urls(&current_dir, &domain_tld).await {
+    if let Err(e) = process_urls(&current_dir, &domain_tld, crawl_routes).await {
         let _ = bun_log(&domain, "❌ Error: Failed to process urls.");
         return Err(e.into()); // Ensure the error propagates if necessary
     } else {

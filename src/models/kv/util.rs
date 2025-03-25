@@ -114,12 +114,12 @@ pub async fn set_redis_value(
     };
 
     // Select the database
- if redis::cmd("SELECT")
-    .arg(db_number)
-    .query_async::<()>(&mut con)
-    .await
-    .is_err()
-{
+    if redis::cmd("SELECT")
+        .arg(db_number)
+        .query_async::<()>(&mut con)
+        .await
+        .is_err()
+    {
         return (
             StatusCode::INTERNAL_SERVER_ERROR,
             Json(RedisResponse {

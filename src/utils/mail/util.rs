@@ -1,6 +1,6 @@
 use axum::response::IntoResponse;
-use dotenv::dotenv;
 use axum::Json;
+use dotenv::dotenv;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
@@ -44,10 +44,9 @@ pub async fn send_mail(
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     dotenv().ok();
 
-
     // Retrieve API token, with error handling
-    let api_token = std::env::var("ZOHO_KEY")
-        .map_err(|_| "ZOHO_KEY environment variable not set")?;
+    let api_token =
+        std::env::var("ZOHO_KEY").map_err(|_| "ZOHO_KEY environment variable not set")?;
 
     let client = Client::new();
 
