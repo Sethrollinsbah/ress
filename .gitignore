@@ -6,8 +6,8 @@ Thumbs.db
 *.log
 
 # Ignore environment-specific files
-.env
-.env.local
+/.env
+/.env.local
 
 # Ignore downloaded or generated files
 fb.com

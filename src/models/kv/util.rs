@@ -154,9 +154,13 @@ pub async fn set_redis_value(
     }
 }
 
+// Function to check if Redis is running
 pub fn check_redis(redis_url: &str) -> bool {
-    match redis::Client::open(redis_url).and_then(|client| client.get_connection()) {
-        Ok(mut con) => con.ping::<String>().is_ok(), // Specify `String` as the return type
+    match redis::Client::open(redis_url) {
+        Ok(client) => match client.get_connection() {
+            Ok(_) => true,
+            Err(_) => false,
+        },
         Err(_) => false,
     }
 }

@@ -62,7 +62,19 @@ async fn main() {
         )
     );
     // run our app with hyper, listening globally on port 3000
-    let port = port_number.unwrap_or_else(|_| "3012".to_string());
+let port = match port_number {
+    Ok(port) => port,
+    Err(_) => "3012".to_string(),
+};
+
+// Create a listener on IPv6 unspecified address with the port
 let listener = TcpListener::bind(format!("[::]:{}", port)).await.unwrap();
+
+// Log the address
+println!(
+    "🚀 Server running on http://[::]:{}",
+    port
+);
+
     axum::serve(listener, app).await.unwrap();
 }
