@@ -36,6 +36,64 @@ async fn main() {
         }
     }
 
+    // Create or replace the function to notify the WebSocket when a node configuration changes
+    match sqlx::query(
+        r#"
+        CREATE OR REPLACE FUNCTION notify_node_config_change() 
+        RETURNS trigger AS $$
+        BEGIN
+          -- Notify the "node_config_changes" channel with a message
+          PERFORM pg_notify('node_config_changes', 'Updated');
+          RETURN NEW; -- Return the new row for the trigger to work
+        END;
+        $$ LANGUAGE plpgsql;
+        "#,
+    )
+    .execute(&pg_pool)
+    .await
+    {
+        Ok(_) => println!("Successfully created the function for node config change"),
+        Err(e) => {
+            error!("Failed to create function: {}", e);
+            std::process::exit(1);
+        }
+    }
+
+    // Check if the trigger already exists
+    let trigger_exists = sqlx::query_scalar::<_, bool>(
+        r#"
+        SELECT EXISTS (
+            SELECT 1
+            FROM pg_trigger
+            WHERE tgname = 'node_config_trigger'
+        );
+        "#,
+    )
+    .fetch_one(&pg_pool)
+    .await
+    .unwrap_or(false);
+
+    if !trigger_exists {
+        // Create the trigger if it doesn't exist
+        match sqlx::query(
+            r#"
+            CREATE TRIGGER node_config_trigger
+            AFTER INSERT OR UPDATE OR DELETE ON node_configurations
+            FOR EACH ROW
+            EXECUTE FUNCTION notify_node_config_change();
+            "#,
+        )
+        .execute(&pg_pool)
+        .await
+        {
+            Ok(_) => println!("Successfully created the trigger for node config changes"),
+            Err(e) => {
+                error!("Failed to create trigger: {}", e);
+                std::process::exit(1);
+            }
+        }
+    }
+
     // Create shared state with PostgreSQL pool
     let shared_state = Arc::new(AppState { pg_pool });
 

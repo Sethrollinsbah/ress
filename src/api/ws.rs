@@ -7,19 +7,25 @@ use axum::{
     response::{IntoResponse, Response},
 };
 use futures::{SinkExt, StreamExt};
+use serde::{Deserialize, Serialize};
 use sqlx::{postgres::PgListener, PgPool};
 use tokio::sync::mpsc::channel;
 
-pub async fn websocket_handler(
-    Query(params): Query<WsParams>, // Extract query parameters
-    ws: WebSocketUpgrade,           // WebSocket upgrade handler
-    State(state): State<AppState>,  // Extract shared state (AppState with database pool)
-) -> Response {
-    // Access the query parameters (e.g., filename) here
-    println!("Called with params: {:?}", &params.filename);
+#[derive(Serialize, Deserialize)]
+pub struct Notification {
+    pub event: String,
+    pub message: String,
+}
 
-    // Open WebSocket connection and handle it
-    ws.on_upgrade(move |socket| handle_socket(socket, state.pg_pool.clone())) // Pass the database pool to the handler
+pub async fn websocket_handler(
+    Query(params): Query<WsParams>,
+    ws: WebSocketUpgrade,
+    State(state): State<std::sync::Arc<AppState>>,
+) -> Response {
+    println!("found with: {}", params.filename);
+    // ...
+    // Then update the usage accordingly
+    ws.on_upgrade(move |socket| handle_socket(socket, state.pg_pool.clone()))
 }
 
 pub async fn handle_socket(socket: WebSocket, pool: PgPool) {
@@ -49,7 +55,15 @@ pub async fn handle_socket(socket: WebSocket, pool: PgPool) {
     // Listen for notifications about changes and send them to WebSocket clients
     let notify_handle = tokio::spawn(async move {
         while let Some(notification) = rx.recv().await {
-            if let Err(e) = sender.send(Message::Text(notification.into())).await {
+            // Create the Notification struct
+            let notification = Notification {
+                event: "node_config_change".to_string(),
+                message: notification,
+            };
+            // Serialize the notification as JSON
+            let json_message = serde_json::to_string(&notification).unwrap();
+
+            if let Err(e) = sender.send(Message::Text(json_message.into())).await {
                 println!("Error sending notification: {}", e);
             }
         }
