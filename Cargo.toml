@@ -1,0 +1,32 @@
+[package]
+name = "lightavg"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+cargo-watch = "8.5.3"
+thiserror = "2.0.11"
+axum = { version = "0.8.1", features = ["ws"] }
+tower-http = "0.6.2"
+hyper = "1.6.0"
+tracing-subscriber = "0.3.19"
+reqwest = { version = "0.12.12", features = [ "json" ] }
+futures = "0.3.31"
+tokio-stream = { version = "0.1.17", features = ["fs"] }
+anyhow = "1.0.95"
+log = "0.4.25"
+notify = "8.0.0"
+futures-util = "0.3.31"
+similar = "2.7.0"
+chrono = "0.4.39"
+log4rs = "1.2"
+axum-test-helper = "0.4.0"
+uuid = "1.15.1"
+dotenv = "0.15.0"
+sqlx = { version = "0.8.3", features = ["postgres", "runtime-tokio-native-tls"] }
+tokio-tungstenite = "0.26.2"
