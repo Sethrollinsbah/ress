@@ -19,7 +19,7 @@ pub async fn websocket_handler(
     println!("Called with params: {:?}", &params.filename);
 
     // Open WebSocket connection and handle it
-    ws.on_upgrade(move |socket| handle_socket(socket, state.pool.clone())) // Pass the database pool to the handler
+    ws.on_upgrade(move |socket| handle_socket(socket, state.pg_pool.clone())) // Pass the database pool to the handler
 }
 
 pub async fn handle_socket(socket: WebSocket, pool: PgPool) {
