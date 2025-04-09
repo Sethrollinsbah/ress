@@ -1,6 +1,5 @@
-use redis;
+use sqlx::{Pool, Postgres};
 
-#[derive(Clone)]
 pub struct AppState {
-    pub redis_client: redis::Client,
+    pub pg_pool: Pool<Postgres>,
 }

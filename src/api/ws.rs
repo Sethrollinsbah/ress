@@ -1,182 +1,88 @@
-use crate::models::Params;
+use crate::models::{AppState, WsParams};
 use axum::{
     extract::{
         ws::{Message, WebSocket, WebSocketUpgrade},
-        Json, Query, State,
+        Query, State,
     },
-    http::StatusCode,
     response::{IntoResponse, Response},
-    routing::{get, post},
-    Router,
 };
 use futures::{SinkExt, StreamExt};
-use notify::{Event, RecursiveMode, Watcher};
-use redis::{AsyncCommands, Client, Commands};
-use serde::{Deserialize, Serialize};
-use similar::{ChangeTag, TextDiff};
-use std::{self, path::Path, sync::Arc};
-use tokio::sync::Mutex;
-use tokio::{
-    fs::{self, File},
-    io::AsyncReadExt,
-    net::TcpListener,
-    sync::mpsc::channel,
-};
-use tracing_subscriber;
+use sqlx::{postgres::PgListener, PgPool};
+use tokio::sync::mpsc::channel;
 
-pub async fn websocket_handler(Query(params): Query<Params>, ws: WebSocketUpgrade) -> Response {
-    println!("Called with params:{:?}", &params.filename);
-    // Call the function and handle the Result
-    let current_dir = std::env::current_dir().unwrap_or_default();
-    let path = format!("{:?}/tmp/reports/{}.txt", current_dir, params.filename);
+pub async fn websocket_handler(
+    Query(params): Query<WsParams>, // Extract query parameters
+    ws: WebSocketUpgrade,           // WebSocket upgrade handler
+    State(state): State<AppState>,  // Extract shared state (AppState with database pool)
+) -> Response {
+    // Access the query parameters (e.g., filename) here
+    println!("Called with params: {:?}", &params.filename);
 
-    // Check if the file exists
-    if fs::metadata(&path).await.is_err() {
-        // If the file doesn't exist, return a 404 Not Found response
-        return axum::http::StatusCode::NOT_FOUND.into_response();
-    }
-    ws.on_upgrade(move |socket| handle_socket(socket, path))
+    // Open WebSocket connection and handle it
+    ws.on_upgrade(move |socket| handle_socket(socket, state.pool.clone())) // Pass the database pool to the handler
 }
 
-pub async fn read_file_contents(path: &str) -> Result<String, String> {
-    if !Path::new(path).exists() {
-        return Err("File does not exist".to_string());
-    }
-
-    let mut file = match File::open(path).await {
-        Ok(file) => file,
-        Err(e) => return Err(format!("Failed to open file: {}", e)),
-    };
-
-    let mut contents = String::new();
-    match file.read_to_string(&mut contents).await {
-        Ok(_) => {
-            if !Path::new(path).exists() {
-                return Err("File was deleted during reading".to_string());
-            }
-            Ok(contents)
-        }
-        Err(e) => Err(format!("Failed to read file: {}", e)),
-    }
-}
-// m
-pub fn get_new_content(old_content: &str, new_content: &str) -> String {
-    let diff = TextDiff::from_lines(old_content, new_content);
-    let mut new_text = String::new();
-
-    for change in diff.iter_all_changes() {
-        if change.tag() == ChangeTag::Insert {
-            new_text.push_str(change.to_string().as_str());
-        }
-    }
-
-    new_text
-}
-
-pub async fn handle_socket(socket: WebSocket, path: String) {
+pub async fn handle_socket(socket: WebSocket, pool: PgPool) {
     let (mut sender, mut receiver) = socket.split();
+    // Set up a channel to receive notifications about changes
+    let (tx, mut rx) = channel::<String>(100);
 
-    // Store the last known content
-    let last_content = Arc::new(Mutex::new(String::new()));
-
-    // Initial file check and read
-    match read_file_contents(&path).await {
-        Ok(contents) => {
-            if let Err(e) = sender.send(Message::Text(contents.clone().into())).await {
-                println!("Error sending initial contents: {}", e);
-                return;
-            }
-            // Store initial content
-            *last_content.lock().await = contents;
-        }
-        Err(e) => {
-            let _ = sender
-                .send(Message::Text(format!("Error: {}", e).into()))
-                .await;
-            return;
-        }
-    }
-
-    let (tx, rx) = channel(100);
-    let (close_tx, mut close_rx) = channel(1);
-    let last_content_clone = Arc::clone(&last_content);
-
-    let mut watcher =
-        notify::recommended_watcher(move |res: Result<Event, notify::Error>| match res {
-            Ok(event) => {
-                let _ = tx.blocking_send(event);
-            }
-            Err(e) => println!("Watch error: {:?}", e),
-        })
-        .unwrap();
-
-    watcher
-        .watch(Path::new(&path), RecursiveMode::NonRecursive)
-        .unwrap();
-
-    let file_watcher_handle = tokio::spawn(async move {
-        let mut rx = rx;
-        while let Some(event) = rx.recv().await {
-            match event.kind {
-                notify::EventKind::Modify(_) => {
-                    match read_file_contents(&path).await {
-                        Ok(new_contents) => {
-                            let mut last = last_content_clone.lock().await;
-                            let diff = get_new_content(&last, &new_contents);
-
-                            // Only send if there's new content
-                            if !diff.is_empty() {
-                                if let Err(e) = sender.send(Message::Text(diff.into())).await {
-                                    println!("Error sending updated contents: {}", e);
-                                    break;
-                                }
-                                // Update last known content
-                                *last = new_contents.to_string();
-                            }
-                        }
-                        Err(e) => {
-                            if let Err(send_err) = sender
-                                .send(Message::Text(format!("Error: {}", e).into()))
-                                .await
-                            {
-                                println!("Error sending error message: {}", send_err);
-                                break;
-                            }
-                        }
-                    }
-                }
-                notify::EventKind::Remove(_) => {
-                    if let Err(e) = sender.send(Message::Text("File was deleted".into())).await {
-                        println!("Error sending file deletion message: {}", e);
-                    }
-                    if let Err(e) = sender.send(Message::Close(None)).await {
-                        println!("Error sending close frame: {}", e);
-                    }
-                    let _ = close_tx.send(()).await;
-                    break;
-                }
-                _ => {}
-            }
-        }
+    // Start a task to listen for database changes via PostgreSQL LISTEN/NOTIFY
+    let listener_handle = tokio::spawn(async move {
+        listen_for_changes(pool, tx).await;
     });
 
+    // Handle incoming WebSocket messages (if needed)
     let socket_handle = tokio::spawn(async move {
-        loop {
-            tokio::select! {
-                msg = receiver.next() => {
-                    match msg {
-                        Some(Ok(Message::Close(_))) | None => break,
-                        Some(Ok(Message::Text(text))) => println!("Received message: {}", text),
-                        _ => (),
-                    }
+        while let Some(msg) = receiver.next().await {
+            match msg {
+                Ok(Message::Close(_)) | Err(_) => break,
+                Ok(Message::Text(text)) => {
+                    println!("Received message: {}", text);
+                    // You could handle incoming messages here if needed
                 }
-                _ = close_rx.recv() => break
+                _ => (),
             }
         }
     });
 
+    // Listen for notifications about changes and send them to WebSocket clients
+    let notify_handle = tokio::spawn(async move {
+        while let Some(notification) = rx.recv().await {
+            if let Err(e) = sender.send(Message::Text(notification.into())).await {
+                println!("Error sending notification: {}", e);
+            }
+        }
+    });
+
+    // Await all tasks to complete
     tokio::select! {
-        _ = file_watcher_handle => println!("File watcher task completed"),
+        _ = listener_handle => println!("Database listener task completed"),
         _ = socket_handle => println!("Socket task completed"),
+        _ = notify_handle => println!("Notification task completed"),
+    }
+}
+
+// Listen to PostgreSQL database changes and send notifications to the channel
+async fn listen_for_changes(pool: PgPool, tx: tokio::sync::mpsc::Sender<String>) {
+    // Create a PgListener from the pool
+    let mut listener = PgListener::connect_with(&pool).await.unwrap();
+
+    // Execute the LISTEN SQL command to listen to changes in the node_configurations table
+    listener.listen("node_config_changes").await.unwrap();
+
+    println!("Listening for changes...");
+
+    // Wait for notifications from PostgreSQL
+    while let Ok(notification) = listener.recv().await {
+        // Once a notification is received, send it to the WebSocket client
+        let payload = notification.payload().to_string();
+        if let Err(e) = tx
+            .send(format!("Node configuration has changed: {}", payload))
+            .await
+        {
+            println!("Error sending to channel: {}", e);
+            break;
+        }
     }
 }

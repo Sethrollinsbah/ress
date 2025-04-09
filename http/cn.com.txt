@@ -1,9 +1,0 @@
-/
-/ads/preferences/
-/contact-form/submit.php
-/privacy-policy
-/privacypolicy.html
-/registry-policies
-/sitemap
-/support/information/idn
-/terms-of-use

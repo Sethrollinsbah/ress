@@ -1,7 +1,0 @@
-2025-03-25T16:56:07.251Z::Starting deep route discovery for https://jesse.com
------2025-03-25T16:56:10.056Z::Visiting: https://jesse.com
------2025-03-25T16:56:17.298Z::WARN:No typical elements found, continuing...
------2025-03-25T16:56:17.617Z::Discovered Routes: 
------2025-03-25T16:56:17.618Z::Total unique routes found: 0
------2025-03-25T16:56:17.618Z::Deep route discovery completed!
------
